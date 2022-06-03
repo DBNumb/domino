@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public abstract class Player
+    public abstract class Ficha
     {
-        //clase abstracta jugador
-        public abstract IJuega Juega(IJuega[] posiblesjugadas);
-
+       
     }
 }
