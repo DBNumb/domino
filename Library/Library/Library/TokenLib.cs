@@ -14,10 +14,10 @@ public class Token
 
 public class TokenDeck
 {
-    private TokenRule _filter;
+    private ITokenRule _filter;
     public Token[] _deck;
 
-    public TokenDeck(TokenRule rule, int max)
+    public TokenDeck(ITokenRule rule, int max)
     {
         _filter = rule;
         _deck = GenerateDeck(max);
@@ -53,14 +53,9 @@ public class TokenDeck
     }
 }
 #region Tokenrule
-public abstract class TokenRule : ITokenRule
+public class NoDoubleRule : ITokenRule
 {
-    public abstract Ifilter<Token> Check();
-}
-
-public class NoDoubleRule : TokenRule
-{
-    public override Ifilter<Token> Check()
+    public  Ifilter<Token> Check()
     {
         return new Filter();
     }
@@ -73,11 +68,11 @@ public class NoDoubleRule : TokenRule
     }
 }
 
-public class DefaultTokeRule : TokenRule
+public class DefaultTokeRule : ITokenRule
 {
     public Ifilter<Token> filter;
 
-    public override Ifilter<Token> Check()
+    public Ifilter<Token> Check()
     {
         return new Filter();
     }
