@@ -1,0 +1,42 @@
+Index: .idea/.idea.Library/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.pluginManager\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.Library/.idea/workspace.xml b/.idea/.idea.Library/.idea/workspace.xml
+--- a/.idea/.idea.Library/.idea/workspace.xml	
++++ b/.idea/.idea.Library/.idea/workspace.xml	
+@@ -1,6 +1,30 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="ChangeListManager">
++    <list default="true" id="32b44e81-5834-4850-bbd7-f6ac700ea346" name="Changes" comment="Branch DB" />
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
+   <component name="PropertiesComponent">
+     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+   </component>
++  <component name="TaskManager">
++    <servers />
++  </component>
++  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
++  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
++  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
+ </project>
+\ No newline at end of file
