@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Library/DominoBasics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2022_23_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2022_23_29__Changes_.xml" afterDir="false" />
+    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="fixup!1">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Ficha.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/FichaDomino.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Game.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/IFilterFichas.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/IJuega.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Interfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Interfaces.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/MyFilterClassicDomino.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerRandom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerRandom.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/TokenLib.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Turns.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Turns.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654274523474</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixup!1">
+      <created>1654293918869</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1654293918869</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,7 +113,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="MainBranch" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -127,12 +124,28 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Branch DB" />
     <MESSAGE value="Branch DM" />
     <MESSAGE value="Added Tokens and tokens rules" />
     <MESSAGE value="fixup! Added Tokens and tokens rules" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixup! Added Tokens and tokens rules" />
+    <MESSAGE value="fixup!1" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixup!1" />
   </component>
 </project>

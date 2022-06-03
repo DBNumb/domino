@@ -12,6 +12,18 @@ public class Token
         Score = value1 + value2;
     }
 
+    public Token[] RemoveToken(Token[] tokens, int i)
+    {
+        int index = 0;
+        Token[] result = new Token[tokens.Length - 1];
+        for (int j = 0; j < tokens.Length; j++)
+        {
+            if(j==i) continue;
+            result[index] = tokens[j];
+        }
+
+        return result;
+    }
     public bool TokenEqualToEdges(Tuple<int,int> x)
     {
         return this.values.Item1 == x.Item1 || this.values.Item1 == x.Item2 || this.values.Item2 == x.Item1 ||
