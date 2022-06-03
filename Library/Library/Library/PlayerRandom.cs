@@ -9,7 +9,7 @@ namespace Library
     class PlayerRandom : Player
     {
         //clase para player random
-        public override IJuega Juega(IJuega[] posiblesjugadas)
+        public override Token Juega(Token[] posiblesjugadas)
         {
             //envia una jugada random de las que se le pasan por parametro
             var randomNumber = new Random(posiblesjugadas.Length);

@@ -5,10 +5,17 @@ namespace Library;
 public class Token
 {
     public Tuple<int, int> values;
-
+    public int Score;
     public Token(int value1, int value2)
     {
         values = new Tuple<int, int>(value1, value2);
+        Score = value1 + value2;
+    }
+
+    public bool TokenEqualToEdges(Tuple<int,int> x)
+    {
+        return this.values.Item1 == x.Item1 || this.values.Item1 == x.Item2 || this.values.Item2 == x.Item1 ||
+               this.values.Item2 == x.Item2;
     }
 }
 
