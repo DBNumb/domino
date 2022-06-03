@@ -10,17 +10,6 @@ public class Game: IValid
         Turns turn = new Turns(0, players.Length - 1);
         
     }
-
-    public void GameOn()
-    {
-        while (!win_or_draw)
-        {
-            for (int i = 0; i < _players.Length; i++)
-            {
-                _players[i].Play();
-            }
-        }
-    }
     public bool ValidPlay()
     {
         throw new NotImplementedException();

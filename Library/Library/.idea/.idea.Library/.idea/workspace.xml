@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1550a40-65ad-45be-b2c6-ed0fd12896b7" name="Changes" comment="Branch DM">
+    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="Readme">
+      <change afterPath="$PROJECT_DIR$/Library/TokenLib.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2022_23_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2022_23_29__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/IToken.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Token.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Token.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Token.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +21,6 @@
         <entry key="$PROJECT_DIR$/../.." value="New_DB" />
       </map>
     </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/Class1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
