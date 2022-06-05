@@ -37,7 +37,8 @@ namespace Library
                 int count = 0;
                 for (int j =0; j< posiblesjugadas.Length; j++) 
                 {
-                    if (numerosDiferentes[i] == posiblesjugadas[j].Item1 || numerosDiferentes[i] == posiblesjugadas[j].Item2) 
+                    if (numerosDiferentes[i] == posiblesjugadas[j].Item1 
+                        || numerosDiferentes[i] == posiblesjugadas[j].Item2) 
                     {
                         count++;
                     }
@@ -57,7 +58,30 @@ namespace Library
             }
 
             PlayerScore += jugada.score;
-            return jugada;
+           
+            int y;
+            if ((jugada.values.Item1 == extremo1 && jugada.values.Item2 == extremo2)
+              || (jugada.values.Item1 == extremo2 && jugada.values.Item2 == extremo1))
+            {
+                int[] indices = { extremo1, extremo2 };
+                if (extremo1 == data) y = extremo2;
+                else if (extremo2 == data) y = extremo1;
+                else 
+                {
+                    //entra aca en caso de que su data no sea ninguno de los extremos... en ese caso juega al indice random
+                    var randomIndice = new Random(indices.Length);
+                    y = randomIndice.Next(0, indices.Length);
+                }
+            }
+            else if (jugada.values.Item1 == extremo1 || jugada.values.Item2 == extremo1)
+            {
+                y = extremo1;
+            }
+            else y = extremo2;
+            
+            //juega protegiendo su data y en caso de que pueda jugar por los 2 extremos jugara para que en ambos
+            //extremos este su data
+            return Tuple.Create(jugada, y);
         }
     }
 }

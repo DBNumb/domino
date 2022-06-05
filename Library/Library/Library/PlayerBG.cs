@@ -20,9 +20,27 @@ namespace Library
                 if (jugada.score < posiblesjugadas[i].score)
                     jugada = posiblesjugadas[i];
             }
-
             PlayerScore += jugada.score;
-            return jugada;
+
+            int y;
+            if ((jugada.values.Item1 == extremo1 && jugada.values.Item2 == extremo2)
+               || (jugada.values.Item1 == extremo2 && jugada.values.Item2 == extremo1))
+            {
+                int[] indices = { extremo1, extremo2 };
+                y = indices.Min();
+            }
+            else if (jugada.values.Item1 == extremo1 || jugada.values.Item2 == extremo1)
+            {
+                y = extremo1;
+            }
+            else y = extremo2;
+
+            
+            //bota la ficha mas gorda... en caso de que pueda jugar por ambos extremos juega por
+            //el menor extremo
+
+
+            return Tuple.Create(jugada, y);
         }
     }
 }
