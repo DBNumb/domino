@@ -8,6 +8,8 @@ namespace Library
 {
     class PlayerBG : Player
     {
+        public override int PlayerScore { get; protected set; } = 0;
+        
         public override Token Juega(Token[] posiblesjugadas)
         {
             //player bota gorda
@@ -19,6 +21,7 @@ namespace Library
                     jugada = posiblesjugadas[i];
             }
 
+            PlayerScore += jugada.score;
             return jugada;
         }
     }

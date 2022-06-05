@@ -9,6 +9,8 @@ namespace Library
     class PlayerPD : Player
     {
         //player protege data
+        public override int PlayerScore { get; protected set; } = 0;
+
         public override Token Juega(Token[] posiblesjugadas)
         {
             Token jugada;
@@ -53,6 +55,8 @@ namespace Library
                     break;
                 }                
             }
+
+            PlayerScore += jugada.score;
             return jugada;
         }
     }

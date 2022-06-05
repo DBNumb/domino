@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="DBC">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2022_23_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_06_2022_23_29__Changes_.xml" afterDir="false" />
+    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="A lot of fixes">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/DominoBasics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/DominoBasics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Interfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerBG.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerBG.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerPD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerPD.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/RulesInterfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/RulesInterfaces.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/TokenLib.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Turns.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Turns.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/TokenLib.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +26,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/PlayerBG.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -43,11 +37,13 @@
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/TokenLib.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/TokenLib.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -87,7 +83,7 @@
       <updated>1654226195866</updated>
       <workItem from="1654226199895" duration="297000" />
       <workItem from="1654306606773" duration="165000" />
-      <workItem from="1654396522743" duration="10944000" />
+      <workItem from="1654396522743" duration="11960000" />
     </task>
     <task id="LOCAL-00001" summary="Branch DB">
       <created>1654226269889</created>
@@ -145,7 +141,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654306638283</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="A lot of fixes">
+      <created>1654408126565</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1654408126565</updated>
+    </task>
+    <task id="LOCAL-00010" summary="A lot of fixes">
+      <created>1654408139011</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1654408139011</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +209,7 @@
     <MESSAGE value="fixup! Added Tokens and tokens rules" />
     <MESSAGE value="fixup!1" />
     <MESSAGE value="DBC" />
-    <option name="LAST_COMMIT_MESSAGE" value="DBC" />
+    <MESSAGE value="A lot of fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="A lot of fixes" />
   </component>
 </project>
