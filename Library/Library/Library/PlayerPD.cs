@@ -18,13 +18,13 @@ namespace Library
 
             for (int i = 0; i< posiblesjugadas.Length; i++) 
             {
-                if (!numerosDiferentes.Contains(posiblesjugadas[i].values.Item1)) 
+                if (!numerosDiferentes.Contains(posiblesjugadas[i].Item1)) 
                 {
-                    numerosDiferentes.Add(posiblesjugadas[i].values.Item1);
+                    numerosDiferentes.Add(posiblesjugadas[i].Item1);
                 }
-                if (!numerosDiferentes.Contains(posiblesjugadas[i].values.Item2))
+                if (!numerosDiferentes.Contains(posiblesjugadas[i].Item2))
                 {
-                    numerosDiferentes.Add(posiblesjugadas[i].values.Item2);
+                    numerosDiferentes.Add(posiblesjugadas[i].Item2);
                 }
             }
 
@@ -35,7 +35,7 @@ namespace Library
                 int count = 0;
                 for (int j =0; j< posiblesjugadas.Length; j++) 
                 {
-                    if (numerosDiferentes[i] == posiblesjugadas[j].values.Item1 || numerosDiferentes[i] == posiblesjugadas[j].values.Item2) 
+                    if (numerosDiferentes[i] == posiblesjugadas[j].Item1 || numerosDiferentes[i] == posiblesjugadas[j].Item2) 
                     {
                         count++;
                     }
@@ -47,7 +47,7 @@ namespace Library
 
             for (int i = 0; i < posiblesjugadas.Length; i++) 
             {
-                if (!(posiblesjugadas[i].values.Item1 == data || posiblesjugadas[i].values.Item2 == data)) 
+                if (!(posiblesjugadas[i].Item1 == data || posiblesjugadas[i].Item2 == data)) 
                 {
                     jugada = posiblesjugadas[i];
                     break;

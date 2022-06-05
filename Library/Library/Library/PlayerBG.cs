@@ -13,10 +13,10 @@ namespace Library
             //player bota gorda
             Token jugada = posiblesjugadas[0];
 
-            for (int i = 1; i< posiblesjugadas.Length; i++) 
+            for (int i = 1; i < posiblesjugadas.Length; i++)
             {
-                if(jugada.Score < posiblesjugadas[i].Score)
-                jugada = posiblesjugadas[i];                
+                if (jugada.score < posiblesjugadas[i].score)
+                    jugada = posiblesjugadas[i];
             }
 
             return jugada;

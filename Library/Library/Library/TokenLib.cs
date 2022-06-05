@@ -1,15 +1,20 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Library;
 
 public class Token
 {
-    public Tuple<int, int> values;
-    public int Score;
+    public Tuple<int, int> values { get; }
+    public int Item1;
+    public int Item2;
+    public int score { get; }
+
     public Token(int value1, int value2)
     {
-        values = new Tuple<int, int>(value1, value2);
-        Score = value1 + value2;
+        Item1 = value1;
+        Item2 = value2;
+        score = value1 + value2;
     }
 
     public Token[] RemoveToken(Token[] tokens, int i)
@@ -18,27 +23,22 @@ public class Token
         Token[] result = new Token[tokens.Length - 1];
         for (int j = 0; j < tokens.Length; j++)
         {
-            if(j==i) continue;
+            if (j == i) continue;
             result[index] = tokens[j];
         }
 
         return result;
     }
-    public bool TokenEqualToEdges(Tuple<int,int> x)
-    {
-        return this.values.Item1 == x.Item1 || this.values.Item1 == x.Item2 || this.values.Item2 == x.Item1 ||
-               this.values.Item2 == x.Item2;
-    }
 }
 
 public class TokenDeck
 {
-    private ITokenRule _filter;
+    private ITokenRule<Token> _tokenRule;
     public Token[] _deck;
 
-    public TokenDeck(ITokenRule rule, int max)
+    public TokenDeck(ITokenRule<Token> rule, int max)
     {
-        _filter = rule;
+        _tokenRule = rule;
         _deck = GenerateDeck(max);
     }
 
@@ -50,7 +50,7 @@ public class TokenDeck
             for (int j = i; j <= max; j++)
             {
                 Token tmp = new Token(i, j);
-                if (_filter.Check().Apply(tmp))
+                if (_tokenRule.Apply(tmp))
                 {
                     temp.Add(tmp);
                 }
@@ -71,36 +71,27 @@ public class TokenDeck
         return result;
     }
 }
+
+
 #region Tokenrule
-public class NoDoubleRule : ITokenRule
+
+public class NoDoubleRule : ITokenRule<Token>
 {
-    public  Ifilter<Token> Check()
+    public bool Apply(Token x)
     {
-        return new Filter();
-    }
-    private class Filter: Ifilter<Token>
-    {
-        public bool Apply(Token x)
-        {
-            return x.values.Item1 == x.values.Item2;
-        }
+        return x.Item1 != x.Item2;
     }
 }
 
-public class DefaultTokeRule : ITokenRule
+public class DefaultTokeRule : ITokenRule<Token>
 {
-    public Ifilter<Token> filter;
+    public ITokenRule<Token> TokenRule;
 
-    public Ifilter<Token> Check()
+
+    public bool Apply(Token x)
     {
-        return new Filter();
-    }
-    private class Filter : Ifilter<Token>
-    {
-        public bool Apply(Token x)
-        {
-            return true;
-        }
+        return true;
     }
 }
+
 #endregion

@@ -1,7 +1,21 @@
 ﻿namespace Library;
 
-public interface ITokenRule
+public interface ITokenRule<T>
 {
-    public Ifilter<Token> Check();
+    public bool Apply(T x);
+}
+
+public interface ITurnRule
+{
+    public int NxtTurn();
+}
+
+public interface IWin
+{
+    
+}
+
+public interface ISuperToken
+{
     
 }

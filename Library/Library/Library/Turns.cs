@@ -1,17 +1,31 @@
 ﻿namespace Library;
 
-public class Turns
+public  class Turns
 {
-    private int turn;
-    
-
-    public Turns(int start)
+    public  int nxturn { get; }
+    public Turns(ITurnRule rule)
     {
-        turn = start;
+        nxturn = rule.NxtTurn();
     }
+    
+}
 
-    public void NxtTurn()
+public class ClockTurn : ITurnRule
+{
+    public int NxtTurn()
     {
-        turn++;
+        if (CanPlay.SomeoneCanPlay) return  1;
+        else
+        {
+            return  -1;
+        }
+    }
+}
+
+public class ClassicTurn : ITurnRule
+{
+    public int NxtTurn()
+    {
+        return 1;
     }
 }
