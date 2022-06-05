@@ -11,7 +11,7 @@ namespace Library
         //player protege data
         public override int PlayerScore { get; protected set; } = 0;
 
-        public override Token Juega(Token[] posiblesjugadas)
+        public override Tuple<Token, int> Juega(Token[] posiblesjugadas, int extremo1, int extremo2)
         {
             Token jugada;
             List<int> numerosDiferentes = new List<int>();

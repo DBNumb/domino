@@ -10,7 +10,7 @@ namespace Library
     {
         public override int PlayerScore { get; protected set; } = 0;
         
-        public override Token Juega(Token[] posiblesjugadas)
+        public override Tuple<Token, int> Juega(Token[] posiblesjugadas, int extremo1, int extremo2)
         {
             //player bota gorda
             Token jugada = posiblesjugadas[0];
