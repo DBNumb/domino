@@ -11,14 +11,14 @@ namespace Library
         //player protege data
         public override int PlayerScore { get; protected set; } = 0;
 
-        public override Tuple<Token, int> Juega(Token[] posiblesjugadas, int extremo1, int extremo2)
+        public override IToken<T> Juega<T>(List<IToken<T>>posiblesjugadas, int extremo1, int extremo2)
         {
-            Token jugada;
+            IToken<T> jugada;
             List<int> numerosDiferentes = new List<int>();
 
             jugada = posiblesjugadas[0];//esto es para q no me marque error en el return....
 
-            for (int i = 0; i< posiblesjugadas.Length; i++) 
+            for (int i = 0; i< posiblesjugadas.Count; i++) 
             {
                 if (!numerosDiferentes.Contains(posiblesjugadas[i].Item1)) 
                 {

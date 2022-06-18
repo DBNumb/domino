@@ -1,23 +1,26 @@
 ﻿namespace Library;
 
-public class Board
+public class Board<T> where T: IToken<T>, IComparable, IValuable
 {
-    public List<Token> board;
+    public List<T> board;
 
     public Board()
     {
-        board = new List<Token>();
+        board = new List<T>();
         
     }
-
+    
     public int CountBoard(int value)
     {
         int count = 0;
         foreach (var token in board)
         {
-            if (value == token.Item1 || value == token.Item2)
+            foreach (var val in token.values)
             {
-                count++;
+                if (value == val.value)
+                {
+                    count++;
+                }
             }
         }
 

@@ -3,91 +3,95 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Library;
 
-public class Token
+
+public class Token<T> : IToken<T> where T : IComparable, IValuable
 {
-    public Tuple<int, int> values { get; }
-    public int Item1;
-    public int Item2;
+    public T this[int index] => values[index];
+
+    public List<T> values { get; }
+
+
+    public void Getvalues(ICollection<T> coll)
+    {
+        foreach (var elem in coll)
+        {
+            values.Add(elem);
+        }
+    }
+
     public int score { get; }
 
-    public Token(int value1, int value2)
-    {
-        Item1 = value1;
-        Item2 = value2;
-        score = value1 + value2;
-    }
-
-    public Token[] RemoveToken(Token[] tokens, int i)
-    {
-        int index = 0;
-        Token[] result = new Token[tokens.Length - 1];
-        for (int j = 0; j < tokens.Length; j++)
-        {
-            if (j == i) continue;
-            result[index] = tokens[j];
-        }
-
-        return result;
-    }
-}
-
-public class TokenDeck
-{
-    private ITokenRule<Token> _tokenRule;
-    public Token[] _deck;
-
-    public TokenDeck(ITokenRule<Token> rule, int max)
-    {
-        _tokenRule = rule;
-        _deck = GenerateDeck(max);
-    }
-
-    private Token[]? GenerateDeck(int max)
-    {
-        List<Token> temp = new List<Token>();
-        for (int i = 0; i <= max; i++)
-        {
-            for (int j = i; j <= max; j++)
-            {
-                Token tmp = new Token(i, j);
-                if (_tokenRule.Apply(tmp))
-                {
-                    temp.Add(tmp);
-                }
-            }
-        }
-
-        return temp.ToArray();
-    }
-
-    private int Sum(int max)
+    public int GetScore(ICollection<T>coll)
     {
         int result = 0;
-        for (int i = 1; i <= max; i++)
+        foreach (var VARIABLE in coll)
         {
-            result += i;
+            result += VARIABLE.value;
         }
 
         return result;
     }
+
+    public Token(ICollection<T> coll)
+    {
+        Getvalues(coll);
+        var score = GetScore(coll);
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        return new TokenEnumerator<T>(values);
+    }
+   private class TokenEnumerator<T>: IEnumerator<T>
+   {
+       private int pos = -1; 
+       private List<T> values;
+       public TokenEnumerator(List<T> comparables)
+       {
+           values = comparables;
+       }
+       public void Reset()
+       {
+           pos = -1;
+       }
+
+       object IEnumerator.Current => Current;
+
+       public T Current { get; }
+
+       public bool MoveNext()
+       {
+           pos++;
+           if (pos >= 0 || pos < values.Count) return true;
+           return false;
+       }
+       
+
+       public void Dispose()
+       {
+           throw new NotImplementedException();
+       }
+   }
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
 }
-
-
 #region Tokenrule
 
-public class NoDoubleRule : ITokenRule<Token>
+public class NoDoubleRule<Token> : ITokenRule<Token> where Token: IToken<Token>
 {
     public bool Apply(Token x)
     {
-        return x.Item1 != x.Item2;
+        foreach (var value in x)
+        {
+            
+        }
     }
 }
 
-public class DefaultTokeRule : ITokenRule<Token>
+public class DefaultTokeRule<T> : ITokenRule<T> where T: IToken<T>
 {
-    public ITokenRule<Token> TokenRule;
-
-
     public bool Apply(Token x)
     {
         return true;

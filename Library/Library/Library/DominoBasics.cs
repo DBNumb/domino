@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Library;
-public  class CanPlay : IFilterFichas
+public  class CanPlay<T> : IFilterFichas<T> where T : IToken<T>
 {
     public static bool SomeoneCanPlay;
-    public Token[] posiblesjugadas { get; set; }
+    public List<T> posiblesjugadas { get; set; }
 
-    public bool Apply(Token[] fichaPlayer, Token tablero)
+    public bool Apply<T>(List<IToken<T>> fichaPlayer,T tablero)
     {
-        List<Token> posiblesjugadas = new List<Token>();
+        List<IToken<T>> posiblesjugadas = new List<IToken<T>>();
         foreach (var vToken in fichaPlayer)
         {
             if (TokenEqualToEdges(vToken, tablero))
