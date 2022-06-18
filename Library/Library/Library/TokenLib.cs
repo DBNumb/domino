@@ -79,20 +79,26 @@ public class Token<T> : IToken<T> where T : IComparable, IValuable
 }
 #region Tokenrule
 
-public class NoDoubleRule<Token> : ITokenRule<Token> where Token: IToken<Token>
+public class NoDoubleRule<T> : ITokenRule<T> where T: IToken<T>, IValuable
 {
-    public bool Apply(Token x)
+    public bool Apply(T x)
     {
-        foreach (var value in x)
+        int first = x[0].score;
+        foreach (var ob in x)
         {
-            
+            foreach (var val in ob)
+            {
+                if (val.value != first) return false;
+            }
         }
+
+        return true;
     }
 }
 
-public class DefaultTokeRule<T> : ITokenRule<T> where T: IToken<T>
+public class DefaultTokeRule<T> : ITokenRule<T> where T: IToken<T>, IValuable
 {
-    public bool Apply(Token x)
+    public bool Apply(T x)
     {
         return true;
     }

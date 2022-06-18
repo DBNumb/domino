@@ -1,6 +1,6 @@
 ﻿namespace Library;
 
-public interface ITokenRule<T>
+public interface ITokenRule<T> where T : IToken<T>, IValuable
 {
     public bool Apply(T x);
 }

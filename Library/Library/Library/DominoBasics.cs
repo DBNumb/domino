@@ -5,29 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Library;
-public  class CanPlay<T> : IFilterFichas<T> where T : IToken<T>
+public  class CanPlay<T> : IFilterFichas<T> where T : IToken<T>, IValuable
 {
     public static bool SomeoneCanPlay;
     public List<T> posiblesjugadas { get; set; }
-
-    public bool Apply<T>(List<IToken<T>> fichaPlayer,T tablero)
+    public bool Apply(List<T> fichaPlayer,T Estado_tablero)
     {
-        List<IToken<T>> posiblesjugadas = new List<IToken<T>>();
+        List<T> posiblesjugadas = new List<T>();
         foreach (var vToken in fichaPlayer)
         {
-            if (TokenEqualToEdges(vToken, tablero))
+            if (TokenEqualToEdges(vToken, Estado_tablero))
             {
                 SomeoneCanPlay = true;
                 posiblesjugadas.Add(vToken);
             }
         }
 
-        this.posiblesjugadas = posiblesjugadas.ToArray();
+        this.posiblesjugadas = posiblesjugadas;
         SomeoneCanPlay = posiblesjugadas.Count != 0;
         return SomeoneCanPlay;
     }
 
-    public static bool TokenEqualToEdges(Token x, Token board)
+    public static bool TokenEqualToEdges(T x, T board)
     {
         return x.Item1 == board.Item1 || x.Item1 == board.Item2 || x.Item2 == board.Item1 ||
                x.Item2 == board.Item2;
