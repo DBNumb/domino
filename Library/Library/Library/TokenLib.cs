@@ -5,10 +5,22 @@ namespace Library;
 
 public class Token : IToken
 {
-    public Token(ICollection<IValuable> collection)
+    /* public Token(ICollection<IValuable> collection)
+     {
+
+         score = GetScore(collection);
+         Getvalues(collection);
+      }
+     */
+
+    public IValuable value1;
+    public IValuable value2;
+    public Token(IValuable value1, IValuable value2)
     {
-        score = GetScore(collection);
-        Getvalues(collection);
+        this.value1 = value1;
+        this.value2 = value2;
+        score = value1.value + value2.value;
+
     }
 
     //
@@ -121,7 +133,7 @@ public class Token : IToken
 
     public int score { get; }
 
-    public int GetScore(ICollection<IValuable> collection)
+    /*public int GetScore(ICollection<IValuable> collection)
     {
         int result = 0;
         foreach (var element in collection)
@@ -130,7 +142,8 @@ public class Token : IToken
         }
 
         return result;
-    }
+    }*/
+    
 }
 
 #region Tokenrule

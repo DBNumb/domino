@@ -15,9 +15,7 @@ public interface IValuable
 public interface IToken : IEnumerable
 {   
     List<IValuable>_valuables { get; }
-    public void Getvalues(ICollection<IValuable> coll);
     public int score { get; }
-    public int GetScore(ICollection<IValuable> collection) ;
     
 }
 

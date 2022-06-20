@@ -10,7 +10,7 @@ namespace Library
     public abstract class Player
     {  public abstract int PlayerScore { get; protected set; }
         //clase abstracta jugador
-        public abstract IToken Juega(List<IToken> posiblesjugadas, List<int> extremos);
+        public abstract IToken Juega(List<IToken> posiblesjugadas, IValuable extremo1, IValuable extremo2);
 
     }
     
