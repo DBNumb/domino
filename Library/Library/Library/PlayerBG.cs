@@ -10,7 +10,7 @@ namespace Library
     {
         public override int PlayerScore { get; protected set; } = 0;
         
-        public override IToken Juega(List<IToken> posiblesjugadas, int extremo1, int extremo2)
+        public override Tuple<IToken, int> Juega(List<IToken> posiblesjugadas, IValuable extremo1, IValuable extremo2)
         {
             //player bota gorda
             IToken jugada = posiblesjugadas[0];
@@ -23,24 +23,24 @@ namespace Library
             PlayerScore += jugada.score;
 
             int y;
-            if ((jugada.values.Item1 == extremo1 && jugada.values.Item2 == extremo2)
-               || (jugada.values.Item1 == extremo2 && jugada.values.Item2 == extremo1))
+            if ((jugada.item1 == extremo1.value && jugada.item2 == extremo2.value)
+               || (jugada.item1 == extremo2.value && jugada.item2 == extremo1.value))
             {
-                int[] indices = { extremo1, extremo2 };
+                int[] indices = { extremo1.value, extremo2.value };
                 y = indices.Min();
             }
-            else if (jugada.values.Item1 == extremo1 || jugada.values.Item2 == extremo1)
+            else if (jugada.item1 == extremo1.value || jugada.item2 == extremo1.value)
             {
-                y = extremo1;
+                y = extremo1.value;
             }
-            else y = extremo2;
+            else y = extremo2.value;
 
             
             //bota la ficha mas gorda... en caso de que pueda jugar por ambos extremos juega por
             //el menor extremo
 
 
-            return jugada;
+            return Tuple.Create(jugada, y);
         }
     }
 }

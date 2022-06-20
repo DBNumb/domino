@@ -11,7 +11,7 @@ namespace Library
         //player protege data
         public override int PlayerScore { get; protected set; } = 0;
 
-        public override IToken Juega(List<IToken>posiblesjugadas, int extremo1, int extremo2)
+        public override Tuple<IToken, int> Juega(List<IToken>posiblesjugadas, IValuable extremo1, IValuable extremo2)
         {
             IToken jugada;
             List<int> numerosDiferentes = new List<int>();
@@ -20,13 +20,13 @@ namespace Library
 
             for (int i = 0; i< posiblesjugadas.Count; i++) 
             {
-                if (!numerosDiferentes.Contains(posiblesjugadas[i].Item1)) 
+                if (!numerosDiferentes.Contains(posiblesjugadas[i].item1)) 
                 {
-                    numerosDiferentes.Add(posiblesjugadas[i].Item1);
+                    numerosDiferentes.Add(posiblesjugadas[i].item1);
                 }
-                if (!numerosDiferentes.Contains(posiblesjugadas[i].Item2))
+                if (!numerosDiferentes.Contains(posiblesjugadas[i].item2))
                 {
-                    numerosDiferentes.Add(posiblesjugadas[i].Item2);
+                    numerosDiferentes.Add(posiblesjugadas[i].item2);
                 }
             }
 
@@ -35,10 +35,10 @@ namespace Library
             for (int i = 0; i< numerosDiferentes.Count; i++) 
             {
                 int count = 0;
-                for (int j =0; j< posiblesjugadas.Length; j++) 
+                for (int j =0; j< posiblesjugadas.Count; j++) 
                 {
-                    if (numerosDiferentes[i] == posiblesjugadas[j].Item1 
-                        || numerosDiferentes[i] == posiblesjugadas[j].Item2) 
+                    if (numerosDiferentes[i] == posiblesjugadas[j].item1 
+                        || numerosDiferentes[i] == posiblesjugadas[j].item2) 
                     {
                         count++;
                     }
@@ -48,9 +48,9 @@ namespace Library
 
             int data = repeticionesPorNumero.Max();
 
-            for (int i = 0; i < posiblesjugadas.Length; i++) 
+            for (int i = 0; i < posiblesjugadas.Count; i++) 
             {
-                if (!(posiblesjugadas[i].Item1 == data || posiblesjugadas[i].Item2 == data)) 
+                if (!(posiblesjugadas[i].item1 == data || posiblesjugadas[i].item2 == data)) 
                 {
                     jugada = posiblesjugadas[i];
                     break;
@@ -60,12 +60,12 @@ namespace Library
             PlayerScore += jugada.score;
            
             int y;
-            if ((jugada.values.Item1 == extremo1 && jugada.values.Item2 == extremo2)
-              || (jugada.values.Item1 == extremo2 && jugada.values.Item2 == extremo1))
+            if ((jugada.item1 == extremo1.value && jugada.item2 == extremo2.value)
+              || (jugada.item1 == extremo2.value && jugada.item2 == extremo1.value))
             {
-                int[] indices = { extremo1, extremo2 };
-                if (extremo1 == data) y = extremo2;
-                else if (extremo2 == data) y = extremo1;
+                int[] indices = { extremo1.value, extremo2.value };
+                if (extremo1.value == data) y = extremo2.value;
+                else if (extremo2.value == data) y = extremo1.value;
                 else 
                 {
                     //entra aca en caso de que su data no sea ninguno de los extremos... en ese caso juega al indice random
@@ -73,11 +73,11 @@ namespace Library
                     y = randomIndice.Next(0, indices.Length);
                 }
             }
-            else if (jugada.values.Item1 == extremo1 || jugada.values.Item2 == extremo1)
+            else if (jugada.item1 == extremo1.value || jugada.item2 == extremo1.value)
             {
-                y = extremo1;
+                y = extremo1.value;
             }
-            else y = extremo2;
+            else y = extremo2.value;
             
             //juega protegiendo su data y en caso de que pueda jugar por los 2 extremos jugara para que en ambos
             //extremos este su data

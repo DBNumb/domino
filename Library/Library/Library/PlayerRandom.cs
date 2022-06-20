@@ -11,7 +11,7 @@ namespace Library
         //clase para player random
         public override int PlayerScore { get; protected set; } = 0;
 
-        public override IToken Juega(List<IToken> posiblesjugadas, IValuable extremo1, IValuable extremo2)
+        public override Tuple<IToken, int> Juega(List<IToken> posiblesjugadas, IValuable extremo1, IValuable extremo2)
         {
             //envia una jugada random de las que se le pasan por parametro
             var randomNumber = new Random(posiblesjugadas.Count);
@@ -23,17 +23,17 @@ namespace Library
             
             int y;
            
-            if ((jugada. == extremo1 && jugada.values.Item2 == extremo2)
-                || (jugada.values.Item1 == extremo2 && jugada.values.Item2 == extremo1))
+            if ((jugada.item1 == extremo1.value && jugada.item2 == extremo2.value)
+                || (jugada.item1 == extremo2.value && jugada.item2 == extremo1.value))
             {
                 var randomIndice = new Random(indices.Length);
                 y = randomIndice.Next(0, indices.Length);
             }
-            else if (jugada.values.Item1 == extremo1 || jugada.values.Item2 == extremo1)
+            else if (jugada.item1 == extremo1.value || jugada.item2 == extremo1.value)
             {
-                y = extremo1;
+                y = extremo1.value;
             }
-            else y = extremo2;
+            else y = extremo2.value;
 
             //retorna la ficha a jugar y el extremo que jugara al azar en caso de poder jugar por ambos extremos
             return Tuple.Create(jugada, y);
