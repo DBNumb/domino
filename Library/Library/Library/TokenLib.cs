@@ -13,12 +13,12 @@ public class Token : IToken
       }
      */
 
-    public IValuable value1;
-    public IValuable value2;
+    public int item1;
+    public int item2;
     public Token(IValuable value1, IValuable value2)
     {
-        this.value1 = value1;
-        this.value2 = value2;
+        this.item1 = value1.value;
+        this.item2 = value2.value;
         score = value1.value + value2.value;
 
     }
@@ -133,6 +133,7 @@ public class Token : IToken
 
     public int score { get; }
 
+
     /*public int GetScore(ICollection<IValuable> collection)
     {
         int result = 0;
@@ -143,7 +144,7 @@ public class Token : IToken
 
         return result;
     }*/
-    
+
 }
 
 #region Tokenrule

@@ -11,7 +11,7 @@ namespace Library
         //clase para player random
         public override int PlayerScore { get; protected set; } = 0;
 
-        public override IToken Juega(List<IToken> posiblesjugadas, int extremo1, int extremo2)
+        public override IToken Juega(List<IToken> posiblesjugadas, IValuable extremo1, IValuable extremo2)
         {
             //envia una jugada random de las que se le pasan por parametro
             var randomNumber = new Random(posiblesjugadas.Count);
@@ -19,11 +19,11 @@ namespace Library
             PlayerScore += posiblesjugadas[x].score;
 
             IToken jugada = posiblesjugadas[x];
-            int[] indices = {extremo1, extremo2};
+            int[] indices = {extremo1.value, extremo2.value};
             
             int y;
            
-            if ((jugada.values.Item1 == extremo1 && jugada.values.Item2 == extremo2)
+            if ((jugada. == extremo1 && jugada.values.Item2 == extremo2)
                 || (jugada.values.Item1 == extremo2 && jugada.values.Item2 == extremo1))
             {
                 var randomIndice = new Random(indices.Length);
