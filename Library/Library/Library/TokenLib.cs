@@ -5,16 +5,21 @@ namespace Library;
 
 public class Token : IToken
 {
-    /* public Token(ICollection<IValuable> collection)
-     {
-
-         score = GetScore(collection);
-         Getvalues(collection);
-      }
-     */
-
-    public int item1;
-    public int item2;
+    public int this[int index]
+    {
+        get
+        {
+            if (index > 1|| index<0) throw new NotImplementedException();
+            if (index == 1) return this.item1;
+            else
+            {
+                return this.item2;
+            }
+        }
+        
+    }
+    public int item1 { get; }
+    public int item2 { get; }
     public Token(IValuable value1, IValuable value2)
     {
         this.item1 = value1.value;
@@ -22,42 +27,6 @@ public class Token : IToken
         score = value1.value + value2.value;
 
     }
-
-    //
-    //  public List<Token> values { get; }
-    //
-    //
-    //  public void Getvalues(ICollection<Token> coll)
-    //  {
-    //      foreach (var elem in coll)
-    //      {
-    //          values.Add(elem);
-    //      }
-    //  }
-    //
-    //  public int score { get; }
-    //
-    //  public int GetScore(ICollection<T>coll)
-    //  {
-    //      int result = 0;
-    //      foreach (var VARIABLE in coll)
-    //      {
-    //          result += VARIABLE.value;
-    //      }
-    //
-    //      return result;
-    //  }
-    //
-    //  public Token(ICollection<T> coll)
-    //  {
-    //      Getvalues(coll);
-    //      var score = GetScore(coll);
-    //  }
-    //
-    //  public IEnumerator<T> GetEnumerator()
-    //  {
-    //      return new TokenEnumerator<T>(values);
-    //  }
     public virtual string Description()
     {
         string result = "[ ";
@@ -119,7 +88,7 @@ public class Token : IToken
     }
 
 
-    public int this[int index] => _valuables[index].value;
+    
 
     public List<IValuable> _valuables { get; }
 
@@ -132,31 +101,38 @@ public class Token : IToken
     }
 
     public int score { get; }
-
-
-    /*public int GetScore(ICollection<IValuable> collection)
+    
+}
+public class TokenComparer: IComparer<Token>{
+    public int Compare(Token? x, Token? y)
     {
-        int result = 0;
-        foreach (var element in collection)
+        int count = -1;
+        bool[] used = new bool[2];
+        for (int i = 0; i < used.Length; i++)
         {
-            result += element.value;
+            for (int j = 0; j < used.Length; j++)
+            {
+                if (x[i] == y[j]&& !used[j])
+                {
+                    count++;
+                    used[j] = true;
+                }
+            }
         }
 
-        return result;
-    }*/
-
+        return count;
+    }
 }
-
 #region Tokenrule
 
 public class NoDoubleRule : ITokenRule
 {
     public bool Apply(IToken x)
     {
-        int first = x._valuables[0].value;
-        foreach (var element in x._valuables)
+        int first = x.item1;
+        foreach (var element in x)
         {
-            foreach (var element2 in x._valuables)
+            foreach (var element2 in x)
             {
                 if (element2.value != first) return false;
             }

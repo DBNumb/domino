@@ -28,11 +28,11 @@ public  class CanPlay: IFilterFichas
 
     public static bool TokenEqualToEdges(IToken x, IToken board)
     {
-        foreach (var playertoken in x._valuables)
+        foreach (var playertoken in x)
         {
-            foreach (var boardtoken in board._valuables)
+            foreach (var boardtoken in board)
             {
-                if (playertoken.value == boardtoken.value) return true;
+                if (playertoken == boardtoken) return true;
             }
         }
 

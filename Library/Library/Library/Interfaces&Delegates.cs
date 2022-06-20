@@ -12,9 +12,9 @@ public interface IValuable
         
 }
 
-public interface IToken : IEnumerable
+public interface IToken : IEnumerable<IValuable>
 {   
-    List<IValuable>_valuables { get; }
+    
     public int item1 { get; }
     public int item2 { get; }
 

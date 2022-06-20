@@ -1,0 +1,117 @@
+Index: Library/TokenLib.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System.Collections;\r\nusing System.Diagnostics.CodeAnalysis;\r\n\r\nnamespace Library;\r\n\r\npublic class Token : IToken\r\n{\r\n    public Token(ICollection<IValuable> collection)\r\n    {\r\n        score = GetScore(collection);\r\n        Getvalues(collection);\r\n    }\r\n\r\n    //\r\n    //  public List<Token> values { get; }\r\n    //\r\n    //\r\n    //  public void Getvalues(ICollection<Token> coll)\r\n    //  {\r\n    //      foreach (var elem in coll)\r\n    //      {\r\n    //          values.Add(elem);\r\n    //      }\r\n    //  }\r\n    //\r\n    //  public int score { get; }\r\n    //\r\n    //  public int GetScore(ICollection<T>coll)\r\n    //  {\r\n    //      int result = 0;\r\n    //      foreach (var VARIABLE in coll)\r\n    //      {\r\n    //          result += VARIABLE.value;\r\n    //      }\r\n    //\r\n    //      return result;\r\n    //  }\r\n    //\r\n    //  public Token(ICollection<T> coll)\r\n    //  {\r\n    //      Getvalues(coll);\r\n    //      var score = GetScore(coll);\r\n    //  }\r\n    //\r\n    //  public IEnumerator<T> GetEnumerator()\r\n    //  {\r\n    //      return new TokenEnumerator<T>(values);\r\n    //  }\r\n    public virtual string Description()\r\n    {\r\n        string result = \"[ \";\r\n        for (int i = 0; i < _valuables.Count; i++)\r\n        {\r\n            if (i == 0)\r\n            {\r\n                result += _valuables[i].description;\r\n                continue;\r\n            }\r\n\r\n            result += \", \"+_valuables[i].description;\r\n        }\r\n\r\n        return result + \" ]\";\r\n    }\r\n\r\n    private class TokenEnumerator<T> : IEnumerator<T>\r\n    {\r\n        private int pos = -1;\r\n        private List<T> values;\r\n\r\n        public TokenEnumerator(List<T> comparables)\r\n        {\r\n            values = comparables;\r\n        }\r\n\r\n        public void Reset()\r\n        {\r\n            pos = -1;\r\n        }\r\n\r\n        object IEnumerator.Current => Current;\r\n\r\n        public T Current { get; }\r\n\r\n        public bool MoveNext()\r\n        {\r\n            pos++;\r\n            if (pos >= 0 || pos < values.Count) return true;\r\n            return false;\r\n        }\r\n\r\n\r\n        public void Dispose()\r\n        {\r\n            throw new NotImplementedException();\r\n        }\r\n    }\r\n\r\n    IEnumerator IEnumerable.GetEnumerator()\r\n    {\r\n        return GetEnumerator();\r\n    }\r\n\r\n    public IEnumerator<IValuable> GetEnumerator()\r\n    {\r\n        return new TokenEnumerator<IValuable>(_valuables);\r\n    }\r\n\r\n\r\n    public int this[int index] => _valuables[index].value;\r\n\r\n    public List<IValuable> _valuables { get; }\r\n\r\n    public void Getvalues(ICollection<IValuable> coll)\r\n    {\r\n        foreach (var element in coll)\r\n        {\r\n            _valuables.Add(element);\r\n        }\r\n    }\r\n\r\n    public int score { get; }\r\n\r\n    public int GetScore(ICollection<IValuable> collection)\r\n    {\r\n        int result = 0;\r\n        foreach (var element in collection)\r\n        {\r\n            result += element.value;\r\n        }\r\n\r\n        return result;\r\n    }\r\n}\r\n\r\n#region Tokenrule\r\n\r\npublic class NoDoubleRule : ITokenRule\r\n{\r\n    public bool Apply(IToken x)\r\n    {\r\n        int first = x._valuables[0].value;\r\n        foreach (var element in x._valuables)\r\n        {\r\n            foreach (var element2 in x._valuables)\r\n            {\r\n                if (element2.value != first) return false;\r\n            }\r\n        }\r\n\r\n        return true;\r\n    }\r\n}\r\n\r\npublic class DefaultTokeRule<T> : ITokenRule\r\n{\r\n    public bool Apply(IToken x)\r\n    {\r\n        return true;\r\n    }\r\n}\r\n\r\n#endregion
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Library/TokenLib.cs b/Library/TokenLib.cs
+--- a/Library/TokenLib.cs	(revision b6e415ff9456c38c09556ec902c6510cd07addd8)
++++ b/Library/TokenLib.cs	(date 1655699458184)
+@@ -10,42 +10,6 @@
+         score = GetScore(collection);
+         Getvalues(collection);
+     }
+-
+-    //
+-    //  public List<Token> values { get; }
+-    //
+-    //
+-    //  public void Getvalues(ICollection<Token> coll)
+-    //  {
+-    //      foreach (var elem in coll)
+-    //      {
+-    //          values.Add(elem);
+-    //      }
+-    //  }
+-    //
+-    //  public int score { get; }
+-    //
+-    //  public int GetScore(ICollection<T>coll)
+-    //  {
+-    //      int result = 0;
+-    //      foreach (var VARIABLE in coll)
+-    //      {
+-    //          result += VARIABLE.value;
+-    //      }
+-    //
+-    //      return result;
+-    //  }
+-    //
+-    //  public Token(ICollection<T> coll)
+-    //  {
+-    //      Getvalues(coll);
+-    //      var score = GetScore(coll);
+-    //  }
+-    //
+-    //  public IEnumerator<T> GetEnumerator()
+-    //  {
+-    //      return new TokenEnumerator<T>(values);
+-    //  }
+     public virtual string Description()
+     {
+         string result = "[ ";
+Index: .idea/.idea.Library/.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6\" name=\"Changes\" comment=\"Making Abstractions\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Library/Board.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Library/Board.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Library/DominoBasics.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Library/DominoBasics.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Library/GameStart.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Library/GameStart.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Library/Log.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Library/Log.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Library/Player.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Library/Player.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Library/PlayerBG.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Library/PlayerBG.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Library/PlayerRandom.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Library/PlayerRandom.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Library/RulesInterfaces.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Library/RulesInterfaces.cs\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Library/TokenLib.cs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Library/TokenLib.cs\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$/../..\" value=\"New_DB\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/Library/TokenLib.cs\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2A36yPKcvo3gNz0eVeFP31RBMPl\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"TODO_SCOPE\" value=\"All Places\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.pluginManager\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6\" name=\"Changes\" comment=\"DBC\" />\r\n      <created>1654226195866</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1654226195866</updated>\r\n      <workItem from=\"1654226199895\" duration=\"297000\" />\r\n      <workItem from=\"1654306606773\" duration=\"165000\" />\r\n      <workItem from=\"1654396522743\" duration=\"12519000\" />\r\n      <workItem from=\"1654623034006\" duration=\"282000\" />\r\n      <workItem from=\"1654656743518\" duration=\"1246000\" />\r\n      <workItem from=\"1655002671525\" duration=\"595000\" />\r\n      <workItem from=\"1655525015795\" duration=\"4560000\" />\r\n      <workItem from=\"1655529744437\" duration=\"2429000\" />\r\n      <workItem from=\"1655692037392\" duration=\"4792000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Branch DB\">\r\n      <created>1654226269889</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654226269889</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Branch DM\">\r\n      <created>1654226359995</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654226359995</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Branch DM\">\r\n      <created>1654228657693</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654228657693</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Added Tokens and tokens rules\">\r\n      <created>1654274461920</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654274461920</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"fixup! Added Tokens and tokens rules\">\r\n      <created>1654274523474</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654274523474</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"fixup!1\">\r\n      <created>1654293918869</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654293918869</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"DBC\">\r\n      <created>1654298820544</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654298820544</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"DBC\">\r\n      <created>1654306638283</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654306638283</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"A lot of fixes\">\r\n      <created>1654408126565</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654408126565</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"A lot of fixes\">\r\n      <created>1654408139011</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654408139011</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"PlayerScore property added, introducing gamestart class.\">\r\n      <created>1654409451637</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1654409451637</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Making Abstractions\">\r\n      <created>1655529607949</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1655529607949</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Making Abstractions\">\r\n      <created>1655532380277</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1655532380277</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"14\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"UnityCheckinConfiguration\" checkUnsavedScenes=\"true\" />\r\n  <component name=\"UnityProjectConfiguration\" hasMinimizedUI=\"false\" />\r\n  <component name=\"UnityUnitTestConfiguration\" currentTestLauncher=\"NUnit\" />\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/main\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"Branch\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"origin/main\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Branch DB\" />\r\n    <MESSAGE value=\"Branch DM\" />\r\n    <MESSAGE value=\"Added Tokens and tokens rules\" />\r\n    <MESSAGE value=\"fixup! Added Tokens and tokens rules\" />\r\n    <MESSAGE value=\"fixup!1\" />\r\n    <MESSAGE value=\"DBC\" />\r\n    <MESSAGE value=\"A lot of fixes\" />\r\n    <MESSAGE value=\"PlayerScore property added, introducing gamestart class.\" />\r\n    <MESSAGE value=\"Making Abstractions\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Making Abstractions\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.idea.Library/.idea/workspace.xml b/.idea/.idea.Library/.idea/workspace.xml
+--- a/.idea/.idea.Library/.idea/workspace.xml	(revision b6e415ff9456c38c09556ec902c6510cd07addd8)
++++ b/.idea/.idea.Library/.idea/workspace.xml	(date 1655699739837)
+@@ -1,17 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="Making Abstractions">
+-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Library/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Board.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Library/DominoBasics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/DominoBasics.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Library/GameStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/GameStart.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Library/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Log.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Player.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Library/PlayerBG.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerBG.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Library/PlayerRandom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerRandom.cs" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Library/RulesInterfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/RulesInterfaces.cs" afterDir="false" />
++    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="Reworking!!">
+       <change beforePath="$PROJECT_DIR$/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/TokenLib.cs" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -73,7 +63,7 @@
+       <workItem from="1655002671525" duration="595000" />
+       <workItem from="1655525015795" duration="4560000" />
+       <workItem from="1655529744437" duration="2429000" />
+-      <workItem from="1655692037392" duration="4792000" />
++      <workItem from="1655692037392" duration="5282000" />
+     </task>
+     <task id="LOCAL-00001" summary="Branch DB">
+       <created>1654226269889</created>
+@@ -166,7 +156,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1655532380277</updated>
+     </task>
+-    <option name="localTasksCounter" value="14" />
++    <task id="LOCAL-00014" summary="Reworking!!">
++      <created>1655699385767</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1655699385767</updated>
++    </task>
++    <option name="localTasksCounter" value="15" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -223,6 +220,7 @@
+     <MESSAGE value="A lot of fixes" />
+     <MESSAGE value="PlayerScore property added, introducing gamestart class." />
+     <MESSAGE value="Making Abstractions" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Making Abstractions" />
++    <MESSAGE value="Reworking!!" />
++    <option name="LAST_COMMIT_MESSAGE" value="Reworking!!" />
+   </component>
+ </project>
+\ No newline at end of file

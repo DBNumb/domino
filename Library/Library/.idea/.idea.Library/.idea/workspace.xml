@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="Making Abstractions">
+    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="Reworking!!">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Board.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/DominoBasics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/DominoBasics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/GameStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/GameStart.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Log.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerBG.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerBG.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerRandom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerRandom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/RulesInterfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/RulesInterfaces.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/TokenLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +68,8 @@
       <workItem from="1655002671525" duration="595000" />
       <workItem from="1655525015795" duration="4560000" />
       <workItem from="1655529744437" duration="2429000" />
-      <workItem from="1655692037392" duration="4792000" />
+      <workItem from="1655692037392" duration="5282000" />
+      <workItem from="1655763813124" duration="3485000" />
     </task>
     <task id="LOCAL-00001" summary="Branch DB">
       <created>1654226269889</created>
@@ -166,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655532380277</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Reworking!!">
+      <created>1655699385767</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1655699385767</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +226,7 @@
     <MESSAGE value="A lot of fixes" />
     <MESSAGE value="PlayerScore property added, introducing gamestart class." />
     <MESSAGE value="Making Abstractions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making Abstractions" />
+    <MESSAGE value="Reworking!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reworking!!" />
   </component>
 </project>
