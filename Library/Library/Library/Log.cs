@@ -4,10 +4,10 @@ public static class Log
 {
     public static List<string> log;
 
-    public static void Register<T>(IToken<T> play, int player) where T : IComparable, IValuable
+    public static void Register(Token play, int player) 
     {
         
-        log.Add($"Jugador {player} jugó la ficha Falta aqui algo");
+        log.Add($"Jugador {player} jugó la ficha {play.Description()}");
     }
 
     public static void Win(Player x,int playerindex)

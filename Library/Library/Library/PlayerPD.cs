@@ -11,9 +11,9 @@ namespace Library
         //player protege data
         public override int PlayerScore { get; protected set; } = 0;
 
-        public override IToken<T> Juega<T>(List<IToken<T>>posiblesjugadas, int extremo1, int extremo2)
+        public override IToken Juega(List<IToken>posiblesjugadas, int extremo1, int extremo2)
         {
-            IToken<T> jugada;
+            IToken jugada;
             List<int> numerosDiferentes = new List<int>();
 
             jugada = posiblesjugadas[0];//esto es para q no me marque error en el return....

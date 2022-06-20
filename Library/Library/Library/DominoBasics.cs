@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Library;
-public  class CanPlay<T> : IFilterFichas<T> where T : IToken<T>, IValuable
+public  class CanPlay: IFilterFichas
 {
     public static bool SomeoneCanPlay;
-    public List<T> posiblesjugadas { get; set; }
-    public bool Apply(List<T> fichaPlayer,T Estado_tablero)
+    public List<IToken> posiblesjugadas { get; set; }
+    public bool Apply(List<IToken> fichaPlayer,IToken Estado_tablero)
     {
-        List<T> posiblesjugadas = new List<T>();
+        List<IToken> posiblesjugadas = new List<IToken>();
         foreach (var vToken in fichaPlayer)
         {
             if (TokenEqualToEdges(vToken, Estado_tablero))
@@ -26,9 +26,16 @@ public  class CanPlay<T> : IFilterFichas<T> where T : IToken<T>, IValuable
         return SomeoneCanPlay;
     }
 
-    public static bool TokenEqualToEdges(T x, T board)
+    public static bool TokenEqualToEdges(IToken x, IToken board)
     {
-        return x.Item1 == board.Item1 || x.Item1 == board.Item2 || x.Item2 == board.Item1 ||
-               x.Item2 == board.Item2;
+        foreach (var playertoken in x._valuables)
+        {
+            foreach (var boardtoken in board._valuables)
+            {
+                if (playertoken.value == boardtoken.value) return true;
+            }
+        }
+
+        return false;
     }
 }

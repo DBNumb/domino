@@ -1,31 +1,34 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Collections;
+using System.Runtime.CompilerServices;
 
 namespace Library;
 
 #region GenericTokenInterface
 
 public interface IValuable
-{
+{ 
     public int value { get; }
+    public string  description { get; } 
+        
 }
 
-public interface IToken<T> : IEnumerable<T> where T : IValuable
-{
-    public T this[int index] { get; }
-    public List<T> values { get; }
-    public void Getvalues(ICollection<T> coll);
+public interface IToken : IEnumerable
+{   
+    List<IValuable>_valuables { get; }
+    public void Getvalues(ICollection<IValuable> coll);
     public int score { get; }
-    public int GetScore(ICollection<T> collection);
+    public int GetScore(ICollection<IValuable> collection) ;
+    
 }
 
 
 #endregion
 
-public interface IFilterFichas<Token> where Token : IToken<Token>, IValuable
+public interface IFilterFichas
 {
-    public List<Token> posiblesjugadas { get; set; }
+    public List<IToken> posiblesjugadas { get; set; }
 
-    public bool Apply(List<Token> fichasPlayer, Token Estado_tablero);
+    public bool Apply(List<IToken> fichasPlayer, IToken Estado_tablero);
     //hay q abstraernos mas pq esto solo funciona para domino
 }
 

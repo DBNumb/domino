@@ -10,10 +10,10 @@ namespace Library
     {
         public override int PlayerScore { get; protected set; } = 0;
         
-        public override IToken<T> Juega<T>(List<IToken<T>> posiblesjugadas, int extremo1, int extremo2)
+        public override IToken Juega(List<IToken> posiblesjugadas, int extremo1, int extremo2)
         {
             //player bota gorda
-            IToken<T> jugada = posiblesjugadas[0];
+            IToken jugada = posiblesjugadas[0];
 
             for (int i = 1; i < posiblesjugadas.Count; i++)
             {

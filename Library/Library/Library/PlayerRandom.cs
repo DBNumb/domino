@@ -11,14 +11,14 @@ namespace Library
         //clase para player random
         public override int PlayerScore { get; protected set; } = 0;
 
-        public override IToken<T> Juega<T>(List<IToken<T>> posiblesjugadas, int extremo1, int extremo2)
+        public override IToken Juega(List<IToken> posiblesjugadas, int extremo1, int extremo2)
         {
             //envia una jugada random de las que se le pasan por parametro
-            var randomNumber = new Random(posiblesjugadas.Length);
-            int x = randomNumber.Next(0, posiblesjugadas.Length);
+            var randomNumber = new Random(posiblesjugadas.Count);
+            int x = randomNumber.Next(0, posiblesjugadas.Count);
             PlayerScore += posiblesjugadas[x].score;
 
-            IToken<T> jugada = posiblesjugadas[x];
+            IToken jugada = posiblesjugadas[x];
             int[] indices = {extremo1, extremo2};
             
             int y;

@@ -1,6 +1,6 @@
 ﻿namespace Library;
 
-public class Board<T> where T: IToken<T>, IComparable, IValuable
+public class Board<T> where T: IToken, IComparable, IValuable
 {
     public List<T> board;
 
@@ -15,7 +15,7 @@ public class Board<T> where T: IToken<T>, IComparable, IValuable
         int count = 0;
         foreach (var token in board)
         {
-            foreach (var val in token.values)
+            foreach (var val in token._valuables)
             {
                 if (value == val.value)
                 {

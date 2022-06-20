@@ -1,8 +1,8 @@
 ﻿namespace Library;
 
-public interface ITokenRule<T> where T : IToken<T>, IValuable
+public interface ITokenRule 
 {
-    public bool Apply(T x);
+    public bool Apply(IToken x);
 }
 
 public interface ITurnRule
