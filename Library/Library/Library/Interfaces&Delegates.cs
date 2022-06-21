@@ -12,12 +12,13 @@ public interface IValuable
         
 }
 
-public interface IToken : IEnumerable<IValuable>
+public interface IToken 
 {   
     
-    public int item1 { get; }
-    public int item2 { get; }
-
+    public int ValueItem1 { get; }
+    public int ValueItem2 { get; }
+    public string DescriptionItem1 { get; }
+    public string DescriptionItem2 { get; }
     public int score { get; }
     
 }
@@ -27,9 +28,9 @@ public interface IToken : IEnumerable<IValuable>
 
 public interface IFilterFichas
 {
-    public List<IToken> posiblesjugadas { get; set; }
+    public List<Token> posiblesjugadas { get; set; }
 
-    public bool Apply(List<IToken> fichasPlayer, IToken Estado_tablero);
+    public bool Apply(List<Token> fichasPlayer, Token Estado_tablero, IComparer<Token>comp);
     //hay q abstraernos mas pq esto solo funciona para domino
 }
 

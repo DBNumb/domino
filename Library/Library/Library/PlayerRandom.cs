@@ -11,32 +11,33 @@ namespace Library
         //clase para player random
         public override int PlayerScore { get; protected set; } = 0;
 
-        public override Tuple<IToken, int> Juega(List<IToken> posiblesjugadas, IValuable extremo1, IValuable extremo2)
+        public override List<Token> PlayerHand { get; }
+
+        public override Tuple<Token, int> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
         {
             //envia una jugada random de las que se le pasan por parametro
             var randomNumber = new Random(posiblesjugadas.Count);
             int x = randomNumber.Next(0, posiblesjugadas.Count);
             PlayerScore += posiblesjugadas[x].score;
 
-            IToken jugada = posiblesjugadas[x];
-            int[] indices = {extremo1.value, extremo2.value};
+            Token jugada = posiblesjugadas[x];
+            // int[] indices = {extremo1.value, extremo2.value};
             
-            int y;
+            int y=extremos.ValueItem2;
            
-            if ((jugada.item1 == extremo1.value && jugada.item2 == extremo2.value)
-                || (jugada.item1 == extremo2.value && jugada.item2 == extremo1.value))
+            if (comp.Compare(jugada,extremos)==1)
             {
-                var randomIndice = new Random(indices.Length);
-                y = randomIndice.Next(0, indices.Length);
+                return new Tuple<Token, int>(jugada, extremos.ValueItem1);
             }
-            else if (jugada.item1 == extremo1.value || jugada.item2 == extremo1.value)
+            else if (jugada.ValueItem1 == extremos.ValueItem1 || jugada.ValueItem2 == extremos.ValueItem1)
             {
-                y = extremo1.value;
+                return new Tuple<Token, int>(jugada, extremos.ValueItem1);
             }
-            else y = extremo2.value;
 
+            return new Tuple<Token, int>(jugada, extremos.ValueItem2);
+
+            
             //retorna la ficha a jugar y el extremo que jugara al azar en caso de poder jugar por ambos extremos
-            return Tuple.Create(jugada, y);
         }
     }
 

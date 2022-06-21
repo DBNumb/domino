@@ -10,7 +10,8 @@ namespace Library
     public abstract class Player
     {  public abstract int PlayerScore { get; protected set; }
         //clase abstracta jugador
-        public abstract Tuple<IToken, int> Juega(List<IToken> posiblesjugadas, Token extremos, Comparer<Token> comp);
+        public abstract List<Token>PlayerHand { get; }
+        public abstract Tuple<Token, int> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp);
 
     }
     

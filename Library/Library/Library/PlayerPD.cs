@@ -10,23 +10,25 @@ namespace Library
     {
         //player protege data
         public override int PlayerScore { get; protected set; } = 0;
+        public override List<Token> PlayerHand { get; }
+        
 
-        public override Tuple<IToken, int> Juega(List<IToken>posiblesjugadas, IValuable extremo1, IValuable extremo2)
+        public override Tuple<Token, int> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
         {
-            IToken jugada;
+          Token jugada;
             List<int> numerosDiferentes = new List<int>();
 
             jugada = posiblesjugadas[0];//esto es para q no me marque error en el return....
 
             for (int i = 0; i< posiblesjugadas.Count; i++) 
             {
-                if (!numerosDiferentes.Contains(posiblesjugadas[i].item1)) 
+                if (!numerosDiferentes.Contains(posiblesjugadas[i].ValueItem1)) 
                 {
-                    numerosDiferentes.Add(posiblesjugadas[i].item1);
+                    numerosDiferentes.Add(posiblesjugadas[i].ValueItem1);
                 }
-                if (!numerosDiferentes.Contains(posiblesjugadas[i].item2))
+                if (!numerosDiferentes.Contains(posiblesjugadas[i].ValueItem2))
                 {
-                    numerosDiferentes.Add(posiblesjugadas[i].item2);
+                    numerosDiferentes.Add(posiblesjugadas[i].ValueItem2);
                 }
             }
 
@@ -37,8 +39,8 @@ namespace Library
                 int count = 0;
                 for (int j =0; j< posiblesjugadas.Count; j++) 
                 {
-                    if (numerosDiferentes[i] == posiblesjugadas[j].item1 
-                        || numerosDiferentes[i] == posiblesjugadas[j].item2) 
+                    if (numerosDiferentes[i] == posiblesjugadas[j].ValueItem1 
+                        || numerosDiferentes[i] == posiblesjugadas[j].ValueItem2) 
                     {
                         count++;
                     }
@@ -50,7 +52,7 @@ namespace Library
 
             for (int i = 0; i < posiblesjugadas.Count; i++) 
             {
-                if (!(posiblesjugadas[i].item1 == data || posiblesjugadas[i].item2 == data)) 
+                if (!(posiblesjugadas[i].ValueItem1 == data || posiblesjugadas[i].ValueItem2 == data)) 
                 {
                     jugada = posiblesjugadas[i];
                     break;
@@ -60,28 +62,19 @@ namespace Library
             PlayerScore += jugada.score;
            
             int y;
-            if ((jugada.item1 == extremo1.value && jugada.item2 == extremo2.value)
-              || (jugada.item1 == extremo2.value && jugada.item2 == extremo1.value))
+            if (comp.Compare(jugada,extremos)==1)
             {
-                int[] indices = { extremo1.value, extremo2.value };
-                if (extremo1.value == data) y = extremo2.value;
-                else if (extremo2.value == data) y = extremo1.value;
-                else 
-                {
-                    //entra aca en caso de que su data no sea ninguno de los extremos... en ese caso juega al indice random
-                    var randomIndice = new Random(indices.Length);
-                    y = randomIndice.Next(0, indices.Length);
-                }
+                return new Tuple<Token, int>(jugada, extremos.ValueItem1);
             }
-            else if (jugada.item1 == extremo1.value || jugada.item2 == extremo1.value)
+            else if (jugada.ValueItem1 == extremos.ValueItem1 || jugada.ValueItem2 == extremos.ValueItem1)
             {
-                y = extremo1.value;
+                return new Tuple<Token, int>(jugada, extremos.ValueItem1);
             }
-            else y = extremo2.value;
-            
+
+            return new Tuple<Token, int>(jugada, extremos.ValueItem2);
             //juega protegiendo su data y en caso de que pueda jugar por los 2 extremos jugara para que en ambos
             //extremos este su data
-            return Tuple.Create(jugada, y);
+            
         }
     }
 }

@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Library;
-public  class CanPlay: IFilterFichas
+
+public class CanPlay : IFilterFichas
 {
     public static bool SomeoneCanPlay;
-    public List<IToken> posiblesjugadas { get; set; }
-    public bool Apply(List<IToken> fichaPlayer,IToken Estado_tablero)
+    public List<Token> posiblesjugadas { get; set; }
+
+    public bool Apply(List<Token> fichaPlayer, Token Estado_tablero, IComparer<Token> comp)
     {
-        List<IToken> posiblesjugadas = new List<IToken>();
+        List<Token> posiblesjugadas = new List<Token>();
         foreach (var vToken in fichaPlayer)
         {
-            if (TokenEqualToEdges(vToken, Estado_tablero))
+            if (TokenEqualToEdges(vToken, Estado_tablero, comp))
             {
                 SomeoneCanPlay = true;
                 posiblesjugadas.Add(vToken);
@@ -26,16 +24,10 @@ public  class CanPlay: IFilterFichas
         return SomeoneCanPlay;
     }
 
-    public static bool TokenEqualToEdges(IToken x, IToken board)
+    private static bool TokenEqualToEdges(Token x, Token board, IComparer<Token> comp)
     {
-        foreach (var playertoken in x)
-        {
-            foreach (var boardtoken in board)
-            {
-                if (playertoken == boardtoken) return true;
-            }
-        }
-
-        return false;
+        int a = 0;
+        a = comp.Compare(x, board);
+        return a >= 0;
     }
 }

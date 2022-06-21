@@ -9,38 +9,40 @@ namespace Library
     class PlayerBG : Player
     {
         public override int PlayerScore { get; protected set; } = 0;
-        
-        public override Tuple<IToken, int> Juega(List<IToken> posiblesjugadas, IValuable extremo1, IValuable extremo2)
+
+        public override List<Token> PlayerHand { get; }
+
+        public override Tuple<Token, int> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
         {
             //player bota gorda
-            IToken jugada = posiblesjugadas[0];
+            Token jugada = posiblesjugadas[0];
 
             for (int i = 1; i < posiblesjugadas.Count; i++)
             {
                 if (jugada.score < posiblesjugadas[i].score)
                     jugada = posiblesjugadas[i];
             }
+
             PlayerScore += jugada.score;
 
-            int y;
-            if ((jugada.item1 == extremo1.value && jugada.item2 == extremo2.value)
-               || (jugada.item1 == extremo2.value && jugada.item2 == extremo1.value))
+            int y = extremos.ValueItem2;
+            if (comp.Compare(jugada, extremos) == 1)
             {
-                int[] indices = { extremo1.value, extremo2.value };
-                y = indices.Min();
+                y = Math.Min(extremos.ValueItem1, extremos.ValueItem2);
+                return new Tuple<Token, int>(jugada, extremos.ValueItem1);
             }
-            else if (jugada.item1 == extremo1.value || jugada.item2 == extremo1.value)
-            {
-                y = extremo1.value;
-            }
-            else y = extremo2.value;
 
-            
+            if (jugada.ValueItem1 == extremos.ValueItem1 || jugada.ValueItem2 == extremos.ValueItem1)
+            {
+                y = extremos.ValueItem1;
+                return new Tuple<Token, int>(jugada, y);
+            }
+
+            return new Tuple<Token, int>(jugada, y);
+
+
             //bota la ficha mas gorda... en caso de que pueda jugar por ambos extremos juega por
             //el menor extremo
-
-
-            return Tuple.Create(jugada, y);
         }
     }
 }

@@ -10,109 +10,47 @@ public class Token : IToken
         get
         {
             if (index > 1|| index<0) throw new NotImplementedException();
-            if (index == 1) return this.item1;
+            if (index == 1) return this.ValueItem1;
             else
             {
-                return this.item2;
+                return this.ValueItem2;
             }
         }
         
     }
-    public int item1 { get; }
-    public int item2 { get; }
+    public int ValueItem1 { get; }
+    public int ValueItem2 { get; }
+    public string DescriptionItem1 { get; }
+    public string DescriptionItem2 { get; }
     public Token(IValuable value1, IValuable value2)
     {
-        this.item1 = value1.value;
-        this.item2 = value2.value;
+        this.ValueItem1 = value1.value;
+        this.ValueItem2 = value2.value;
         score = value1.value + value2.value;
-
+        this.DescriptionItem1 = value1.description;
+        this.DescriptionItem2 = value2.description;
     }
     public virtual string Description()
     {
-        string result = "[ ";
-        for (int i = 0; i < _valuables.Count; i++)
-        {
-            if (i == 0)
-            {
-                result += _valuables[i].description;
-                continue;
-            }
-
-            result += ", "+_valuables[i].description;
-        }
-
-        return result + " ]";
-    }
-
-    private class TokenEnumerator<T> : IEnumerator<T>
-    {
-        private int pos = -1;
-        private List<T> values;
-
-        public TokenEnumerator(List<T> comparables)
-        {
-            values = comparables;
-        }
-
-        public void Reset()
-        {
-            pos = -1;
-        }
-
-        object IEnumerator.Current => Current;
-
-        public T Current { get; }
-
-        public bool MoveNext()
-        {
-            pos++;
-            if (pos >= 0 || pos < values.Count) return true;
-            return false;
-        }
-
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-
-    public IEnumerator<IValuable> GetEnumerator()
-    {
-        return new TokenEnumerator<IValuable>(_valuables);
+        return $"[ {DescriptionItem1}, {DescriptionItem2} ]";
     }
 
 
-    
-
-    public List<IValuable> _valuables { get; }
-
-    public void Getvalues(ICollection<IValuable> coll)
-    {
-        foreach (var element in coll)
-        {
-            _valuables.Add(element);
-        }
-    }
 
     public int score { get; }
     
 }
 public class TokenComparer: IComparer<Token>{
-    public int Compare(Token? x, Token? y)
+    public int Compare(Token x, Token edges)
     {
+        if (edges.score == -2) return 1;
         int count = -1;
         bool[] used = new bool[2];
         for (int i = 0; i < used.Length; i++)
         {
             for (int j = 0; j < used.Length; j++)
             {
-                if (x[i] == y[j]&& !used[j])
+                if (x[i] == edges[j]&& !used[j])
                 {
                     count++;
                     used[j] = true;
@@ -129,16 +67,7 @@ public class NoDoubleRule : ITokenRule
 {
     public bool Apply(IToken x)
     {
-        int first = x.item1;
-        foreach (var element in x)
-        {
-            foreach (var element2 in x)
-            {
-                if (element2.value != first) return false;
-            }
-        }
-
-        return true;
+        return x.ValueItem1 != x.ValueItem2;
     }
 }
 
@@ -151,9 +80,14 @@ public class DefaultTokeRule : ITokenRule
 }
 
 #endregion
-
-public abstract class Valuables : IValuable
+public class Valuable : IValuable
 {
     public int value { get; }
     public string description { get; }
+
+    public Valuable(int value, string description)
+    {
+        this.value = value;
+        this.description = description;
+    }
 }
