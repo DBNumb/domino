@@ -2,7 +2,7 @@
 
 public class Board 
 {
-    public List<Token> board;
+    private List<Token> board;
 
     public Board()
     {
@@ -26,5 +26,9 @@ public class Board
 
         return count;
     }
-  
+
+    public Token Boardextremes()
+    {
+        if (board.Count == 0) return new Token();
+    }
 }

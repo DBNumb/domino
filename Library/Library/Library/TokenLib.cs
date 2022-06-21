@@ -142,7 +142,7 @@ public class NoDoubleRule : ITokenRule
     }
 }
 
-public class DefaultTokeRule<T> : ITokenRule
+public class DefaultTokeRule : ITokenRule
 {
     public bool Apply(IToken x)
     {
@@ -151,3 +151,9 @@ public class DefaultTokeRule<T> : ITokenRule
 }
 
 #endregion
+
+public abstract class Valuables : IValuable
+{
+    public int value { get; }
+    public string description { get; }
+}

@@ -10,12 +10,8 @@ public interface ITurnRule
     public int NxtTurn();
 }
 
-public interface IWin
-{
-    
-}
 
-public interface ISuperToken
+public interface IChecker
 {
-    
+    public bool Win();
 }
