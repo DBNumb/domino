@@ -4,7 +4,10 @@
     <projectFile>Domino Interface/Domino Interface.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bbe2f5d-e747-489d-a5bf-70ed751d541c" name="Changes" comment="" />
+    <list default="true" id="8bbe2f5d-e747-489d-a5bf-70ed751d541c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Domino Interface/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Domino Interface/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653959955073</updated>
       <workItem from="1653959967912" duration="265000" />
+      <workItem from="1655784614319" duration="133000" />
     </task>
     <task id="LOCAL-00001" summary="Our domino interface">
       <created>1653960011812</created>
@@ -70,7 +74,7 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

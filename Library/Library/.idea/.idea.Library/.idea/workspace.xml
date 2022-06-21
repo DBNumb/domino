@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="GameStart">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Board.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/DominoBasics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/DominoBasics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/GameStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/GameStart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerBG.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerBG.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerPD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerPD.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerRandom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerRandom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/TokenLib.cs" afterDir="false" />
-    </list>
+    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="GameStart!!!!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +25,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/TokenLib.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/57c2d4282221452cad4df86bbd5d6fa0a1fc70/5a/d903883a/IComparer`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/Board.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/Board.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -75,7 +65,7 @@
       <workItem from="1655525015795" duration="4560000" />
       <workItem from="1655529744437" duration="2429000" />
       <workItem from="1655692037392" duration="5282000" />
-      <workItem from="1655763813124" duration="16738000" />
+      <workItem from="1655763813124" duration="16838000" />
     </task>
     <task id="LOCAL-00001" summary="Branch DB">
       <created>1654226269889</created>
@@ -189,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655773325144</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="GameStart!!!!">
+      <created>1655784520318</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1655784520318</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +246,7 @@
     <MESSAGE value="Reworking!!" />
     <MESSAGE value="Comparer Implementation" />
     <MESSAGE value="GameStart" />
-    <option name="LAST_COMMIT_MESSAGE" value="GameStart" />
+    <MESSAGE value="GameStart!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="GameStart!!!!" />
   </component>
 </project>
