@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bbe2f5d-e747-489d-a5bf-70ed751d541c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Domino Interface/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Domino Interface/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Update_at_20_06_2022_18_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Update_at_20_06_2022_18_24__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +59,7 @@
       <updated>1653959955073</updated>
       <workItem from="1653959967912" duration="265000" />
       <workItem from="1655784614319" duration="133000" />
+      <workItem from="1655843430394" duration="27000" />
     </task>
     <task id="LOCAL-00001" summary="Our domino interface">
       <created>1653960011812</created>
