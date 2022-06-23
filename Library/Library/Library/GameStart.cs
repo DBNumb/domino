@@ -37,9 +37,27 @@ public class GameStart
         return result;
     }
 
-    public void Play(Player[] player, IChecker checker)
+    public void Play(Player[] player, IChecker<Player> checker)
     {
-        for (int i = 0;!checker.Win(); i++)
+        int i = 0;
+        do 
+        {
+            if (i >= player.Length) i = 0;
+
+            if (_canPlay.Apply(player[i].PlayerHand, _board.Boardextremes(), _comparer))
+            {
+                _board.Insert(player[i].Juega(_canPlay.posiblesjugadas, _board.Boardextremes(), _comparer));
+            }
+            else
+            {
+                i = TurnRule.NxtTurn();
+            }
+
+            i++;
+        } while (!checker.Win(player[i]));
+
+
+        /*for (int i = 0;!checker.Win(player[i]); i++)
         {
             if (i >= player.Length) i = 0;
             if (_canPlay.Apply(player[i].PlayerHand, _board.Boardextremes(), _comparer))
@@ -50,6 +68,7 @@ public class GameStart
             {
                 i = TurnRule.NxtTurn();
             }
-        }
+            
+        }*/
     }
 }

@@ -11,7 +11,12 @@ public interface ITurnRule
 }
 
 
-public interface IChecker
+public interface IChecker<T>
 {
-    public bool Win();
+    public bool Win(T obj);
+}
+
+public interface IDraw
+{
+    public bool Draw();
 }
