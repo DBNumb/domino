@@ -3,13 +3,13 @@
 public class GameStart
 {
     private Board _board = new Board();
-    private bool win = false;
     private ITokenRule TokenRule;
     private ITurnRule TurnRule;
     private Player[] players;
     private CanPlay _canPlay = new CanPlay();
     private List<Token> domain;
     private IComparer<Token> _comparer;
+    
 
     public GameStart(Player[] players, ITokenRule tokenRule, ITurnRule turnRule,List<IValuable> valuables,IComparer<Token> comp)
     {
@@ -39,6 +39,7 @@ public class GameStart
 
     public void Play(Player[] player, IChecker<Player[]> checker)
     {
+        int consecutivesKnocks = 0;
         int i = 0;
         do 
         {
@@ -46,29 +47,20 @@ public class GameStart
 
             if (_canPlay.Apply(player[i].PlayerHand, _board.Boardextremes(), _comparer))
             {
+                consecutivesKnocks = 0;
                 _board.Insert(player[i].Juega(_canPlay.posiblesjugadas, _board.Boardextremes(), _comparer));
             }
             else
             {
+                consecutivesKnocks++;
                 i = TurnRule.NxtTurn();
             }
 
+            if (consecutivesKnocks == player.Length - 1)
+            {
+                
+            }
             i++;
         } while (checker.Win(player) == -1);
-
-
-        /*for (int i = 0;!checker.Win(player[i]); i++)
-        {
-            if (i >= player.Length) i = 0;
-            if (_canPlay.Apply(player[i].PlayerHand, _board.Boardextremes(), _comparer))
-            {
-               _board.Insert( player[i].Juega(_canPlay.posiblesjugadas,_board.Boardextremes(),_comparer));
-            }
-            else
-            {
-                i = TurnRule.NxtTurn();
-            }
-            
-        }*/
     }
 }

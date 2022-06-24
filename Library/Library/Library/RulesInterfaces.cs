@@ -14,5 +14,6 @@ public interface ITurnRule
 public interface IChecker<T>
 {
     public int Win(T obj);
+    
 }
 

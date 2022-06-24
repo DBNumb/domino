@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="GameStart!!!!">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Update_at_20_06_2022_18_24__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Update_at_20_06_2022_18_24__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Domino Interface/Domino Interface/.idea/.idea.Domino Interface/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Domino Interface/Domino Interface/.idea/.idea.Domino Interface/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/GameStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/GameStart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/RulesInterfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/RulesInterfaces.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +28,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../Domino Interface/Domino Interface/Domino Interface/Form1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Domino Interface/Domino Interface/Domino Interface/Settings.Designer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/TokenLib.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/57c2d4282221452cad4df86bbd5d6fa0a1fc70/5a/d903883a/IComparer`1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -45,7 +50,7 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.updates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -67,6 +72,9 @@
       <workItem from="1655692037392" duration="5282000" />
       <workItem from="1655763813124" duration="16838000" />
       <workItem from="1655835453151" duration="176000" />
+      <workItem from="1656021460483" duration="863000" />
+      <workItem from="1656032980115" duration="481000" />
+      <workItem from="1656038883732" duration="2661000" />
     </task>
     <task id="LOCAL-00001" summary="Branch DB">
       <created>1654226269889</created>
@@ -256,5 +264,9 @@
     <MESSAGE value="GameStart" />
     <MESSAGE value="GameStart!!!!" />
     <option name="LAST_COMMIT_MESSAGE" value="GameStart!!!!" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
