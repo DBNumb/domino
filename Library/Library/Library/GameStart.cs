@@ -40,6 +40,8 @@ public class GameStart
     public void Play(Player[] player, IChecker<Player[]> checker)
     {
         int consecutivesKnocks = 0;
+        int[] totalScoreHand = new int[players.Length];
+        int playerWinner;
         int i = 0;
         do 
         {
@@ -58,9 +60,30 @@ public class GameStart
 
             if (consecutivesKnocks == player.Length - 1)
             {
+                for (int j = 0; j< player.Length; j++) 
+                {
+                    int aux = 0;
+                    for (int k = 0; k< player[j].PlayerHand.Count; k++) 
+                    {
+                        aux += player[j].PlayerHand[k].score; 
+                    }
+                    totalScoreHand[i] = aux;
+                }
                 
+                int x = totalScoreHand.Min();
+                
+                
+                for (int j = 0; j < player.Length; j++) 
+                {
+                    if (x == totalScoreHand[j])playerWinner = j ;
+                }
+                //que pasa si hay 2 jugadores de diferentes equipos con el mismo totalScoreHand?
+                break;//.......
             }
+            
             i++;
         } while (checker.Win(player) == -1);
+        playerWinner = i;
+        //...................
     }
 }
