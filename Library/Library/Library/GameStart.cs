@@ -37,7 +37,7 @@ public class GameStart
         return result;
     }
 
-    public void Play(Player[] player, IChecker<Player> checker)
+    public void Play(Player[] player, IChecker<Player[]> checker)
     {
         int i = 0;
         do 
@@ -54,7 +54,7 @@ public class GameStart
             }
 
             i++;
-        } while (!checker.Win(player[i]));
+        } while (checker.Win(player) == -1);
 
 
         /*for (int i = 0;!checker.Win(player[i]); i++)
