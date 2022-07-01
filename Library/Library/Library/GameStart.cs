@@ -11,7 +11,7 @@ public class GameStart
     private IComparer<Token> _comparer;
     
 
-    public GameStart(Player[] players, ITokenRule tokenRule, ITurnRule turnRule,List<IValuable> valuables,IComparer<Token> comp)
+    public GameStart(Player[] players, ITokenRule tokenRule, ITurnRule turnRule,List<IComparable> valuables,IComparer<Token> comp)
     {
         this.players = players;
         TurnRule = turnRule;
@@ -19,7 +19,7 @@ public class GameStart
         domain = CreateDeck(valuables, tokenRule);
     }
 
-    private List<Token> CreateDeck(List<IValuable> valuables, ITokenRule tokenRule)
+    private List<Token> CreateDeck(List<IComparable> valuables, ITokenRule tokenRule)
     {
         List<Token> result = new List<Token>();
         foreach (var valuable1 in valuables)

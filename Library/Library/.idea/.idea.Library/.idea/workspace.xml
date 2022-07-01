@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="GameStart!!!!">
-      <change beforePath="$PROJECT_DIR$/../../Domino Interface/Domino Interface/.idea/.idea.Domino Interface/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Domino Interface/Domino Interface/.idea/.idea.Domino Interface/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="GameStart!!!!2">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Update_at_20_06_2022_18_24_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/shelf/Uncommitted_changes_before_Update_at_20_06_2022_18_24__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Board.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Extensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/GameStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/GameStart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/RulesInterfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/RulesInterfaces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Log.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/TokenLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +37,7 @@
     <setting file="file://$PROJECT_DIR$/../../Domino Interface/Domino Interface/Domino Interface/Settings.Designer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/TokenLib.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/57c2d4282221452cad4df86bbd5d6fa0a1fc70/5a/d903883a/IComparer`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -75,6 +81,11 @@
       <workItem from="1656021460483" duration="863000" />
       <workItem from="1656032980115" duration="481000" />
       <workItem from="1656038883732" duration="2661000" />
+      <workItem from="1656041684409" duration="133000" />
+      <workItem from="1656435978221" duration="829000" />
+      <workItem from="1656525017954" duration="487000" />
+      <workItem from="1656525909297" duration="1361000" />
+      <workItem from="1656712472612" duration="1450000" />
     </task>
     <task id="LOCAL-00001" summary="Branch DB">
       <created>1654226269889</created>
@@ -202,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655835463900</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="GameStart!!!!2">
+      <created>1656041803304</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1656041803304</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +281,8 @@
     <MESSAGE value="Comparer Implementation" />
     <MESSAGE value="GameStart" />
     <MESSAGE value="GameStart!!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="GameStart!!!!" />
+    <MESSAGE value="GameStart!!!!2" />
+    <option name="LAST_COMMIT_MESSAGE" value="GameStart!!!!2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

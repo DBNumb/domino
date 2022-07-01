@@ -12,13 +12,23 @@ public interface IValuable
         
 }
 
+public class CaradeFicha: IValuable
+{
+    public int value { get; }
+    public string description { get; }
+
+    public CaradeFicha(int value, string description)
+    {
+        this.value = value;
+        this.description = description;
+    }
+}
 public interface IToken 
 {   
     
-    public int ValueItem1 { get; }
-    public int ValueItem2 { get; }
-    public string DescriptionItem1 { get; }
-    public string DescriptionItem2 { get; }
+    public IComparable ValueItem1 { get; }
+    public IComparable ValueItem2 { get; }
+    
     public int score { get; }
     
 }

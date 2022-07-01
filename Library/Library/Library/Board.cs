@@ -10,7 +10,7 @@ public class Board
         
     }
     
-    public int CountBoard(int value)
+    public int CountBoard(IComparable value)
     {
         int count = 0;
         foreach (var token in board)
@@ -23,13 +23,12 @@ public class Board
 
     public Token Boardextremes()
     {
-        if (board.Count == 0) return new Token(new Valuable(-1,"<blank>"),new Valuable(-1,"<blank>"));
-        int begin = board[0].ValueItem1, ending= board[board.Count-1].ValueItem2;
-        string begindesc = board[0].DescriptionItem1, endingdesc = board[board.Count - 1].DescriptionItem2;
-        return new Token(new Valuable(begin, begindesc), new Valuable(ending, endingdesc));
+        if (board.Count == 0) return new Token(null,null);
+        IComparable begin = board[0].ValueItem1, ending= board[board.Count-1].ValueItem2;
+        return new Token(begin, ending);
     }
 
-    public void Insert(Tuple<Token, int> play)
+    public void Insert(Tuple<Token, IComparable> play)
     {
         Token board_Extremes = Boardextremes();
         if (board.Count==0)
@@ -38,9 +37,9 @@ public class Board
             return;
         }
 
-        if (board_Extremes.ValueItem1 == play.Item2)
+        if (board_Extremes.ValueItem1.CompareTo(play.Item2)==0)
         {
-            if (play.Item1.ValueItem2==board_Extremes.ValueItem1)
+            if (play.Item1.ValueItem2.CompareTo(board_Extremes.ValueItem1)==0)
             {
                 board.Insert(0,play.Item1);
             }
@@ -51,7 +50,7 @@ public class Board
         }
         else
         {
-            if (play.Item1.ValueItem1 == board_Extremes.ValueItem2)
+            if (play.Item1.ValueItem1.CompareTo(board_Extremes.ValueItem2)==0 )
             {
                 board.Insert(board.Count,play.Item1);
             }

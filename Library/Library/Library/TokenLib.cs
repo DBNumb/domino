@@ -5,7 +5,8 @@ namespace Library;
 
 public class Token : IToken
 {
-    public int this[int index]
+    
+    public IComparable this[int index]
     {
         get
         {
@@ -18,17 +19,14 @@ public class Token : IToken
         }
         
     }
-    public int ValueItem1 { get; }
-    public int ValueItem2 { get; }
+    public IComparable ValueItem1 { get; }
+    public IComparable ValueItem2 { get; }
     public string DescriptionItem1 { get; }
     public string DescriptionItem2 { get; }
-    public Token(IValuable value1, IValuable value2)
+    public Token(IComparable value1, IComparable value2)
     {
-        this.ValueItem1 = value1.value;
-        this.ValueItem2 = value2.value;
-        score = value1.value + value2.value;
-        this.DescriptionItem1 = value1.description;
-        this.DescriptionItem2 = value2.description;
+        this.ValueItem1 = value1;
+        this.ValueItem2 = value2;
     }
     public virtual string Description()
     {
@@ -67,7 +65,7 @@ public class NoDoubleRule : ITokenRule
 {
     public bool Apply(IToken x)
     {
-        return x.ValueItem1 != x.ValueItem2;
+        return x.ValueItem1.CompareTo(x.ValueItem2)==-1 ;
     }
 }
 
@@ -80,14 +78,4 @@ public class DefaultTokeRule : ITokenRule
 }
 
 #endregion
-public class Valuable : IValuable
-{
-    public int value { get; }
-    public string description { get; }
 
-    public Valuable(int value, string description)
-    {
-        this.value = value;
-        this.description = description;
-    }
-}
