@@ -16,7 +16,7 @@ namespace Library
         public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
         {
           Token jugada;
-            List<int> numerosDiferentes = new List<int>();
+            List<IComparable> numerosDiferentes = new List<IComparable>();
 
             jugada = posiblesjugadas[0];//esto es para q no me marque error en el return....
 
@@ -39,8 +39,8 @@ namespace Library
                 int count = 0;
                 for (int j =0; j< posiblesjugadas.Count; j++) 
                 {
-                    if (numerosDiferentes[i] == posiblesjugadas[j].ValueItem1 
-                        || numerosDiferentes[i] == posiblesjugadas[j].ValueItem2) 
+                    if (numerosDiferentes[i].CompareTo(posiblesjugadas[j].ValueItem1)==0  
+                        || numerosDiferentes[i] .CompareTo( posiblesjugadas[j].ValueItem2)==0) 
                     {
                         count++;
                     }
@@ -48,11 +48,11 @@ namespace Library
                 repeticionesPorNumero[i] = count;
             }
 
-            int data = repeticionesPorNumero.Max();
+            IComparable data = repeticionesPorNumero.ToList().IndexOf(repeticionesPorNumero.Max());
 
             for (int i = 0; i < posiblesjugadas.Count; i++) 
             {
-                if (!(posiblesjugadas[i].ValueItem1 == data || posiblesjugadas[i].ValueItem2 == data)) 
+                if (!(posiblesjugadas[i].ValueItem1.CompareTo(data)==0 || posiblesjugadas[i].ValueItem2.CompareTo(data)==0 )) 
                 {
                     jugada = posiblesjugadas[i];
                     break;
@@ -61,17 +61,12 @@ namespace Library
 
             PlayerScore += jugada.score;
            
-            int y;
-            if (comp.Compare(jugada,extremos)==1)
+            int y=comp.Compare(jugada,extremos);
+            if (y < 2)
             {
-                return new Tuple<Token, int>(jugada, extremos.ValueItem1);
+                return new Tuple<Token, IComparable>(jugada, extremos[y]);
             }
-            else if (jugada.ValueItem1 == extremos.ValueItem1 || jugada.ValueItem2 == extremos.ValueItem1)
-            {
-                return new Tuple<Token, int>(jugada, extremos.ValueItem1);
-            }
-
-            return new Tuple<Token, int>(jugada, extremos.ValueItem2);
+            return new Tuple<Token, IComparable>(jugada, extremos.ValueItem1);
             //juega protegiendo su data y en caso de que pueda jugar por los 2 extremos jugara para que en ambos
             //extremos este su data
             

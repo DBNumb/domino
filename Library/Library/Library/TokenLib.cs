@@ -11,7 +11,7 @@ public class Token : IToken
         get
         {
             if (index > 1|| index<0) throw new NotImplementedException();
-            if (index == 1) return this.ValueItem1;
+            if (index == 0) return this.ValueItem1;
             else
             {
                 return this.ValueItem2;
@@ -21,8 +21,6 @@ public class Token : IToken
     }
     public IComparable ValueItem1 { get; }
     public IComparable ValueItem2 { get; }
-    public string DescriptionItem1 { get; }
-    public string DescriptionItem2 { get; }
     public Token(IComparable value1, IComparable value2)
     {
         this.ValueItem1 = value1;
@@ -30,7 +28,7 @@ public class Token : IToken
     }
     public virtual string Description()
     {
-        return $"[ {DescriptionItem1}, {DescriptionItem2} ]";
+        return $"[ {ValueItem1.ToString()}, {ValueItem2.ToString()} ]";
     }
 
 
@@ -38,17 +36,18 @@ public class Token : IToken
     public int score { get; }
     
 }
-public class TokenComparer: IComparer<Token>{
-    public int Compare(Token x, Token edges)
+
+public class TokenComparer : IComparer<Token>
+{
+    public int Compare(Token? x, Token? y)
     {
-        if (edges.score == -2) return 1;
-        int count = -1;
+        int count = 0;
         bool[] used = new bool[2];
         for (int i = 0; i < used.Length; i++)
         {
-            for (int j = 0; j < used.Length; j++)
+            for (int j = 0; j < used.Length ; j++)
             {
-                if (x[i] == edges[j]&& !used[j])
+                if (!used[j]&&x[i].CompareTo(y[j])==0)
                 {
                     count++;
                     used[j] = true;
@@ -56,16 +55,25 @@ public class TokenComparer: IComparer<Token>{
             }
         }
 
-        return count;
+        if (count == 0) return -1;
+        if (count == 1)
+        {
+            for (int i = 0; i < used.Length; i++)
+            {
+                if (used[i]) return i;
+            }
+        }
+
+        return 2;
     }
 }
-#region Tokenrule
+    #region Tokenrule
 
 public class NoDoubleRule : ITokenRule
 {
     public bool Apply(IToken x)
     {
-        return x.ValueItem1.CompareTo(x.ValueItem2)==-1 ;
+        return x.ValueItem1.CompareTo(x.ValueItem2)!=0 ;
     }
 }
 
