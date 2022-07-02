@@ -13,7 +13,7 @@ namespace Library
         public override List<Token> PlayerHand { get; }
         
 
-        public override Tuple<Token, int> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
+        public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
         {
           Token jugada;
             List<int> numerosDiferentes = new List<int>();

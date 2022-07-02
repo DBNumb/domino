@@ -12,7 +12,7 @@ namespace Library
 
         public override List<Token> PlayerHand { get; }
 
-        public override Tuple<Token, int> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
+        public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
         {
             //player bota gorda
             Token jugada = posiblesjugadas[0];
@@ -25,20 +25,20 @@ namespace Library
 
             PlayerScore += jugada.score;
 
-            int y = extremos.ValueItem2;
+            IComparable y = extremos.ValueItem2;
             if (comp.Compare(jugada, extremos) == 1)
             {
-                y = Math.Min(extremos.ValueItem1, extremos.ValueItem2);
-                return new Tuple<Token, int>(jugada, extremos.ValueItem1);
+                y = extremos.ValueItem1.CompareTo(extremos.ValueItem2)==-1? extremos.ValueItem1: y;
+                return new Tuple<Token, IComparable>(jugada, extremos.ValueItem1);
             }
 
             if (jugada.ValueItem1 == extremos.ValueItem1 || jugada.ValueItem2 == extremos.ValueItem1)
             {
                 y = extremos.ValueItem1;
-                return new Tuple<Token, int>(jugada, y);
+                return new Tuple<Token, IComparable>(jugada, y);
             }
 
-            return new Tuple<Token, int>(jugada, y);
+            return new Tuple<Token, IComparable>(jugada, y);
 
 
             //bota la ficha mas gorda... en caso de que pueda jugar por ambos extremos juega por

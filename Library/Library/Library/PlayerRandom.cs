@@ -13,7 +13,7 @@ namespace Library
 
         public override List<Token> PlayerHand { get; }
 
-        public override Tuple<Token, int> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
+        public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
         {
             //envia una jugada random de las que se le pasan por parametro
             var randomNumber = new Random(posiblesjugadas.Count);
@@ -23,18 +23,18 @@ namespace Library
             Token jugada = posiblesjugadas[x];
             // int[] indices = {extremo1.value, extremo2.value};
             
-            int y=extremos.ValueItem2;
+            IComparable y=extremos.ValueItem2;
            
             if (comp.Compare(jugada,extremos)==1)
             {
-                return new Tuple<Token, int>(jugada, extremos.ValueItem1);
+                return new Tuple<Token, IComparable>(jugada, extremos.ValueItem1);
             }
             else if (jugada.ValueItem1 == extremos.ValueItem1 || jugada.ValueItem2 == extremos.ValueItem1)
             {
-                return new Tuple<Token, int>(jugada, extremos.ValueItem1);
+                return new Tuple<Token, IComparable>(jugada, extremos.ValueItem1);
             }
 
-            return new Tuple<Token, int>(jugada, extremos.ValueItem2);
+            return new Tuple<Token, IComparable>(jugada, extremos.ValueItem2);
 
             
             //retorna la ficha a jugar y el extremo que jugara al azar en caso de poder jugar por ambos extremos
