@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DominoConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Log.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/DominoConsole/Program.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Bh18Mw1UQg90ur1N7RkXhkfy1m" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -25,6 +32,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="DominoConsole" type="DotNetProject" factoryName=".NET Project">
@@ -49,15 +57,23 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="" />
       <created>1657343352241</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657343352241</updated>
       <workItem from="1657343384243" duration="4000" />
+      <workItem from="1657343560062" duration="64000" />
+      <workItem from="1657343692987" duration="71000" />
+      <workItem from="1657344189880" duration="1151000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
