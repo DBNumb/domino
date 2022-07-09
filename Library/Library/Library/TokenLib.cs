@@ -26,7 +26,7 @@ public class Token : IToken
         this.ValueItem1 = value1;
         this.ValueItem2 = value2;
     }
-    public virtual string Description()
+    public override string ToString()
     {
         return $"[ {ValueItem1.ToString()}, {ValueItem2.ToString()} ]";
     }
@@ -47,7 +47,7 @@ public class TokenComparer : IComparer<Token>
         {
             for (int j = 0; j < used.Length ; j++)
             {
-                if (!used[j]&&x[i].CompareTo(y[j])==0)
+                if (!used[j]&& x[i].CompareTo(y[j])==0)
                 {
                     count++;
                     used[j] = true;

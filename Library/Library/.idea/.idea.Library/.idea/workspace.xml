@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="token rework!part2">
+    <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="token rework!part3">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerPD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerPD.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Log.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/TokenLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +80,8 @@
       <workItem from="1656525909297" duration="1361000" />
       <workItem from="1656712472612" duration="1556000" />
       <workItem from="1656735637333" duration="1086000" />
-      <workItem from="1656772435718" duration="3237000" />
+      <workItem from="1656772435718" duration="3261000" />
+      <workItem from="1656777549150" duration="1147000" />
     </task>
     <task id="LOCAL-00001" summary="Branch DB">
       <created>1654226269889</created>
@@ -229,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656737820785</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="token rework!part3">
+      <created>1656776916049</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1656776916049</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,7 +301,8 @@
     <MESSAGE value="GameStart!!!!2" />
     <MESSAGE value="token rework!part1" />
     <MESSAGE value="token rework!part2" />
-    <option name="LAST_COMMIT_MESSAGE" value="token rework!part2" />
+    <MESSAGE value="token rework!part3" />
+    <option name="LAST_COMMIT_MESSAGE" value="token rework!part3" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

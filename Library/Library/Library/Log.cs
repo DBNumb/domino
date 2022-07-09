@@ -6,7 +6,7 @@ public static class Log
 
     public static void Register(Token play, int player) 
     {
-        log.Add($"Jugador {player} jugó la ficha {play.Description()}");
+        log.Add($"Jugador {player} jugó la ficha {play.ToString()}");
     }
 
     public static void Win(Player x,int playerindex)
