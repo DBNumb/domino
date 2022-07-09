@@ -1,6 +1,7 @@
 ﻿using System.Threading.Channels;
 
 namespace DominoConsole;
+
 public static class Program
 {
     public static void Main(string[] args)
