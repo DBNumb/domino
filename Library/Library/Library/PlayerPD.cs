@@ -22,13 +22,13 @@ namespace Library
 
             for (int i = 0; i< posiblesjugadas.Count; i++) 
             {
-                if (!numerosDiferentes.Contains(posiblesjugadas[i].ValueItem1)) 
+                if (!numerosDiferentes.Contains(posiblesjugadas[i].FaceA)) 
                 {
-                    numerosDiferentes.Add(posiblesjugadas[i].ValueItem1);
+                    numerosDiferentes.Add(posiblesjugadas[i].FaceA);
                 }
-                if (!numerosDiferentes.Contains(posiblesjugadas[i].ValueItem2))
+                if (!numerosDiferentes.Contains(posiblesjugadas[i].FaceB))
                 {
-                    numerosDiferentes.Add(posiblesjugadas[i].ValueItem2);
+                    numerosDiferentes.Add(posiblesjugadas[i].FaceB);
                 }
             }
 
@@ -39,8 +39,8 @@ namespace Library
                 int count = 0;
                 for (int j =0; j< posiblesjugadas.Count; j++) 
                 {
-                    if (numerosDiferentes[i].CompareTo(posiblesjugadas[j].ValueItem1)==0  
-                        || numerosDiferentes[i] .CompareTo( posiblesjugadas[j].ValueItem2)==0) 
+                    if (numerosDiferentes[i].Compare(posiblesjugadas[j].FaceA)==0  
+                        || numerosDiferentes[i] .Compare( posiblesjugadas[j].FaceB)==0) 
                     {
                         count++;
                     }
@@ -52,21 +52,21 @@ namespace Library
 
             for (int i = 0; i < posiblesjugadas.Count; i++) 
             {
-                if (!(posiblesjugadas[i].ValueItem1.CompareTo(data)==0 || posiblesjugadas[i].ValueItem2.CompareTo(data)==0 )) 
+                if (!(posiblesjugadas[i].FaceA.CompareTo(data)==0 || posiblesjugadas[i].FaceB.CompareTo(data)==0 )) 
                 {
                     jugada = posiblesjugadas[i];
                     break;
                 }                
             }
 
-            PlayerScore += jugada.score;
+            PlayerScore += jugada.Score;
            
             int y=comp.Compare(jugada,extremos);
             if (y < 2)
             {
                 return new Tuple<Token, IComparable>(jugada, extremos[y]);
             }
-            return new Tuple<Token, IComparable>(jugada, extremos.ValueItem1);
+            return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
             //juega protegiendo su data y en caso de que pueda jugar por los 2 extremos jugara para que en ambos
             //extremos este su data
             

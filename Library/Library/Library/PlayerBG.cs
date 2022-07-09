@@ -19,22 +19,22 @@ namespace Library
 
             for (int i = 1; i < posiblesjugadas.Count; i++)
             {
-                if (jugada.score < posiblesjugadas[i].score)
+                if (jugada.Score < posiblesjugadas[i].Score)
                     jugada = posiblesjugadas[i];
             }
 
-            PlayerScore += jugada.score;
+            PlayerScore += jugada.Score;
 
-            IComparable y = extremos.ValueItem2;
+            IComparable y = extremos.FaceB;
             if (comp.Compare(jugada, extremos) == 1)
             {
-                y = extremos.ValueItem1.CompareTo(extremos.ValueItem2)==-1? extremos.ValueItem1: y;
-                return new Tuple<Token, IComparable>(jugada, extremos.ValueItem1);
+                y = extremos.FaceA.Compare(extremos.FaceB)==-1? extremos.FaceA: y;
+                return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
             }
 
-            if (jugada.ValueItem1 == extremos.ValueItem1 || jugada.ValueItem2 == extremos.ValueItem1)
+            if (jugada.FaceA == extremos.FaceA || jugada.FaceB == extremos.FaceA)
             {
-                y = extremos.ValueItem1;
+                y = extremos.FaceA;
                 return new Tuple<Token, IComparable>(jugada, y);
             }
 

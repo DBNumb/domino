@@ -4,12 +4,7 @@
     <projectFile>DominoConsole/DominoConsole.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DominoConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,8 +60,16 @@
       <workItem from="1657343384243" duration="4000" />
       <workItem from="1657343560062" duration="64000" />
       <workItem from="1657343692987" duration="71000" />
-      <workItem from="1657344189880" duration="1151000" />
+      <workItem from="1657344189880" duration="1170000" />
     </task>
+    <task id="LOCAL-00001" summary="FirstConsoleSteps">
+      <created>1657345362757</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657345362757</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,7 +78,20 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="FirstConsoleSteps" />
+    <option name="LAST_COMMIT_MESSAGE" value="FirstConsoleSteps" />
   </component>
 </project>

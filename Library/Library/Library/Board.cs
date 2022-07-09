@@ -15,7 +15,7 @@ public class Board
         int count = 0;
         foreach (var token in board)
         {
-            if (value == token.ValueItem1 || value == token.ValueItem2) count++;
+            if (value == token.FaceA || value == token.FaceB) count++;
         }
 
         return count;
@@ -24,7 +24,7 @@ public class Board
     public Token Boardextremes()
     {
         if (board.Count == 0) return new Token(null,null);
-        IComparable begin = board[0].ValueItem1, ending= board[board.Count-1].ValueItem2;
+        IFace begin = board[0].FaceA, ending= board[board.Count-1].FaceB;
         return new Token(begin, ending);
     }
 
@@ -37,9 +37,9 @@ public class Board
             return;
         }
 
-        if (board_Extremes.ValueItem1.CompareTo(play.Item2)==0)
+        if (board_Extremes.FaceA.Compare(play.Item2)==0)
         {
-            if (play.Item1.ValueItem2.CompareTo(board_Extremes.ValueItem1)==0)
+            if (play.Item1.FaceB.Compare(board_Extremes.FaceA)==0)
             {
                 board.Insert(0,play.Item1);
             }
@@ -50,7 +50,7 @@ public class Board
         }
         else
         {
-            if (play.Item1.ValueItem1.CompareTo(board_Extremes.ValueItem2)==0 )
+            if (play.Item1.FaceA.Compare(board_Extremes.FaceB)==0 )
             {
                 board.Insert(board.Count,play.Item1);
             }

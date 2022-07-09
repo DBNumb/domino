@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b413f15-2aa6-4f99-a2d0-1a08d4e6f3b6" name="Changes" comment="fix">
-      <change beforePath="$PROJECT_DIR$/../../Domino Console/DominoConsole/.idea/.idea.DominoConsole/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Domino Console/DominoConsole/.idea/.idea.DominoConsole/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Domino Console/DominoConsole/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Domino Console/DominoConsole/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Domino Console/DominoConsole/DominoConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Domino Console/DominoConsole/DominoConsole/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Library/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Board.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Extensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/GameStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/GameStart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/PlayerBG.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerBG.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/PlayerPD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerPD.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/PlayerRandom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerRandom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/RulesInterfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/RulesInterfaces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Library/TokenLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +35,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/TokenLib.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/57c2d4282221452cad4df86bbd5d6fa0a1fc70/5a/d903883a/IComparer`1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -83,6 +91,7 @@
       <workItem from="1656777549150" duration="1147000" />
       <workItem from="1657343464911" duration="85000" />
       <workItem from="1657344155057" duration="19000" />
+      <workItem from="1657345376810" duration="1974000" />
     </task>
     <task id="LOCAL-00001" summary="Branch DB">
       <created>1654226269889</created>

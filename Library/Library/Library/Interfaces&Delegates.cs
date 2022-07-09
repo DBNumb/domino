@@ -6,31 +6,20 @@ namespace Library;
 #region GenericTokenInterface
 
 public interface IValuable
-{ 
-    public int value { get; }
-    public string  description { get; } 
-        
-}
-
-public class CaradeFicha: IValuable
 {
-    public int value { get; }
-    public string description { get; }
+    public int GetPuntuation();
 
-    public CaradeFicha(int value, string description)
-    {
-        this.value = value;
-        this.description = description;
-    }
+
 }
-public interface IToken 
-{   
-    
-    public IComparable ValueItem1 { get; }
-    public IComparable ValueItem2 { get; }
-    
-    public int score { get; }
-    
+
+public interface IComparable
+{
+    bool CanBeCompare(object other);
+    int Compare(object other);
+}
+public interface IFace: IComparable,IValuable
+{
+    bool CanbeMatch(IFace other);
 }
 
 

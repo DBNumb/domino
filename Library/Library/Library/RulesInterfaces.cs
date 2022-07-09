@@ -2,7 +2,7 @@
 
 public interface ITokenRule 
 {
-    public bool Apply(IToken x);
+    public bool Apply(Token x);
 }
 
 public interface ITurnRule

@@ -3,83 +3,91 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Library;
 
-public class Token : IToken
+public  abstract class Face : IFace
 {
-    
-    public IComparable this[int index]
+
+    public abstract int GetPuntuation();
+  
+    public bool CanbeMatch(IFace other)
     {
-        get
+        if (CanBeCompare(other))
         {
-            if (index > 1|| index<0) throw new NotImplementedException();
-            if (index == 0) return this.ValueItem1;
-            else
-            {
-                return this.ValueItem2;
-            }
+            return this.Compare(other)==0;
         }
+
+        return false;
+    }
+
+    
+
+    public bool CanBeCompare(object other)
+    {
+        return this.GetType() == other.GetType() ;
+    }
+
+    public abstract int Compare(object other);
+}
+
+public class Token
+{
+    public IFace FaceA { get; }
+    public IFace FaceB { get; }
+    public int Score { get; private set; }
+    public Token(IFace a, IFace b)
+    {
+        FaceA = a;
+        FaceB = b;
         
     }
-    public IComparable ValueItem1 { get; }
-    public IComparable ValueItem2 { get; }
-    public Token(IComparable value1, IComparable value2)
+
+    public void Getscore(Func<int, int, int> TokenScore)
     {
-        this.ValueItem1 = value1;
-        this.ValueItem2 = value2;
-    }
-    public override string ToString()
-    {
-        return $"[ {ValueItem1.ToString()}, {ValueItem2.ToString()} ]";
-    }
-
-
-
-    public int score { get; }
-    
-}
-
-public class TokenComparer : IComparer<Token>
-{
-    public int Compare(Token? x, Token? y)
-    {
-        int count = 0;
-        bool[] used = new bool[2];
-        for (int i = 0; i < used.Length; i++)
-        {
-            for (int j = 0; j < used.Length ; j++)
-            {
-                if (!used[j]&& x[i].CompareTo(y[j])==0)
-                {
-                    count++;
-                    used[j] = true;
-                }
-            }
-        }
-
-        if (count == 0) return -1;
-        if (count == 1)
-        {
-            for (int i = 0; i < used.Length; i++)
-            {
-                if (used[i]) return i;
-            }
-        }
-
-        return 2;
+        Score= TokenScore(FaceA.GetPuntuation(), FaceB.GetPuntuation());
     }
 }
+// public class TokenComparer : IComparer<Face>
+// {
+//     public int Compare(Face? x, Face? y)
+//     {
+//         int count = 0;
+//         bool[] used = new bool[2];
+//         for (int i = 0; i < used.Length; i++)
+//         {
+//             for (int j = 0; j < used.Length ; j++)
+//             {
+//                 if (!used[j]&& x[i].CompareTo(y[j])==0)
+//                 {
+//                     count++;
+//                     used[j] = true;
+//                 }
+//             }
+//         }
+//
+//         if (count == 0) return -1;
+//         if (count == 1)
+//         {
+//             for (int i = 0; i < used.Length; i++)
+//             {
+//                 if (used[i]) return i;
+//             }
+//         }
+//
+//         return 2;
+//     }
+// }
     #region Tokenrule
 
 public class NoDoubleRule : ITokenRule
 {
-    public bool Apply(IToken x)
+    public bool Apply(Token x)
     {
-        return x.ValueItem1.CompareTo(x.ValueItem2)!=0 ;
+        return x.FaceA.Compare(x.FaceB)!=0 ;
     }
 }
 
 public class DefaultTokeRule : ITokenRule
 {
-    public bool Apply(IToken x)
+    public bool Apply(Token x)
     {
         return true;
     }

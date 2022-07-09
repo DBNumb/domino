@@ -18,23 +18,23 @@ namespace Library
             //envia una jugada random de las que se le pasan por parametro
             var randomNumber = new Random(posiblesjugadas.Count);
             int x = randomNumber.Next(0, posiblesjugadas.Count);
-            PlayerScore += posiblesjugadas[x].score;
+            PlayerScore += posiblesjugadas[x].Score;
 
             Token jugada = posiblesjugadas[x];
             // int[] indices = {extremo1.value, extremo2.value};
             
-            IComparable y=extremos.ValueItem2;
+            IComparable y=extremos.FaceB;
            
             if (comp.Compare(jugada,extremos)==1)
             {
-                return new Tuple<Token, IComparable>(jugada, extremos.ValueItem1);
+                return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
             }
-            else if (jugada.ValueItem1 == extremos.ValueItem1 || jugada.ValueItem2 == extremos.ValueItem1)
+            else if (jugada.FaceA == extremos.FaceA || jugada.FaceB == extremos.FaceA)
             {
-                return new Tuple<Token, IComparable>(jugada, extremos.ValueItem1);
+                return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
             }
 
-            return new Tuple<Token, IComparable>(jugada, extremos.ValueItem2);
+            return new Tuple<Token, IComparable>(jugada, extremos.FaceB);
 
             
             //retorna la ficha a jugar y el extremo que jugara al azar en caso de poder jugar por ambos extremos

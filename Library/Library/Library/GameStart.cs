@@ -65,7 +65,7 @@ public class GameStart
                     int aux = 0;
                     for (int k = 0; k< player[j].PlayerHand.Count; k++) 
                     {
-                        aux += player[j].PlayerHand[k].score; 
+                        aux += player[j].PlayerHand[k].Score; 
                     }
                     totalScoreHand[i] = aux;
                 }
