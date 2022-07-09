@@ -13,7 +13,7 @@ namespace Library
 
         public override List<Token> PlayerHand { get; }
 
-        public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
+        public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos)
         {
             //envia una jugada random de las que se le pasan por parametro
             var randomNumber = new Random(posiblesjugadas.Count);
@@ -25,15 +25,23 @@ namespace Library
             
             IComparable y=extremos.FaceB;
            
-            if (comp.Compare(jugada,extremos)==1)
+            if ((jugada.FaceA.Compare(extremos.FaceA) == 0 || jugada.FaceA.Compare(extremos.FaceB) == 0) &&
+                (jugada.FaceB.Compare(extremos.FaceA) == 0 || jugada.FaceB.Compare(extremos.FaceB) == 0))
             {
+                //caso en que la ficha se puede jugar por cualquier extremo
+                IComparable[] facesExtremes = {extremos.FaceA, extremos.FaceB};
+                var randomFace = new Random(facesExtremes.Length);
+                int xd = randomFace.Next(0, facesExtremes.Length);
+                IComparable face = facesExtremes[xd];
+               
+                return new Tuple<Token, IComparable>(jugada, face);
+            }
+            else if (jugada.FaceA.Equals(extremos.FaceA) || jugada.FaceB.Equals(extremos.FaceA))
+            {
+                //caso en el que solo se puede jugar por el extremo A
                 return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
             }
-            else if (jugada.FaceA == extremos.FaceA || jugada.FaceB == extremos.FaceA)
-            {
-                return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
-            }
-
+            //caso en el que solo se puede jugar por el extremo B
             return new Tuple<Token, IComparable>(jugada, extremos.FaceB);
 
             
