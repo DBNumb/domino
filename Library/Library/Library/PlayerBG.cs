@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class PlayerBG : Player
+    public class PlayerBG : Player
     {
         public override int PlayerScore { get; protected set; } = 0;
 

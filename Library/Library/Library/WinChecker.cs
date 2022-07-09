@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class PlayerChecker : IChecker<Player[]>
+   public class PlayerChecker : IChecker<Player[]>
     {
         
 
