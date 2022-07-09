@@ -13,46 +13,57 @@ namespace Library
         public override List<Token> PlayerHand { get; }
         
 
-        public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos, IComparer<Token> comp)
+        public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos)
         {
-          Token jugada;
-            List<IComparable> numerosDiferentes = new List<IComparable>();
+            Token jugada;
+            List<IComparable> carasDiferentes = new List<IComparable>();
 
             jugada = posiblesjugadas[0];//esto es para q no me marque error en el return....
 
             for (int i = 0; i< posiblesjugadas.Count; i++) 
             {
-                if (!numerosDiferentes.Contains(posiblesjugadas[i].FaceA)) 
+                if (!carasDiferentes.Contains(posiblesjugadas[i].FaceA)) 
                 {
-                    numerosDiferentes.Add(posiblesjugadas[i].FaceA);
+                    carasDiferentes.Add(posiblesjugadas[i].FaceA);
                 }
-                if (!numerosDiferentes.Contains(posiblesjugadas[i].FaceB))
+                if (!carasDiferentes.Contains(posiblesjugadas[i].FaceB))
                 {
-                    numerosDiferentes.Add(posiblesjugadas[i].FaceB);
+                    carasDiferentes.Add(posiblesjugadas[i].FaceB);
                 }
             }
 
-            int[] repeticionesPorNumero = new int[numerosDiferentes.Count];
+            int[] repeticionesPorCara = new int[carasDiferentes.Count];
 
-            for (int i = 0; i< numerosDiferentes.Count; i++) 
+            for (int i = 0; i< carasDiferentes.Count; i++) 
             {
                 int count = 0;
                 for (int j =0; j< posiblesjugadas.Count; j++) 
                 {
-                    if (numerosDiferentes[i].Compare(posiblesjugadas[j].FaceA)==0  
-                        || numerosDiferentes[i] .Compare( posiblesjugadas[j].FaceB)==0) 
+                    if (carasDiferentes[i].Compare(posiblesjugadas[j].FaceA)==0  
+                        || carasDiferentes[i] .Compare( posiblesjugadas[j].FaceB)==0) 
                     {
                         count++;
                     }
                 }
-                repeticionesPorNumero[i] = count;
+                repeticionesPorCara[i] = count;
             }
 
-            IComparable data = repeticionesPorNumero.ToList().IndexOf(repeticionesPorNumero.Max());
+            int xd = 0;
+            for (int i = 0; i< repeticionesPorCara.Length; i++) 
+            {
+                if (repeticionesPorCara[i] == repeticionesPorCara.Max())
+                {
+                    xd = i;
+                    break;
+                }
+            }
+
+            IComparable data = carasDiferentes[xd];
+           
 
             for (int i = 0; i < posiblesjugadas.Count; i++) 
             {
-                if (!(posiblesjugadas[i].FaceA.CompareTo(data)==0 || posiblesjugadas[i].FaceB.CompareTo(data)==0 )) 
+                if (!(posiblesjugadas[i].FaceA.Compare(data)==0 || posiblesjugadas[i].FaceB.Compare(data)==0 )) 
                 {
                     jugada = posiblesjugadas[i];
                     break;
@@ -60,16 +71,26 @@ namespace Library
             }
 
             PlayerScore += jugada.Score;
-           
-            int y=comp.Compare(jugada,extremos);
-            if (y < 2)
+
+            if ((jugada.FaceA.Compare(extremos.FaceA) == 0 || jugada.FaceA.Compare(extremos.FaceB) == 0) &&
+               (jugada.FaceB.Compare(extremos.FaceA) == 0 || jugada.FaceB.Compare(extremos.FaceB) == 0))
             {
-                return new Tuple<Token, IComparable>(jugada, extremos[y]);
+                //caso en que la ficha se puede jugar por cualquier extremo
+
+                if (extremos.FaceA.Compare(data) == 0) return new Tuple<Token, IComparable>(jugada, extremos.FaceB);
+                return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
             }
-            return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
+            else if (jugada.FaceA.Equals(extremos.FaceA) || jugada.FaceB.Equals(extremos.FaceA))
+            {
+                //caso en el que solo se puede jugar por el extremo A
+                return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
+            }
+            //caso en el que solo se puede jugar por el extremo B
+            return new Tuple<Token, IComparable>(jugada, extremos.FaceB);
+
             //juega protegiendo su data y en caso de que pueda jugar por los 2 extremos jugara para que en ambos
             //extremos este su data
-            
+
         }
     }
 }
