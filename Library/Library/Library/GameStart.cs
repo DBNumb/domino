@@ -11,31 +11,14 @@ public class GameStart
     private IComparer<Token> _comparer;
     
 
-    public GameStart(Player[] players, ITokenRule tokenRule, ITurnRule turnRule,List<IComparable> valuables,IComparer<Token> comp)
+    public GameStart(Player[] players, ITokenRule tokenRule, ITurnRule turnRule, List<Token> Deck, int numberofgames)
     {
         this.players = players;
         TurnRule = turnRule;
         TokenRule = tokenRule;
-        domain = CreateDeck(valuables, tokenRule);
+        
     }
-
-    private List<Token> CreateDeck(List<IComparable> valuables, ITokenRule tokenRule)
-    {
-        List<Token> result = new List<Token>();
-        foreach (var valuable1 in valuables)
-        {
-            foreach (var valuable2 in valuables)
-            {
-                Token aux = new Token(valuable1, valuable2);
-                if (tokenRule.Apply(aux))
-                {
-                    result.Add(aux);
-                }
-            }
-        }
-
-        return result;
-    }
+    
 
     public void Play(Player[] player, IChecker<Player[]> checker)
     {

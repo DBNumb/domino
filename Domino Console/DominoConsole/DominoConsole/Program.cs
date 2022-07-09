@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Collections;
+using System.Linq.Expressions;
 using System.Threading.Channels;
 using Library;
 
@@ -6,40 +7,39 @@ namespace DominoConsole;
 
 public static class Program
 {
+    public static Predicate<int> WinPredicate;
     public static Func<string, int> parser = s => Utils.TryParser(s);
     public static Action<string> Attach = s => Console.Write(s);
     public static Action<string> Show = s => Console.WriteLine(s);
     public static ITurnRule TurnRule = new ClassicTurn();
-    public static IChecker<Player[]> wincondition = new PlayerChecker();
+    public static IChecker<Player[]> defaultwincondition = new PlayerChecker();
     public static ITokenRule TokenRule = new DefaultTokeRule();
     public static Player[] Players;
+   public static  IntegerDeck defaultdeck= new IntegerDeck(TokenRule,9);
     
     public static void Main(string[] args)
     {
-        IDeck deck;
+        object wincondition = defaultwincondition;
+        Board board = new Board();
+        IDeck deck = defaultdeck;
         bool menuout = false;
-        Show("Escoja con qué fichas quiere jugar: ");
-        Show("1- Colores:");
-        Show("2- Números:");
-        int Tokenoption = 0;
-        while (Tokenoption<=0|| Tokenoption>2)
-        {
-            Tokenoption = parser(Console.ReadLine());
-            
-        }
+        int numberofgames = 0;
         
         Console.Clear();
-        Show(
-            "Elija qué variaciónes quiere adicionar al juego en caso de qué no elija alguna\nse usaran la clásica ");
-        Show("1- Regla de Turnos");
-        Show("2- Regla de fichas");
-        Show("3- Cantidad y Tipos de jugadores");
-        Show("4- Regla de ganar: ");
-        Show("5- Continuar: ");
-        Show("6- Salir: ");
+       
 
         while (!menuout)
         {
+            
+            Show(
+                "Elija qué variaciónes quiere adicionar al juego en caso de qué no elija alguna\nse usaran la clásica ");
+            Show("1- Regla de Turnos");
+            Show("2- Regla de fichas");
+            Show("3- Cantidad y Tipos de jugadores");
+            Show("4- Regla de ganar: ");
+            Show("5-Cantidad de juegos");
+            Show("- Continuar: ");
+            Show("- Salir: ");
             int option = parser(Console.ReadLine());
             if (option <= 0 || option > 6) continue;
             Console.Clear();
@@ -50,12 +50,57 @@ public static class Program
                     break;
                 case 2:
                 {
-                    
+                    TokenRule = Optionwheel.TokenRule();
+                    deck = Optionwheel.TokenDeck(TokenRule);
                     break;
                 }
                 case 3:
                     Players = Optionwheel.CreatePlayers();
                     break;
+                case 4:
+                {
+                    int win = 0;
+                    Show("Defina la regla de ganar: ");
+                    Show("1-Se pegó un jugador: ");
+                    Show("2-El jugador que mayor puntuacion haya obtenido después que uno se pegó");
+                    while (win<=0)
+                    {
+                        win = parser(Console.ReadLine());
+                    }
+
+                    switch (win)
+                    {   case 1:
+                            //NI IDEAAAAAAAAAAAAAAA
+                             break;
+                        case 2:
+                        {
+                            //;
+                            
+                            break;
+                        }
+                    }
+                    break;
+                }
+                case 5:
+                {
+                    
+                    Show("Defina la cantidad de juegos: ");
+                    while (numberofgames<=0)
+                    {
+                        numberofgames = parser(Console.ReadLine());
+                    }
+                    break;
+                }
+                case 6:
+                {
+                    GameStart game = new GameStart(Players, TokenRule, TurnRule, deck.deck,numberofgames);
+                    break;
+                }
+                case 7:
+                {
+                    menuout = true;
+                    break;
+                }
             }
         }
     }
@@ -65,8 +110,8 @@ static class Optionwheel
 {
     public static ITurnRule Turn()
     {
-        Console.WriteLine("1- Cada vez que un jugador se pase cambia el sentido.");
-        Console.WriteLine("2- Regla clásica");
+        Program.Show("1- Cada vez que un jugador se pase cambia el sentido.");
+        Program.Show("2- Regla clásica");
         int option = 0;
         while (option <= 0 || option > 2)
         {
@@ -80,11 +125,18 @@ static class Optionwheel
         }
     }
 
+    public static IChecker<T> wincondition<T>(T obj)
+    {
+        if (obj is Player[])
+        {
+            return new PlayerChecker();
+        }
+    }
     public static ITokenRule TokenRule()
     {
         int option = 0;
-        Console.WriteLine("1- Sin dobles: ");
-        Console.WriteLine("2- Regla clásica");
+        Program.Show("1- Sin dobles: ");
+        Program.Show("2- Regla clásica");
 
         while (option <= 0 || option > 2)
         {
@@ -137,6 +189,43 @@ static class Optionwheel
 
         return players;
     }
+
+    #region Tokens
+
+    public static IDeck TokenDeck(ITokenRule rule)
+    {
+        Program.Show("Escoja con qué fichas quiere jugar: ");
+        Program.Show("1- Colores:");
+        Program.Show("2- Números:");
+        int option = 0;
+        while (option <= 0 || option > 2)
+        {
+            option = Program.parser(Console.ReadLine());
+        }
+        Console.Clear();
+        switch (option)
+        {
+            case 1:
+            {//IMPLEMENTAR ESTO
+                break;
+            }
+            case 2:
+            {
+                option = -1;
+                Program.Show("Defina el máximo de fichas: ");
+                while (option<0)
+                {
+                    option = Program.parser(Console.ReadLine());
+                }
+
+                return new IntegerDeck(rule, option);
+                
+            }
+        }
+
+        return Program.defaultdeck;
+    }
+    #endregion
 }
 
 static class Utils

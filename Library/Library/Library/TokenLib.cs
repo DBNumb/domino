@@ -37,7 +37,6 @@ public class Token
     {
         FaceA = a;
         FaceB = b;
-        
     }
 
     public void Getscore(Func<int, int, int> TokenScore)

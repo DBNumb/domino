@@ -8,8 +8,6 @@ namespace Library
 {
    public class PlayerChecker : IChecker<Player[]>
     {
-        
-
         public int Win(Player[] player)
         {
             foreach (var p in player) 
@@ -20,7 +18,7 @@ namespace Library
             return -1;
         }
     }
-    class CheckerBoard : IChecker<Board>
+    public class CheckerBoard : IChecker<Board>
     {
         public int Win(Board board)
         {
