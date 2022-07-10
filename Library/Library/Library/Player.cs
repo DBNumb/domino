@@ -15,7 +15,7 @@ namespace Library
         public List<Token> PosiblesJugadas(List<Token> playerHand, Token extremos) 
         {
             List<Token> result = new List<Token>();
-            foreach (Token t in playerHand)
+            foreach (var t in playerHand)
             {
                 if (t.FaceA.Compare(extremos.FaceA) == 0 || t.FaceB.Compare(extremos.FaceA) == 0 ||
                     t.FaceA.Compare(extremos.FaceB) == 0 || t.FaceB.Compare(extremos.FaceB) == 0)
