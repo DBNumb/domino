@@ -8,8 +8,6 @@ namespace Library;
 public interface IValuable
 {
     public int GetPuntuation();
-
-
 }
 
 public interface IComparable

@@ -33,7 +33,7 @@ public class GameStart
             if (_canPlay.Apply(player[i].PlayerHand, _board.Boardextremes(), _comparer))
             {
                 consecutivesKnocks = 0;
-                _board.Insert(player[i].Juega(_canPlay.posiblesjugadas, _board.Boardextremes(), _comparer));
+                _board.Insert(player[i].Juega(_canPlay.posiblesjugadas, _board.Boardextremes()));
             }
             else
             {
@@ -43,30 +43,43 @@ public class GameStart
 
             if (consecutivesKnocks == player.Length - 1)
             {
-                for (int j = 0; j< player.Length; j++) 
-                {
-                    int aux = 0;
-                    for (int k = 0; k< player[j].PlayerHand.Count; k++) 
-                    {
-                        aux += player[j].PlayerHand[k].Score; 
-                    }
-                    totalScoreHand[i] = aux;
-                }
-                
-                int x = totalScoreHand.Min();
-                
-                
-                for (int j = 0; j < player.Length; j++) 
-                {
-                    if (x == totalScoreHand[j])playerWinner = j ;
-                }
-                //que pasa si hay 2 jugadores de diferentes equipos con el mismo totalScoreHand?
-                break;//.......
+                playerWinner = DrawWinner(player, totalScoreHand);
+                break;
             }
             
             i++;
         } while (checker.Win(player) == -1);
         playerWinner = i;
         //...................
+    }
+
+    private int DrawWinner(Player[] player, int[] totalScoreHand) 
+    {
+        int playerWinner = -1;//para q no de error el return
+        for (int j = 0; j < player.Length; j++)
+        {
+            int aux = 0;
+            for (int k = 0; k < player[j].PlayerHand.Count; k++)
+            {
+                aux += player[j].PlayerHand[k].Score;
+            }
+            totalScoreHand[j] = aux;
+        }
+
+        int x = totalScoreHand.Min();
+
+        int count = 0;
+        for (int j = 0; j < player.Length; j++)
+        {
+            if (x == totalScoreHand[j]) 
+            {
+                playerWinner = j;
+                count++;
+            }
+        }
+
+        if (count > 1) return -1;
+        //en caso de haber mas de 1 jugador con el mismo score entonces se empato el juego y hay que repetirlo
+        return playerWinner;
     }
 }
