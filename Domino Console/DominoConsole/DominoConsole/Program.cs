@@ -46,17 +46,21 @@ public static class Program
             switch (option)
             {
                 case 1:
-                    TurnRule = Optionwheel.Turn();
-                    break;
+                {
+                        TurnRule = Optionwheel.Turn();
+                        break;
+                }
                 case 2:
                 {
-                    TokenRule = Optionwheel.TokenRule();
-                    deck = Optionwheel.TokenDeck(TokenRule);
-                    break;
+                        TokenRule = Optionwheel.TokenRule();
+                        deck = Optionwheel.TokenDeck(TokenRule);
+                        break;
                 }
                 case 3:
-                    Players = Optionwheel.CreatePlayers();
-                    break;
+                {
+                        Players = Optionwheel.CreatePlayers();
+                        break;
+                }                    
                 case 4:
                 {
                     int win = 0;
