@@ -11,15 +11,26 @@ public static class Program
     public static Action<string> Show = s => Console.WriteLine(s);
     public static Action<string> Attach = s => Console.Write(s);
     public static ITurnRule TurnRule = new ClassicTurn();
-    public static IChecker<Player[]> defaultwincondition = new PlayerChecker();
     public static ITokenRule TokenRule = new DefaultTokeRule();
     public static Player[] Players;
     public static IntegerDeck defaultdeck = new IntegerDeck(TokenRule, 9);
-    // public static IWin<Player[]> Player_Wincondition=checker =>PlayerChecker(checker) ;
+    public static Team[] Teams;
+    public static bool getout = false;
+
+    public static IGameBreak BreakRule = new PlayerFinish();
+        // public static IWin<Player[]> Player_Wincondition=checker =>PlayerChecker(checker) ;
 
     public static void Main(string[] args)
     {
         MenuWheel.Menu();
+        if (getout)
+        {
+            
+        }
+        else
+        {
+            
+        }
     }
 }
 
@@ -39,7 +50,7 @@ static class MenuWheel
 
 
         while (!menuout)
-        {
+        { Console.Clear();
             Show(
                 "Elija qué variaciónes quiere adicionar al juego en caso de qué no elija alguna\nse usaran la clásica ");
             Show("1- Regla de Turnos");
@@ -50,7 +61,7 @@ static class MenuWheel
             Show("- Continuar: ");
             Show("- Salir: ");
             int option = parser(Console.ReadLine());
-            if (option <= 0 || option > 6) continue;
+            // if (option <= 0 || option > 6) continue;
             Console.Clear();
             switch (option)
             {
@@ -70,30 +81,49 @@ static class MenuWheel
                     Program.Players = Optionwheel.CreatePlayers();
                     break;
                 }
-                // case 4:
-                // {
-                //     int win = 0;
-                //     Show("Defina la regla de ganar: ");
-                //     Show("1-Se pegó un jugador: ");
-                //     Show("2-El jugador que mayor puntuacion haya obtenido después que uno se pegó");
-                //     while (win<=0)
-                //     {
-                //         win = parser(Console.ReadLine());
-                //     }
-                //
-                //     switch (win)
-                //     {   case 1:
-                //             //NI IDEAAAAAAAAAAAAAAA
-                //              break;
-                //         case 2:
-                //         {
-                //             //;
-                //             
-                //             break;
-                //         }
-                //     }
-                //     break;
-                // }
+                case 4:
+                {
+                    int win = 0;
+                    Show("Defina la regla de ganar: ");
+                    Show("1-Se pegó un jugador: ");
+                    Show("2-El jugador que mayor puntuacion haya obtenido despúes de 20 jugadas");
+                    while (true)
+                    {win = parser(Console.ReadLine());
+                        if (win <= 0)
+                        {
+                            Show("Debe Introducir un número válido: ");
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                
+                    switch (win)
+                    {   case 1:
+                            Program.BreakRule = new PlayerFinish();
+                             break;
+                        case 2:
+                        {
+                            Show("Defina hasta cuántas jugadas: ");
+                           
+                            while (true)
+                            { win = parser(Console.ReadLine());
+                                if (win <= 0)
+                                {
+                                    Show("Debe introducir un número válido");
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            Program.BreakRule = new PlayFinish(win);
+                            break;
+                        }
+                    }
+                    break;
+                }
                 case 5:
                 {
                     Show("Defina la cantidad de juegos: ");
@@ -106,12 +136,13 @@ static class MenuWheel
                 }
                 case 6:
                 {
-                    GameStart game = new GameStart(Program.Players, Program.TokenRule, Program.TurnRule, deck.deck,
+                    GameComponents game = new GameComponents(Program.Players, Program.TokenRule, Program.TurnRule, deck.deck,
                         numberofgames);
                     break;
                 }
                 case 7:
                 {
+                    Program.getout = true;
                     menuout = true;
                     break;
                 }

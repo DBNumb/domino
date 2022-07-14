@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/GameStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/WinChecker.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +32,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Bh18Mw1UQg90ur1N7RkXhkfy1m" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -46,11 +49,11 @@
   </component>
   <component name="RunManager">
     <configuration name="DominoConsole" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/DominoConsole/bin/Debug/net6.0/DominoConsole.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DominoConsole/bin/Debug/net6.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="1" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/DominoConsole/DominoConsole.csproj" />
@@ -58,7 +61,7 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
-      <option name="PROJECT_TFM" value="" />
+      <option name="PROJECT_TFM" value="net6.0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -80,7 +83,8 @@
       <workItem from="1657382668787" duration="14344000" />
       <workItem from="1657486913910" duration="605000" />
       <workItem from="1657751796189" duration="369000" />
-      <workItem from="1657771391218" duration="3474000" />
+      <workItem from="1657771391218" duration="3516000" />
+      <workItem from="1657817542737" duration="9258000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -110,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657406850325</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="new class menu and some fixes">
+      <created>1657774960524</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657774960524</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +147,39 @@
     <MESSAGE value="adding library reference to main project" />
     <MESSAGE value="Implementation of DominoConsole. Part1" />
     <MESSAGE value="Console interface part2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Console interface part2" />
+    <MESSAGE value="new class menu and some fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="new class menu and some fixes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DominoConsole/Program.cs</url>
+          <line>52</line>
+          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Domino Console\DominoConsole\DominoConsole\Program.cs" initialLine="51" containingFunctionPresentation="method 'Menu'">
+            <startOffsets>
+              <option value="1455" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1456" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DominoConsole/Program.cs</url>
+          <line>140</line>
+          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Domino Console\DominoConsole\DominoConsole\Program.cs" initialLine="124" containingFunctionPresentation="method 'Menu'">
+            <startOffsets>
+              <option value="4753" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4775" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

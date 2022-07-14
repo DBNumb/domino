@@ -1,17 +1,17 @@
 ﻿namespace Library;
 
-public class GameStart
+public class GameComponents
 {
-    private Board _board = new Board();
+    public Board _board = new Board();
     private ITokenRule TokenRule;
     private ITurnRule TurnRule;
-    private Player[] players;
+    public Player[] players { get; }
     private CanPlay _canPlay = new CanPlay();
     private List<Token> domain;
     private IComparer<Token> _comparer;
     
 
-    public GameStart(Player[] players, ITokenRule tokenRule, ITurnRule turnRule, List<Token> Deck, int numberofgames)
+    public GameComponents(Player[] players, ITokenRule tokenRule, ITurnRule turnRule, List<Token> Deck, int numberofgames)
     {
         this.players = players;
         TurnRule = turnRule;
@@ -54,7 +54,7 @@ public class GameStart
     }
 
     private int DrawWinner(Player[] player, int[] totalScoreHand) 
-    {
+    { 
         int playerWinner = -1;//para q no de error el return
         for (int j = 0; j < player.Length; j++)
         {
