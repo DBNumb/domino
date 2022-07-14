@@ -5,17 +5,27 @@ namespace Library;
 
 #region GenericTokenInterface
 
-public interface IValuable
+public interface IPuntuable
 {
     public int GetPuntuation();
 }
 
+public delegate bool IWin<T>(T checker);
 public interface IComparable
 {
     bool CanBeCompare(object other);
     int Compare(object other);
 }
-public interface IFace: IComparable,IValuable
+
+#region SelectionRule NOT YEEEET!!!!!
+//permite a un jugador volver a seleccionar fichas acorde a la regla de selección del jugador
+public delegate List<Token> Reselect(ReselectRule rule);
+public interface ReselectRule
+{
+    public void RemoveSelection(List<Token> PlayerHand);
+}
+#endregion
+public interface IFace: IComparable,IPuntuable
 {
     bool CanbeMatch(IFace other);
 }
