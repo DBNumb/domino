@@ -7,10 +7,8 @@
     <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/GameStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/WinChecker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +82,8 @@
       <workItem from="1657486913910" duration="605000" />
       <workItem from="1657751796189" duration="369000" />
       <workItem from="1657771391218" duration="3516000" />
-      <workItem from="1657817542737" duration="9258000" />
+      <workItem from="1657817542737" duration="9666000" />
+      <workItem from="1657836284037" duration="3422000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -121,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657774960524</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finishing:)">
+      <created>1657833321674</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657833321674</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,38 +154,7 @@
     <MESSAGE value="Implementation of DominoConsole. Part1" />
     <MESSAGE value="Console interface part2" />
     <MESSAGE value="new class menu and some fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="new class menu and some fixes" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DominoConsole/Program.cs</url>
-          <line>52</line>
-          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Domino Console\DominoConsole\DominoConsole\Program.cs" initialLine="51" containingFunctionPresentation="method 'Menu'">
-            <startOffsets>
-              <option value="1455" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1456" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DominoConsole/Program.cs</url>
-          <line>140</line>
-          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Domino Console\DominoConsole\DominoConsole\Program.cs" initialLine="124" containingFunctionPresentation="method 'Menu'">
-            <startOffsets>
-              <option value="4753" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4775" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Finishing:)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finishing:)" />
   </component>
 </project>
