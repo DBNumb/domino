@@ -264,15 +264,8 @@ static class Optionwheel
         {
             case 1:
             {
-                    //Revisar.....
-                    option = -1;
-                    Program.Show("Defina el máximo de fichas hasta el 12: ");
-                    while (option < 0)
-                    {
-                        option = Program.parser(Console.ReadLine());
-                    }
-
-                    return new ColorsDeck(rule, option);
+                //IMPLEMENTAR ESTO
+                break;
             }
             case 2:
             {
