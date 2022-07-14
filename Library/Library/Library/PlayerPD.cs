@@ -9,12 +9,15 @@ namespace Library
    public class PlayerPD : Player
     {
         //player protege data
+       
         public override int PlayerScore { get; protected set; } = 0;
         public override List<Token> PlayerHand { get; }
         
 
         public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos)
         {
+            if (posiblesjugadas == null) return null;
+
             Token jugada;
             List<IComparable> carasDiferentes = new List<IComparable>();
 

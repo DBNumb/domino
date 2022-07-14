@@ -15,6 +15,9 @@ namespace Library
         public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos)
         {
             //player bota gorda
+
+            if (posiblesjugadas == null) return null;
+
             Token jugada = posiblesjugadas[0];
 
             for (int i = 1; i < posiblesjugadas.Count; i++)

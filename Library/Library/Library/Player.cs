@@ -24,6 +24,7 @@ namespace Library
                 }
             }
 
+            if (result.Count == 0) return null;
             return result;
         }
     }
