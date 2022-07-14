@@ -58,12 +58,8 @@ public class GameComponents
         int playerWinner = -1;//para q no de error el return
         for (int j = 0; j < player.Length; j++)
         {
-            int aux = 0;
-            for (int k = 0; k < player[j].PlayerHand.Count; k++)
-            {
-                aux += player[j].PlayerHand[k].Score;
-            }
-            totalScoreHand[j] = aux;
+            
+            totalScoreHand[j] = player[j].PlayerHandScore();
         }
 
         int x = totalScoreHand.Min();

@@ -219,7 +219,7 @@ public class ColorsDeck : IDeck
     private void GenerateDeck(ITokenRule rule, int max)
     {
         Color[] colorsSelected = new Color[max];
-        Array.Copy(colors, colorsSelected, max);//estara bien asi???
+        Array.Copy(colors, colorsSelected, max);
         
         for (int i = 0; i <= max; i++)
         {
