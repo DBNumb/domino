@@ -95,36 +95,6 @@ public class Color: Face
     //los codigos rgb no pueden ser menores de 0 ni mayores de 255
 
 }
-// public class TokenComparer : IComparer<Face>
-// {
-//     public int Compare(Face? x, Face? y)
-//     {
-//         int count = 0;
-//         bool[] used = new bool[2];
-//         for (int i = 0; i < used.Length; i++)
-//         {
-//             for (int j = 0; j < used.Length ; j++)
-//             {
-//                 if (!used[j]&& x[i].CompareTo(y[j])==0)
-//                 {
-//                     count++;
-//                     used[j] = true;
-//                 }
-//             }
-//         }
-//
-//         if (count == 0) return -1;
-//         if (count == 1)
-//         {
-//             for (int i = 0; i < used.Length; i++)
-//             {
-//                 if (used[i]) return i;
-//             }
-//         }
-//
-//         return 2;
-//     }
-// }
 #region Tokenrule
 
 public class NoDoubleRule : ITokenRule

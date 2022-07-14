@@ -9,14 +9,14 @@ public class GameComponents
     private CanPlay _canPlay = new CanPlay();
     private List<Token> domain;
     private IComparer<Token> _comparer;
-    
+    public int numberofgames;
 
     public GameComponents(Player[] players, ITokenRule tokenRule, ITurnRule turnRule, List<Token> Deck, int numberofgames)
     {
         this.players = players;
         TurnRule = turnRule;
         TokenRule = tokenRule;
-        
+        this.numberofgames = numberofgames;
     }
     
 
