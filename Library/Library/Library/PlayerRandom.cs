@@ -16,6 +16,10 @@ namespace Library
         public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos)
         {
             //envia una jugada random de las que se le pasan por parametro
+            
+            if (posiblesjugadas == null) return null;
+            //si no hay posibles jugadas no puede jugar
+            
             var randomNumber = new Random(posiblesjugadas.Count);
             int x = randomNumber.Next(0, posiblesjugadas.Count);
             PlayerScore += posiblesjugadas[x].Score;
