@@ -71,8 +71,8 @@ public class Color: Face
     }
     public override int Compare(Object other)
     {
-        if (this.decimalCode < other.decimalCode) return -1;
-        else if (this.decimalCode == other.decimalCode) return 0;
+        if (this.decimalCode < ((Color)other).decimalCode) return -1;
+        else if (this.decimalCode == ((Color)other).decimalCode) return 0;
         return 1;
     }
 

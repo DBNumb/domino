@@ -4,13 +4,12 @@
     <projectFile>DominoConsole/DominoConsole.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="Implementation of DominoConsole. Part1">
+    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/GameStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/GameStart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/WinChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/WinChecker.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -77,7 +77,10 @@
       <workItem from="1657343692987" duration="71000" />
       <workItem from="1657344189880" duration="1170000" />
       <workItem from="1657379269761" duration="205000" />
-      <workItem from="1657382668787" duration="13996000" />
+      <workItem from="1657382668787" duration="14344000" />
+      <workItem from="1657486913910" duration="605000" />
+      <workItem from="1657751796189" duration="369000" />
+      <workItem from="1657771391218" duration="3474000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -100,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657396161707</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Console interface part2">
+      <created>1657406850325</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657406850325</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +135,7 @@
     <MESSAGE value="FirstConsoleSteps" />
     <MESSAGE value="adding library reference to main project" />
     <MESSAGE value="Implementation of DominoConsole. Part1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of DominoConsole. Part1" />
+    <MESSAGE value="Console interface part2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Console interface part2" />
   </component>
 </project>
