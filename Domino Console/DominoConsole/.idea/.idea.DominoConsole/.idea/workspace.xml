@@ -4,11 +4,14 @@
     <projectFile>DominoConsole/DominoConsole.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="">
+    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="Winners">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DominoConsole/OptionWheel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/OptionWheel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DominoConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Teams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Teams.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Winner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Winner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +30,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Domino Console/DominoConsole/DominoConsole/Especific_Implementations.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DominoConsole/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -95,7 +99,7 @@
       <workItem from="1657881673895" duration="17000" />
       <workItem from="1657898533679" duration="3792000" />
       <workItem from="1657907229509" duration="9231000" />
-      <workItem from="1657922297625" duration="3479000" />
+      <workItem from="1657922297625" duration="6510000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -216,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657920036355</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Winners">
+      <created>1657926369254</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1657926369254</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +266,8 @@
     <MESSAGE value="Changing colors" />
     <MESSAGE value="Separating" />
     <MESSAGE value="Merging" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merging" />
+    <MESSAGE value="Winners" />
+    <option name="LAST_COMMIT_MESSAGE" value="Winners" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -286,12 +298,20 @@
           </properties>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DominoConsole/PlayGame.cs</url>
+          <line>140</line>
+          <properties documentPath="C:\Users\davidb\Desktop\Finishing\domino\Domino Console\DominoConsole\DominoConsole\PlayGame.cs" initialLine="140" containingFunctionPresentation="method 'Start'">
+            <startOffsets>
+              <option value="5200" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5281" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="DotNetProject">
-        <watch expression=" tokens[i]" language="C#" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

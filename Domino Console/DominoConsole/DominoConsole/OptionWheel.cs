@@ -143,8 +143,8 @@ static class Optionwheel
             }
         }
         Program.Show("Quiere Jugar con equipos? Marque 1 para confirmar");
-        
         option = Program.parser(Console.ReadLine());
+        Console.Clear();
         if (option == 1) 
         {
             Console.Clear();

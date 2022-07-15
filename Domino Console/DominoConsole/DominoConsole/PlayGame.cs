@@ -16,14 +16,14 @@ static class PlayGame
     {
         List<Winner> TotalWinners = new List<Winner>();
         IGameBreak winrule= Program.BreakRule;
-        gameComponents.AsignaFichasAPlayers(Optionwheel.playerstoken);
+       
         Console.BackgroundColor = ConsoleColor.White;
         Console.Clear();
         bool draw = false; //falta
         int turn = Optionwheel.CurrentPlayer;
         int currentgame = 0;
         while (currentgame < gameComponents.numberofgames)
-        {
+        { gameComponents.AsignaFichasAPlayers(Optionwheel.playerstoken);
             int knocks = 0;
             while (!winrule.Over(gameComponents))
             {
@@ -137,23 +137,18 @@ static class PlayGame
                 }
             }
         }
-        
+
+        Winner[] printWinners = TotalWinners.PrintWinners(gameComponents.players.Length);
+        if (printWinners.Length == 1)
+        {
+            Console.Clear();
+            Program.Show($"FELICIDADES jugador {printWinners[0].player_Index} haz ganado!!! ");
+        }
+
+        Console.ReadLine();
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.Clear();
+        MenuWheel.Menu();
     }
 }
 
-/*
- bool finish= false;
-bool[] used= players.Length;
-while(true){
-for(int i=0;i<players.Length;i++){
-  if(!used[i]){Program.Show($"Asigne al jugador {i+1} a uno de los {Program.Teams.Length} equipos")
-    option=parser(Console.ReadLine())
-   Console.Clear();
-  }
- }
- finish=true;
- foreach(var variable in used){
-  if(!variable) finish=false;
- }
-}
-*/
