@@ -38,11 +38,12 @@ static class PlayGame
     {
         for (int i = 0; i < tokens.Count; i++)
         {
+            tokens[i].Print(tokens[i]);
         }
     }
 
     public static void Start(GameComponents gameComponents)
-    {
+    {  gameComponents.AsignaFichasAPlayers(gameComponents.players,Program.defaultdeck.deck);
         Console.BackgroundColor = ConsoleColor.White;
         Console.Clear();
         bool draw = false; //falta
@@ -102,7 +103,7 @@ static class MenuWheel
         Board board = new Board();
         IDeck deck = Program.defaultdeck;
         bool menuout = false;
-        int numberofgames = 0;
+        int numberofgames = 1;
 
         // Console.Clear();
 
@@ -310,6 +311,21 @@ static class Optionwheel
         }
 
         Console.Clear();
+        Program.Show("Defina cuántas fichas deben tener los jugadores: ");
+        while (true)
+        {
+            option = Program.parser(Console.ReadLine());
+            if (option <= 0)
+            {
+                Program.Show("Debe introducir una opción válida");
+            }
+            break;
+        }
+
+        foreach (var VARIABLE in players)
+        {
+            VARIABLE.PlayerHand = new List<Token>(option);
+        }
         Program.Show($"Qué jugador debería empezar, hay un total de {players.Length} jugadores: ");
         while (true)
         {
@@ -324,7 +340,7 @@ static class Optionwheel
                 break;
             }
         }
-
+        
         return players;
     }
 

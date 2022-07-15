@@ -39,6 +39,10 @@ public class Token
         FaceB = b;
     }
 
+    public  virtual void Print(Token p)
+    {
+        Console.WriteLine($"[ {p.FaceA} | {p.FaceB} ]" );
+    }
     public void Getscore(Func<int, int, int> TokenScore)
     {
         Score= TokenScore(FaceA.GetPuntuation(), FaceB.GetPuntuation());

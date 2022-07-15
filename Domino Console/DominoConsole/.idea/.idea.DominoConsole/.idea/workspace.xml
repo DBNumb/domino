@@ -4,13 +4,16 @@
     <projectFile>DominoConsole/DominoConsole.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="fixing!!!!!!">
+    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="Erasing Play From GameComponents.cs">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Board.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/RulesInterfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/RulesInterfaces.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Turns.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Turns.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/PlayerBG.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/PlayerBG.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/PlayerPD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/PlayerPD.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/PlayerRandom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/PlayerRandom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +30,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/DominoConsole/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/Board.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/GameComponents.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -88,7 +93,7 @@
       <workItem from="1657836284037" duration="3786000" />
       <workItem from="1657852583789" duration="94000" />
       <workItem from="1657853252973" duration="4193000" />
-      <workItem from="1657859361886" duration="3641000" />
+      <workItem from="1657859361886" duration="6754000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -146,7 +151,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657861138893</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixing!!!!!!!!!!Thanks ETECSA">
+      <created>1657863205012</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657863205012</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Erasing Play From GameComponents.cs">
+      <created>1657863340676</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1657863340676</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +195,27 @@
     <MESSAGE value="Finishing:)" />
     <MESSAGE value="Pushing some changes" />
     <MESSAGE value="fixing!!!!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing!!!!!!" />
+    <MESSAGE value="Fixing!!!!!!!!!!Thanks ETECSA" />
+    <MESSAGE value="Erasing Play From GameComponents.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Erasing Play From GameComponents.cs" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DominoConsole/Program.cs</url>
+          <line>24</line>
+          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Domino Console\DominoConsole\DominoConsole\Program.cs" initialLine="24" containingFunctionPresentation="method 'Main'">
+            <startOffsets>
+              <option value="815" />
+            </startOffsets>
+            <endOffsets>
+              <option value="826" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

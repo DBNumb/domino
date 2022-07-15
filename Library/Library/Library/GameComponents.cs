@@ -20,6 +20,8 @@ public class GameComponents
     }
     
 
+    
+
     private int DrawWinner(Player[] player, int[] totalScoreHand) 
     { 
         int playerWinner = -1;//para q no de error el return

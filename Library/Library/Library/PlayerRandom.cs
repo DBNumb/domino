@@ -11,7 +11,7 @@ namespace Library
         //clase para player random
         public override int PlayerScore { get; protected set; } = 0;
 
-        public override List<Token> PlayerHand { get; }
+        public override List<Token> PlayerHand { get; set; }
 
         public override Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos)
         {

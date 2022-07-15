@@ -52,7 +52,7 @@ public class IntegerToken : Token
         _faceB = b;
     }
 
-    public void Print(Token token)
+    public override void Print(Token token)
     { 
         Console.ForegroundColor = ConsoleColor.Green;
         if (token.FaceA.CanbeMatch(token.FaceB))
@@ -111,7 +111,7 @@ public class ColorToken : Token
         _faceB = b;
     }
 
-    public void Print(Token token)
+    public override void Print(Token token)
     {
         Console.ForegroundColor = ConsoleColor.Green;
         if (token.FaceA.CanbeMatch(token.FaceB))
