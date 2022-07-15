@@ -315,6 +315,20 @@ static class Optionwheel
 
     public static int CurrentPlayer = 0;
     public static int playerstoken = 10;
+
+    public static int[] CreateTeams(Player[] players, int numeroDeEquipos) 
+    {
+        int[] teams = new int[players.Length];
+        int count = 0;
+        for (int i = 0; i < players.Length; i++) 
+        {
+            if (count > numeroDeEquipos) count = 0;
+            teams[i] = count;
+            count++;
+        }
+
+        return teams;
+    }
     public static Player[] CreatePlayers()
     {
         Console.WriteLine("Diga la cantidad de jugadores: ");
