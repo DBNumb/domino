@@ -27,7 +27,7 @@ namespace Library
             }
 
             PlayerScore += jugada.Score;
-           
+            PlayerHand.Remove(jugada);
             if (extremos.FaceA == null || extremos.FaceB == null) return new Tuple<Token, IComparable>(jugada, null);
 
             IComparable y = extremos.FaceB;
