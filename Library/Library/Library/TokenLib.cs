@@ -58,7 +58,7 @@ public abstract class Token
     }
     public  string Description(Token token) 
     {
-        return token.FaceA.ToString() + "|" + token.FaceB.ToString();
+        return "[" + token.FaceA.ToString() + "|" + token.FaceB.ToString() + "]";
     }
 }
 
