@@ -1,6 +1,6 @@
 ﻿namespace Library;
 
-public class Board 
+public class Board
 {
     public List<Token> board;
     

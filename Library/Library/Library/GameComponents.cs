@@ -7,13 +7,14 @@ public class GameComponents
     public ITurnRule TurnRule;
     public Player[] players { get; }
     private CanPlay _canPlay = new CanPlay();
-    private List<Token> domain;
+    public List<Token> domain;
     private IComparer<Token> _comparer;
     public int numberofgames;
 
     public GameComponents(Player[] players, ITokenRule tokenRule, ITurnRule turnRule, List<Token> Deck,
         int numberofgames)
     {
+        domain = Deck;
         this.players = players;
         TurnRule = turnRule;
         TokenRule = tokenRule;
@@ -43,10 +44,10 @@ public class GameComponents
         return result.ToArray();
     }
 
-    public void AsignaFichasAPlayers(Player[] players, List<Token> deck, int max)
+    public void AsignaFichasAPlayers( int max)
     {
         Random random = new Random();
-        bool[] mask = new bool[deck.Count];
+        bool[] mask = new bool[domain.Count];
 
         for (int i = 0; i < players.Length; i++)
         {
@@ -56,7 +57,7 @@ public class GameComponents
                 if (mask[x] == false)
                 {
                     mask[x] = true;
-                    players[i].PlayerHand.Add(deck[x]);
+                    players[i].PlayerHand.Add(domain[x]);
                     
                 }
             }
