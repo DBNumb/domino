@@ -25,6 +25,9 @@ namespace Library
             PlayerScore += posiblesjugadas[x].Score;
 
             Token jugada = posiblesjugadas[x];
+            PlayerHand.Remove(jugada);
+
+            if (extremos.FaceA == null || extremos.FaceB == null) return new Tuple<Token, IComparable>(jugada, null);
             // int[] indices = {extremo1.value, extremo2.value};
             
             IComparable y=extremos.FaceB;
