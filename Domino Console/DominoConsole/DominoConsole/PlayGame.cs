@@ -27,12 +27,14 @@ static class PlayGame
             {
                 Console.Clear();
                 Player current = gameComponents.players[turn];
+                Console.ForegroundColor = ConsoleColor.Black;
                 Program.Show($"Le toca al jugador {turn}");
                 Program.Show(
                     "************************************************************************************************************++");
                if(gameComponents._board.board.Count!=0)
                 PrintCollection(gameComponents._board.board);
-                Program.Show("");
+               Console.ForegroundColor = ConsoleColor.Black;
+               Program.Show("");
                 Program.Show(
                     "************************************************************************************************************++");
                 Program.Show($"Mano del jugador {turn}: ");
