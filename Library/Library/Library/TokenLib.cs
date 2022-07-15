@@ -28,10 +28,19 @@ public  abstract class Face : IFace
     public abstract int Compare(object other);
 }
 
-public class Token
+public class BoardToken : Token
 {
-    public IFace FaceA { get; }
-    public IFace FaceB { get; }
+    public BoardToken(IFace a, IFace b) : base(a, b)
+    {
+        
+    }
+    
+}
+
+public abstract class Token
+{
+    public IFace FaceA { get; internal set; }
+    public IFace FaceB { get; internal set; }
     public int Score { get; private set; }
     public Token(IFace a, IFace b)
     {

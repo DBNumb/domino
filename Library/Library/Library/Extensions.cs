@@ -1,11 +1,16 @@
-﻿namespace Library;
+﻿using System.Data;
+
+namespace Library;
 
 public static class Extensions
 {
     public static Token Reverse(this Token x)
-    { 
-        Token aux = new Token(x.FaceB, x.FaceA);
-        return x = aux;
+    {
+        var tem = x.FaceA;
+        x.FaceA = x.FaceB;
+        x.FaceB = tem;
+
+        return x;
     }
 
     public static int PlayerHandScore(this Player player)

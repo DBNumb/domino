@@ -22,22 +22,24 @@ public class Board
     }
 
     public Token Boardextremes()
-    {
-        if (board.Count == 0) return new Token(null,null);
+    { 
+        if (board.Count == 0) return new BoardToken(null,null);
         IFace begin = board[0].FaceA, ending= board[board.Count-1].FaceB;
-        return new Token(begin, ending);
+        
+        return new BoardToken(begin, ending);
     }
 
     public void Insert(Tuple<Token, IComparable> play)
     {
         Token board_Extremes = Boardextremes();
+        
         if (board.Count==0)
         {
             board.Add(play.Item1);
             return;
         }
 
-        if (board_Extremes.FaceA.Compare(play.Item2)==0)
+        if (board_Extremes.FaceA.Compare(play.Item2) == 0)
         {
             if (play.Item1.FaceB.Compare(board_Extremes.FaceA)==0)
             {
