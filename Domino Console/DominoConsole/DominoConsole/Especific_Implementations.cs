@@ -32,6 +32,7 @@ public class IntegerFace : Face
 
     public override string ToString()
     {
+        
         return value.ToString();//revisar...
     }
 
@@ -41,6 +42,41 @@ public class IntegerFace : Face
     }
 }
 
+public class IntegerToken : Token
+{
+    public IntegerFace _faceA;
+    public IntegerFace _faceB;
+    public IntegerToken(IntegerFace a, IntegerFace b) : base(a, b)
+    {
+        _faceA = a;
+        _faceB = b;
+    }
+
+    public void Print(Token token)
+    { 
+        Console.ForegroundColor = ConsoleColor.Green;
+        if (token.FaceA.CanbeMatch(token.FaceB))
+        {
+            Console.Write("[[ ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write($"{token.FaceA}  ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("]]");
+        }
+        else
+        {
+            Console.Write("[ ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write($"{token.FaceA} ");
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write("|");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write($"{token.FaceB} ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("]");
+        }
+    }
+}
 public class IntegerDeck: IDeck
 {
     public List<Token> deck { get; }
@@ -57,7 +93,7 @@ public class IntegerDeck: IDeck
         {
             for (int j = i; j <= max; j++)
             {
-                Token aux = new Token(new IntegerFace(i), new IntegerFace(j));
+                IntegerToken aux = new IntegerToken(new IntegerFace(i), new IntegerFace(j));
                 if (rule.Apply(aux))
                     deck.Add(aux);
             }
