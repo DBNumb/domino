@@ -1,4 +1,5 @@
-﻿using Library;
+﻿using System.Data.Common;
+using Library;
 
 namespace DominoConsole;
 
@@ -11,13 +12,13 @@ public static class Program
     public static ITurnRule TurnRule = new ClassicTurn();
     public static ITokenRule TokenRule = new DefaultTokeRule();
     public static Player[] Players;
-    public static IntegerDeck defaultdeck = new IntegerDeck(TokenRule, 9);
+    public static IDeck defaultdeck = new IntegerDeck(TokenRule, 9);
     public static Team[] Teams;
     public static bool getout = false;
     public static GameComponents game;
 
     public static IGameBreak BreakRule = new PlayerFinish();
-    
+
 
     public static void Main(string[] args)
     {
@@ -43,7 +44,9 @@ static class PlayGame
     }
 
     public static void Start(GameComponents gameComponents)
-    {  gameComponents.AsignaFichasAPlayers(gameComponents.players,Program.defaultdeck.deck);
+    {
+        gameComponents.AsignaFichasAPlayers(gameComponents.players, Program.defaultdeck.deck,gameComponents.players[0].PlayerHand.Capacity);
+        
         Console.BackgroundColor = ConsoleColor.White;
         Console.Clear();
         bool draw = false; //falta
@@ -53,7 +56,8 @@ static class PlayGame
         {
             int knocks = 0;
             while (!Program.BreakRule.Over(gameComponents))
-            { Player current = gameComponents.players[turn];
+            {
+                Player current = gameComponents.players[turn];
                 Program.Show($"Le toca al jugador {turn}");
                 Program.Show(
                     "************************************************************************************************************++");
@@ -72,7 +76,7 @@ static class PlayGame
                     Thread.Sleep(1000);
                 }
 
-               
+
                 var currentmove = current.Juega(
                     current.PosiblesJugadas(current.PlayerHand, gameComponents._board.Boardextremes()),
                     gameComponents._board.Boardextremes());
@@ -80,12 +84,12 @@ static class PlayGame
                 {
                     knocks = 0;
                     gameComponents._board.Insert(currentmove);
-                   Optionwheel.CurrentPlayer+= gameComponents.TurnRule.NxtTurn(knocks);
+                    Optionwheel.CurrentPlayer += gameComponents.TurnRule.NxtTurn(knocks);
                 }
                 else
-                {  
+                {
                     knocks++;
-                    Optionwheel.CurrentPlayer+= gameComponents.TurnRule.NxtTurn(knocks);
+                    Optionwheel.CurrentPlayer += gameComponents.TurnRule.NxtTurn(knocks);
                 }
             }
         }
@@ -104,7 +108,7 @@ static class MenuWheel
         IDeck deck = Program.defaultdeck;
         bool menuout = false;
         int numberofgames = 1;
-
+        bool TokensAlreadyInitialized = false;
         // Console.Clear();
 
 
@@ -118,8 +122,8 @@ static class MenuWheel
             Show("3- Cantidad y Tipos de jugadores");
             Show("4- Regla de ganar: ");
             Show("5-Cantidad de juegos");
-            Show("- Continuar: ");
-            Show("- Salir: ");
+            Show("6- Continuar: ");
+            Show("7- Salir: ");
             int option = parser(Console.ReadLine());
             // if (option <= 0 || option > 6) continue;
             Console.Clear();
@@ -134,11 +138,17 @@ static class MenuWheel
                 {
                     Program.TokenRule = Optionwheel.TokenRule();
                     deck = Optionwheel.TokenDeck(Program.TokenRule);
+                    TokensAlreadyInitialized = true;
                     break;
                 }
                 case 3:
-                {
+                { if(TokensAlreadyInitialized)
                     Program.Players = Optionwheel.CreatePlayers();
+                    else
+                    {
+                        Program.Show("Modifique primero las fichas");
+                        Console.ReadLine();
+                    }
                     break;
                 }
                 case 4:
@@ -319,13 +329,26 @@ static class Optionwheel
             {
                 Program.Show("Debe introducir una opción válida");
             }
-            break;
+            else if (Program.defaultdeck.deck.Count/players.Length*option<1)
+            {
+                Program.Show($"Hay {Program.defaultdeck.deck.Count} fichas y {players.Length}jugadores" +
+                             $", la cantidad máxima asignable es {Program.defaultdeck.deck.Count/players.Length}");
+            }
+            else
+            {
+                foreach (var VARIABLE in players)
+                {
+                    VARIABLE.PlayerHand = new List<Token>(option);
+                }
+                break;
+            }
         }
 
         foreach (var VARIABLE in players)
         {
             VARIABLE.PlayerHand = new List<Token>(option);
         }
+
         Program.Show($"Qué jugador debería empezar, hay un total de {players.Length} jugadores: ");
         while (true)
         {
@@ -340,7 +363,7 @@ static class Optionwheel
                 break;
             }
         }
-        
+
         return players;
     }
 
@@ -351,11 +374,12 @@ static class Optionwheel
         Program.Show("Escoja con qué fichas quiere jugar: ");
         Program.Show("1- Colores:");
         Program.Show("2- Números:");
+        Program.Show("3-Clásico doble nueve: ");
         int option = 0;
         while (true)
         {
             option = Program.parser(Console.ReadLine());
-            if (option <= 0 || option > 2)
+            if (option <= 0 || option > 3)
             {
                 Console.WriteLine("Debe introducir un número válido");
             }
@@ -390,6 +414,7 @@ static class Optionwheel
 
                 return new IntegerDeck(rule, option);
             }
+            
         }
 
         return Program.defaultdeck;

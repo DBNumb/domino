@@ -12,8 +12,9 @@ namespace Library
         //clase abstracta jugador
         public abstract List<Token>PlayerHand { get; set; }
         public abstract Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos);
-        public List<Token> PosiblesJugadas(List<Token> playerHand, Token extremos) 
+        public List<Token> PosiblesJugadas(List<Token> playerHand, Token extremos)
         {
+            if (extremos.FaceA == null || extremos.FaceB == null) return playerHand;
             List<Token> result = new List<Token>();
             foreach (var t in playerHand)
             {

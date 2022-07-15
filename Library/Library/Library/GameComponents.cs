@@ -41,26 +41,24 @@ public class GameComponents
         return result.ToArray();
     }
 
-    public void AsignaFichasAPlayers(Player[] players, List<Token> deck)
+    public void AsignaFichasAPlayers(Player[] players, List<Token> deck,int max)
     {
+        Random random = new Random();
         bool[] mask = new bool[deck.Count];
-        while (true)
-        {
-            if (players.Length > CuentaFalses(mask)) break;
+      
             for (int i = 0; i < players.Length; i++)
             {
-                var randomNumber = new Random(mask.Length);
-                int x = randomNumber.Next(0, mask.Length);
-                if (mask[x] == false)
+                while (players[i].PlayerHand.Count<max)
                 {
-                    mask[x] = true;
-                    players[i].PlayerHand.Add(deck[x]);
+                    int x = random.Next(0, mask.Length);    
+                    if (mask[x] == false)
+                    {
+                        mask[x] = true;
+                        players[i].PlayerHand.Add(deck[x]);
+                        break;
+                    }
                 }
-                else
-                {
-                    i--;
-                }
-            }
+            
         }
     }
     public int CuentaFalses(bool[] item)

@@ -4,16 +4,11 @@
     <projectFile>DominoConsole/DominoConsole.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="Erasing Play From GameComponents.cs">
+    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="almost_starting">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/PlayerBG.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/PlayerBG.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/PlayerPD.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/PlayerPD.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/PlayerRandom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/PlayerRandom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +24,10 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Domino Console/DominoConsole/DominoConsole/Especific_Implementations.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/GameComponents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DominoConsole/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/GameComponents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/Board.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/GameComponents.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -93,7 +91,7 @@
       <workItem from="1657836284037" duration="3786000" />
       <workItem from="1657852583789" duration="94000" />
       <workItem from="1657853252973" duration="4193000" />
-      <workItem from="1657859361886" duration="6754000" />
+      <workItem from="1657859361886" duration="11131000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -165,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657863340676</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="almost_starting">
+      <created>1657866628354</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1657866628354</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,23 +202,50 @@
     <MESSAGE value="fixing!!!!!!" />
     <MESSAGE value="Fixing!!!!!!!!!!Thanks ETECSA" />
     <MESSAGE value="Erasing Play From GameComponents.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Erasing Play From GameComponents.cs" />
+    <MESSAGE value="almost_starting" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost_starting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DominoConsole/Program.cs</url>
-          <line>24</line>
-          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Domino Console\DominoConsole\DominoConsole\Program.cs" initialLine="24" containingFunctionPresentation="method 'Main'">
+          <url>file://$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs</url>
+          <line>70</line>
+          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Library\Library\Library\GameComponents.cs" initialLine="72" containingFunctionPresentation="method 'CuentaFalses'">
             <startOffsets>
-              <option value="815" />
+              <option value="1993" />
             </startOffsets>
             <endOffsets>
-              <option value="826" />
+              <option value="2004" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DominoConsole/Program.cs</url>
+          <line>67</line>
+          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Domino Console\DominoConsole\DominoConsole\Program.cs" initialLine="67" containingFunctionPresentation="method 'Start'">
+            <startOffsets>
+              <option value="2301" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2337" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs</url>
+          <line>76</line>
+          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Domino Console\DominoConsole\DominoConsole\Especific_Implementations.cs" initialLine="76" containingFunctionPresentation="method 'Print'">
+            <startOffsets>
+              <option value="1796" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1797" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
