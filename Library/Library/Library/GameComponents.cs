@@ -78,4 +78,36 @@ public class GameComponents
         //en caso de haber mas de 1 jugador con el mismo score entonces se empato el juego y hay que repetirlo
         return playerWinner;
     }
+
+    public void AsignaFichasAPlayers(Player[] players, List<Token> deck)
+    {
+        bool[] mask = new bool[deck.Count];
+        while (true)
+        {
+            if (players.Length > CuentaFalses(mask)) break;
+            for (int i = 0; i < players.Length; i++)
+            {
+                var randomNumber = new Random(mask.Length);
+                int x = randomNumber.Next(0, mask.Length);
+                if (mask[x] == false)
+                {
+                    mask[x] = true;
+                    players[i].PlayerHand.Add(deck[x]);
+                }
+                else
+                {
+                    i--;
+                }
+            }
+        }
+    }
+    public int CuentaFalses(bool[] item)
+    {
+        int aux = 0;
+        for (int i = 0; i < item.Length; i++)
+        {
+            if (item[i] == false) aux++;
+        }
+        return aux;
+    }
 }
