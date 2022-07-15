@@ -57,9 +57,9 @@ public class IntegerToken : Token
         Console.ForegroundColor = ConsoleColor.Green;
         if (token.FaceA.CanbeMatch(token.FaceB))
         {
-            Console.Write("[[ ");
+            Console.Write("[[");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($"{token.FaceA}  ");
+            Console.Write($" {token.FaceA} ");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("]]");
         }
