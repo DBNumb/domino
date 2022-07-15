@@ -112,6 +112,7 @@ public class ColorToken : Token
     }
 
     public override void Print(Token token)
+
     {
         Console.ForegroundColor = ConsoleColor.Green;
         if (token.FaceA.CanbeMatch(token.FaceB))
@@ -477,7 +478,7 @@ public class ColorsDeck : IDeck
         {
             for (int j = i; j < max; j++)
             {
-                Token aux = new Token(colorsSelected[i], colorsSelected[j]);
+                Token aux = new ColorToken(colorsSelected[i], colorsSelected[j]);
                 if (rule.Apply(aux))
                     deck.Add(aux);
             }
