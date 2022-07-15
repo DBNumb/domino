@@ -20,7 +20,39 @@ public class GameComponents
     }
     
 
-  
+    public void Play(Player[] player, IChecker<Player[]> checker)
+    {
+        int consecutivesKnocks = 0;
+        int[] totalScoreHand = new int[players.Length];
+        int playerWinner;
+        int i = 0;
+        do 
+        {
+            if (i >= player.Length) i = 0;
+
+            if (_canPlay.Apply(player[i].PlayerHand, _board.Boardextremes(), _comparer))
+            {
+                consecutivesKnocks = 0;
+                _board.Insert(player[i].Juega(_canPlay.posiblesjugadas, _board.Boardextremes()));
+            }
+            else
+            {
+                consecutivesKnocks++;
+                i = TurnRule.NxtTurn();
+            }
+
+            if (consecutivesKnocks == player.Length - 1)
+            {
+                playerWinner = DrawWinner(player, totalScoreHand);
+                break;
+            }
+            
+            i++;
+        } while (checker.Win(player) == -1);
+        playerWinner = i;
+        //...................
+    }
+
     private int DrawWinner(Player[] player, int[] totalScoreHand) 
     { 
         int playerWinner = -1;//para q no de error el return
