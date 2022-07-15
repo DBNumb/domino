@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Library
 {
    public class PlayerPD : Player
-    {
+   {
         //player protege data
        
         public override int PlayerScore { get; protected set; } = 0;
@@ -98,5 +98,5 @@ namespace Library
             //extremos este su data
 
         }
-    }
+   }
 }
