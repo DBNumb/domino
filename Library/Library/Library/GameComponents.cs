@@ -18,7 +18,7 @@ public class GameComponents
         TokenRule = tokenRule;
         this.numberofgames = numberofgames;
     }
-    
+
 
     public void Play(Player[] player, IChecker<Player[]> checker)
     {
@@ -26,7 +26,7 @@ public class GameComponents
         int[] totalScoreHand = new int[players.Length];
         int playerWinner;
         int i = 0;
-        do 
+        do
         {
             if (i >= player.Length) i = 0;
 
@@ -46,19 +46,19 @@ public class GameComponents
                 playerWinner = DrawWinner(player, totalScoreHand);
                 break;
             }
-            
+
             i++;
         } while (checker.Win(player) == -1);
         playerWinner = i;
         //...................
     }
 
-    private int DrawWinner(Player[] player, int[] totalScoreHand) 
-    { 
+    private int DrawWinner(Player[] player, int[] totalScoreHand)
+    {
         int playerWinner = -1;//para q no de error el return
         for (int j = 0; j < player.Length; j++)
         {
-            
+
             totalScoreHand[j] = player[j].PlayerHandScore();
         }
 
@@ -67,7 +67,7 @@ public class GameComponents
         int count = 0;
         for (int j = 0; j < player.Length; j++)
         {
-            if (x == totalScoreHand[j]) 
+            if (x == totalScoreHand[j])
             {
                 playerWinner = j;
                 count++;
@@ -77,5 +77,37 @@ public class GameComponents
         if (count > 1) return -1;
         //en caso de haber mas de 1 jugador con el mismo score entonces se empato el juego y hay que repetirlo
         return playerWinner;
+    }
+
+    public void AsignaFichasAPlayers(Player[] players, List<Token> deck)
+    {
+        bool[] mask = new bool[deck.Count];
+        while (true) 
+        {
+            if (players.Length > CuentaFalses(mask)) break;
+            for (int i = 0; i< players.Length; i++) 
+            {
+                var randomNumber = new Random(mask.Length);
+                int x = randomNumber.Next(0, mask.Length);
+                if (mask[x] == false)
+                {
+                    mask[x] = true;
+                    players[i].PlayerHand.Add(deck[x]);
+                }
+                else 
+                {
+                    i--;
+                }
+            }
+        }
+    }
+    public int CuentaFalses(bool[] item) 
+    {
+        int aux = 0;
+        for (int i = 0; i< item.Length; i++) 
+        {
+            if (item[i] == false) aux++;
+        }
+        return aux;
     }
 }
