@@ -10,7 +10,7 @@ public interface IPuntuable
     public int GetPuntuation();
 }
 
-public delegate bool IWin<T>(T checker);
+
 public interface IComparable
 {
     bool CanBeCompare(object other);

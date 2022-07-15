@@ -36,7 +36,14 @@ public static class Program
 }
 
 static class PlayGame
-{   public static void BoardPrint(List<Token> )
+{
+    public static void BoardPrint(List<Token> tokens)
+    {
+        for (int i = 0; i < tokens.Count; i++)
+        {
+            
+        }
+    }
     public static void Start(GameComponents gameComponents)
     {
         Console.BackgroundColor = ConsoleColor.White;
@@ -61,8 +68,8 @@ static class PlayGame
                 Player current = gameComponents.players[Optionwheel.StarterPlayer];
                 var currentmove=current.Juega(current.PosiblesJugadas(current.PlayerHand, gameComponents._board.Boardextremes()),
                     gameComponents._board.Boardextremes());
-                if (currentmove != null)
-                {
+                if (currentmove!=null)
+                {  
                     knocks = 0;
                     gameComponents._board.Insert(currentmove);
                 }
