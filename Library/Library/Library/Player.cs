@@ -28,6 +28,18 @@ namespace Library
             if (result.Count == 0) return null;
             return result;
         }
+
+        protected Tuple<Token, IComparable> Comp(Token jugada, Token extremos)
+        {
+            Random x = new Random();
+            Func<Random, IComparable> randomface = x => x.Next(0, 1) == 0 ? extremos.FaceA : extremos.FaceB;
+            if (extremos.FaceA.CanbeMatch(extremos.FaceB))
+                return new Tuple<Token, IComparable>(jugada, randomface(x));
+            if (jugada.FaceA.CanbeMatch(extremos.FaceA) || jugada.FaceB.CanbeMatch(extremos.FaceA))
+                return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
+
+            return new Tuple<Token, IComparable>(jugada, extremos.FaceB);
+        }
     }
 
     

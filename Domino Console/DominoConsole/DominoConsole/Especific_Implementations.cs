@@ -69,7 +69,7 @@ public class IntegerToken : Token
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write($"{token.FaceA} ");
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.Write("|");
+            Console.Write("| ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write($"{token.FaceB} ");
             Console.ForegroundColor = ConsoleColor.Green;
@@ -473,9 +473,9 @@ public class ColorsDeck : IDeck
         Color[] colorsSelected = new Color[max];
         Array.Copy(colors, colorsSelected, max);
         
-        for (int i = 0; i <= max; i++)
+        for (int i = 0; i < max; i++)
         {
-            for (int j = i; j <= max; j++)
+            for (int j = i; j < max; j++)
             {
                 Token aux = new Token(colorsSelected[i], colorsSelected[j]);
                 if (rule.Apply(aux))

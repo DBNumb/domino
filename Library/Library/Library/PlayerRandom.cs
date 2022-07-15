@@ -29,27 +29,24 @@ namespace Library
 
             if (extremos.FaceA == null || extremos.FaceB == null) return new Tuple<Token, IComparable>(jugada, null);
             // int[] indices = {extremo1.value, extremo2.value};
-            
+            return Comp(jugada, extremos);
             IComparable y=extremos.FaceB;
-          
-            if ((jugada.FaceA.Compare(extremos.FaceA) == 0 || jugada.FaceA.Compare(extremos.FaceB) == 0) &&
-                (jugada.FaceB.Compare(extremos.FaceA) == 0 || jugada.FaceB.Compare(extremos.FaceB) == 0))
-            {
-                //caso en que la ficha se puede jugar por cualquier extremo
-                IComparable[] facesExtremes = {extremos.FaceA, extremos.FaceB};
-                var randomFace = new Random(facesExtremes.Length);
-                int xd = randomFace.Next(0, facesExtremes.Length);
-                IComparable face = facesExtremes[xd];
-               
-                return new Tuple<Token, IComparable>(jugada, face);
-            }
-            else if (jugada.FaceA.Equals(extremos.FaceA) || jugada.FaceB.Equals(extremos.FaceA))
-            {
-                //caso en el que solo se puede jugar por el extremo A
-                return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
-            }
-            //caso en el que solo se puede jugar por el extremo B
-            return new Tuple<Token, IComparable>(jugada, extremos.FaceB);
+            //
+            // if ((jugada.FaceA.Compare(extremos.FaceA) == 0 || jugada.FaceA.Compare(extremos.FaceB) == 0) &&
+            //     (jugada.FaceB.Compare(extremos.FaceA) == 0 || jugada.FaceB.Compare(extremos.FaceB) == 0))
+            // if (expr)
+            // {
+            //   
+            //    
+            //     return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
+            // }
+            // else if (jugada.FaceA.Compare(extremos.FaceA)==0 || jugada.FaceB.Compare(extremos.FaceA)==0)
+            // {
+            //     //caso en el que solo se puede jugar por el extremo A
+            //     return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
+            // }
+            // //caso en el que solo se puede jugar por el extremo B
+            // return new Tuple<Token, IComparable>(jugada, extremos.FaceB);
 
             
             //retorna la ficha a jugar y el extremo que jugara al azar en caso de poder jugar por ambos extremos

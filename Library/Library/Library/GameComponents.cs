@@ -21,7 +21,7 @@ public class GameComponents
     }
 
 
-    private Winner[] DrawWinner(Player[] player, int[] totalScoreHand)
+    public Winner[] DrawWinner(Player[] player, int[] totalScoreHand)
     {
         List<Winner> result = new List<Winner>();
         for (int j = 0; j < player.Length; j++)
@@ -57,7 +57,7 @@ public class GameComponents
                 {
                     mask[x] = true;
                     players[i].PlayerHand.Add(deck[x]);
-                    break;
+                    
                 }
             }
         }

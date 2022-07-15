@@ -16,7 +16,6 @@ public static class Program
     public static Team[] Teams;
     public static bool getout = false;
     public static GameComponents game;
-
     public static IGameBreak BreakRule = new PlayerFinish();
 
 
@@ -40,6 +39,7 @@ static class PlayGame
         for (int i = 0; i < tokens.Count; i++)
         {
             tokens[i].Print(tokens[i]);
+            if (i != 0 && i % 10 == 0){ Program.Show("");Program.Show("-----------------------------------------------------------------------------------------------------------");}
         }
     }
 
@@ -56,7 +56,8 @@ static class PlayGame
         {
             int knocks = 0;
             while (!Program.BreakRule.Over(gameComponents))
-            {Console.Clear();
+            {
+                Console.Clear();
                 Player current = gameComponents.players[turn];
                 Program.Show($"Le toca al jugador {turn}");
                 Program.Show(
@@ -65,9 +66,9 @@ static class PlayGame
                 Program.Show("");
                 Program.Show(
                     "************************************************************************************************************++");
-                Program.Show("Mano del jugador: ");
+                Program.Show($"Mano del jugador {turn}: ");
                 PrintCollection(current.PlayerHand);
-                if (knocks == gameComponents.players.Length) draw = true;
+                if (knocks == gameComponents.players.Length) {draw = true; break;}
                 if (!MenuWheel.automode)
                 {
                     Console.ReadLine();
@@ -85,12 +86,50 @@ static class PlayGame
                 {
                     knocks = 0;
                     gameComponents._board.Insert(currentmove);
-                    Optionwheel.CurrentPlayer += gameComponents.TurnRule.NxtTurn(knocks);
+                    turn += gameComponents.TurnRule.NxtTurn(knocks);
+                    
                 }
                 else
                 {
                     knocks++;
-                    Optionwheel.CurrentPlayer += gameComponents.TurnRule.NxtTurn(knocks);
+                    turn += gameComponents.TurnRule.NxtTurn(knocks);
+                }
+
+                if (turn>=gameComponents.players.Length)
+                {
+                    turn = 0;
+                }
+
+                if (turn<0)
+                {
+                    turn = gameComponents.players.Length - 1;
+                }
+            }
+
+            if (draw)
+            {
+                Winner[] winners =
+                    gameComponents.DrawWinner(gameComponents.players, new int[gameComponents.players.Length]);
+                if (winners == null)
+                {  Log.Draw();
+                    Program.Show(Log.log.Last());
+                }
+                else
+                {
+                    currentgame++;
+                    int TeamConflict=0;
+                    foreach (var winner in winners)
+                    { 
+                        if (Program.Teams == null)
+                        {
+                            Log.WinSolo(gameComponents.players[winner.player_Index],winner.player_Index);
+                            break;
+                        }
+                        else
+                        {
+                            //faltaimplementarteams
+                        }
+                    }
                 }
             }
         }
@@ -361,7 +400,7 @@ static class Optionwheel
             }
             else
             {
-                CurrentPlayer = option;
+                CurrentPlayer = option-1;
                 break;
             }
         }

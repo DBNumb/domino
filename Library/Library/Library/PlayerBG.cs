@@ -29,25 +29,25 @@ namespace Library
             PlayerScore += jugada.Score;
             PlayerHand.Remove(jugada);
             if (extremos.FaceA == null || extremos.FaceB == null) return new Tuple<Token, IComparable>(jugada, null);
-
-            IComparable y = extremos.FaceB;
-            if ((jugada.FaceA.Compare(extremos.FaceA) == 0 || jugada.FaceA.Compare(extremos.FaceB) == 0) &&
-                          (jugada.FaceB.Compare(extremos.FaceA) == 0 || jugada.FaceB.Compare(extremos.FaceB) == 0))
-            {
-                y = extremos.FaceA.Compare(extremos.FaceB)== 1? extremos.FaceA: y;
-                return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
-            }
-            else if (jugada.FaceA == extremos.FaceA || jugada.FaceB == extremos.FaceA)
-            {
-                y = extremos.FaceA;
-                return new Tuple<Token, IComparable>(jugada, y);
-            }
-
-            return new Tuple<Token, IComparable>(jugada, y);
-
-
-            //bota la ficha mas gorda... en caso de que pueda jugar por ambos extremos juega por
-            //el mayor extremo
+            return Comp(jugada, extremos);
+            // IComparable y = extremos.FaceB;
+            // if ((jugada.FaceA.Compare(extremos.FaceA) == 0 || jugada.FaceA.Compare(extremos.FaceB) == 0) &&
+            //               (jugada.FaceB.Compare(extremos.FaceA) == 0 || jugada.FaceB.Compare(extremos.FaceB) == 0))
+            // {
+            //     y = extremos.FaceA.Compare(extremos.FaceB)== 1? extremos.FaceA: y;
+            //     return new Tuple<Token, IComparable>(jugada, extremos.FaceA);
+            // }
+            // else if (jugada.FaceA == extremos.FaceA || jugada.FaceB == extremos.FaceA)
+            // {
+            //     y = extremos.FaceA;
+            //     return new Tuple<Token, IComparable>(jugada, y);
+            // }
+            //
+            // return new Tuple<Token, IComparable>(jugada, y);
+            //
+            //
+            // //bota la ficha mas gorda... en caso de que pueda jugar por ambos extremos juega por
+            // //el mayor extremo
         }
     }
 }
