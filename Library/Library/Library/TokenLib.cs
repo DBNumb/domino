@@ -41,7 +41,7 @@ public abstract class Token
 {
     public IFace FaceA { get; internal set; }
     public IFace FaceB { get; internal set; }
-    public int Score { get; private set; }
+    public  int Score { get;  set; }
     public Token(IFace a, IFace b)
     {
         FaceA = a;
@@ -52,9 +52,9 @@ public abstract class Token
     {
         Console.Write($"[ {p.FaceA} | {p.FaceB} ]" );
     }
-    public void Getscore(Func<int, int, int> TokenScore)
+    public void Getscore()
     {
-        Score= TokenScore(FaceA.GetPuntuation(), FaceB.GetPuntuation());
+        Score= FaceA.GetPuntuation()+ FaceB.GetPuntuation();
     }
     public  string Description(Token token) 
     {

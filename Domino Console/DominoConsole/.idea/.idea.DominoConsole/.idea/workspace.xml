@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/shelf/Uncommitted_changes_before_Update_at_15_07_2022_0_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/shelf/Uncommitted_changes_before_Update_at_15_07_2022_0_05__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Board.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Board.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +29,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/DominoConsole/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d4f98ebdd878db4fbd98872756eb7be6ad9e468fe5cd6b16385d8c4993109a/List.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -97,6 +95,7 @@
       <workItem from="1657871838922" duration="9318000" />
       <workItem from="1657881673895" duration="17000" />
       <workItem from="1657898533679" duration="3792000" />
+      <workItem from="1657907229509" duration="5398000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -242,13 +241,26 @@
           <line>52</line>
           <properties documentPath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" initialLine="43" containingFunctionPresentation="method 'Print'">
             <startOffsets>
-              <option value="968" />
+              <option value="962" />
             </startOffsets>
             <endOffsets>
-              <option value="1013" />
+              <option value="1007" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs</url>
+          <line>120</line>
+          <properties documentPath="C:\Users\davidb\Desktop\Finishing\domino\Domino Console\DominoConsole\DominoConsole\Especific_Implementations.cs" initialLine="115" containingFunctionPresentation="method 'Print'">
+            <startOffsets>
+              <option value="2680" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2681" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

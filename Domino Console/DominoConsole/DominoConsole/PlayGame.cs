@@ -14,7 +14,6 @@ static class PlayGame
     public static void Start(GameComponents gameComponents)
     {
         gameComponents.AsignaFichasAPlayers(Optionwheel.playerstoken);
-        
         Console.BackgroundColor = ConsoleColor.White;
         Console.Clear();
         bool draw = false; //falta
@@ -37,6 +36,7 @@ static class PlayGame
                     "************************************************************************************************************++");
                 Program.Show($"Mano del jugador {turn}: ");
                 PrintCollection(current.PlayerHand);
+                
                 if (knocks == gameComponents.players.Length) {draw = true; break;}
                 if (!MenuWheel.automode)
                 {
@@ -82,6 +82,7 @@ static class PlayGame
                 if (winners == null)
                 {  Log.Draw();
                     Program.Show(Log.log.Last());
+                    Console.ReadLine();
                 }
                 else
                 {
@@ -92,6 +93,8 @@ static class PlayGame
                         if (Program.Teams == null)
                         {
                             Log.WinSolo(gameComponents.players[winner.player_Index],winner.player_Index);
+                            Program.Show(Log.Winlog.Last());
+                            Console.ReadLine();
                             break;
                         }
                         else
