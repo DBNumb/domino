@@ -20,30 +20,25 @@ public class GameComponents
     }
     
 
-    private int DrawWinner(Player[] player, int[] totalScoreHand) 
+    private Winner[] DrawWinner(Player[] player, int[] totalScoreHand) 
     { 
-        int playerWinner = -1;//para q no de error el return
+        List<Winner> result = new List<Winner>();
         for (int j = 0; j < player.Length; j++)
         {
-            
             totalScoreHand[j] = player[j].PlayerHandScore();
         }
 
         int x = totalScoreHand.Min();
 
-        int count = 0;
         for (int j = 0; j < player.Length; j++)
         {
             if (x == totalScoreHand[j]) 
             {
-                playerWinner = j;
-                count++;
+                Winner aux = new Winner(j);
+                result.Add(aux);
             }
         }
-
-        if (count > 1) return -1;
-        //en caso de haber mas de 1 jugador con el mismo score entonces se empato el juego y hay que repetirlo
-        return playerWinner;
+        return result.ToArray();
     }
 
     public void AsignaFichasAPlayers(Player[] players, List<Token> deck)
