@@ -14,6 +14,8 @@ static class PlayGame
 
     public static void Start(GameComponents gameComponents)
     {
+        List<Winner> TotalWinners = new List<Winner>();
+        IGameBreak winrule= Program.BreakRule;
         gameComponents.AsignaFichasAPlayers(Optionwheel.playerstoken);
         Console.BackgroundColor = ConsoleColor.White;
         Console.Clear();
@@ -23,7 +25,7 @@ static class PlayGame
         while (currentgame < gameComponents.numberofgames)
         {
             int knocks = 0;
-            while (!Program.BreakRule.Over(gameComponents))
+            while (!winrule.Over(gameComponents))
             {
                 Console.Clear();
                 Player current = gameComponents.players[turn];
@@ -89,7 +91,7 @@ static class PlayGame
                 }
                 else
                 {
-                    currentgame++;
+                    
                     int TeamConflict=0;
                     foreach (var winner in winners)
                     { 
@@ -98,6 +100,8 @@ static class PlayGame
                             Log.WinSolo(gameComponents.players[winner.player_Index],winner.player_Index);
                             Program.Show(Log.Winlog.Last());
                             Console.ReadLine();
+                            TotalWinners.Add(winner);
+                            currentgame++;
                             break;
                         }
                         else
@@ -107,6 +111,49 @@ static class PlayGame
                     }
                 }
             }
+            else
+            {
+                Winner winner = winrule.GetWinner();
+                if (Program.Teams == null)
+                {
+                    Log.WinSolo(gameComponents.players[winner.player_Index],winner.player_Index);
+                    Program.Show(Log.Winlog.Last());
+                    Console.ReadLine();
+                    TotalWinners.Add(winner);
+                    currentgame++;
+                }
+                else
+                {
+                    foreach (var team in Program.Teams)
+                    {
+                        if (team.TeamMembers.Contains(winner.player_Index))
+                        {
+                            currentgame++;
+                            team.Wins++;
+                            TotalWinners.Add(winner);
+                            break;
+                        }
+                    }
+                }
+            }
         }
+        
     }
 }
+
+/*
+ bool finish= false;
+bool[] used= players.Length;
+while(true){
+for(int i=0;i<players.Length;i++){
+  if(!used[i]){Program.Show($"Asigne al jugador {i+1} a uno de los {Program.Teams.Length} equipos")
+    option=parser(Console.ReadLine())
+   Console.Clear();
+  }
+ }
+ finish=true;
+ foreach(var variable in used){
+  if(!variable) finish=false;
+ }
+}
+*/
