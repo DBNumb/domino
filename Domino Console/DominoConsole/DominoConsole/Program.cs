@@ -318,6 +318,10 @@ static class Optionwheel
 
     public static int[] CreateTeams(Player[] players, int numeroDeEquipos) 
     {
+        if (players.Length < numeroDeEquipos) 
+            throw new Exception("la cantidad de equipos debe ser menor que la cantidad de jugadores");
+        if (numeroDeEquipos == 0) 
+            throw new Exception("la cantidad de equipos tiene que ser mayor a 0") ;
         int[] teams = new int[players.Length];
         int count = 0;
         for (int i = 0; i < players.Length; i++) 
