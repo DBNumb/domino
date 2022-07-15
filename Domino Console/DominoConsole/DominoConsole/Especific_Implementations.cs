@@ -101,6 +101,288 @@ public class IntegerDeck: IDeck
     }
 }
 
+public class ColorToken : Token
+{
+    public Color _faceA;
+    public Color _faceB;
+    public ColorToken(Color a, Color b) : base(a, b)
+    {
+        _faceA = a;
+        _faceB = b;
+    }
+
+    public void Print(Token token)
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        if (token.FaceA.CanbeMatch(token.FaceB))
+        {
+            Console.Write("[[ ");
+            switch (token.FaceA.ToString())
+            {
+                case "negro":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "azul":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "verde":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "lima":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "gris":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "purpura":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "marron":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "rojo":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "magenta":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "naranja":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "amarillo":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "blanco":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                default:
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+            }
+            
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("]]");
+        }
+        else
+        {
+            Console.Write("[ ");
+
+
+            switch (token.FaceA.ToString())
+            {
+                case "negro":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "azul":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "verde":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "lima":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "gris":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "purpura":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "marron":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "rojo":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "magenta":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "naranja":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "amarillo":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                case "blanco":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+                default:
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write($"{token.FaceA.ToString()}  ");
+                        break;
+                    }
+            }
+
+
+
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write("|");
+
+
+            switch (token.FaceB.ToString())
+            {
+                case "negro":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                case "azul":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                case "verde":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                case "lima":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                case "gris":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                case "purpura":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                case "marron":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                case "rojo":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                case "magenta":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                case "naranja":
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                case "amarillo":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                case "blanco":
+                    {
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+                default:
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write($"{token.FaceB.ToString()}  ");
+                        break;
+                    }
+            }
+
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("]");
+        }
+    }
+}
 
 public class Color : Face
 {
@@ -135,74 +417,8 @@ public class Color : Face
 
     public override string ToString()
     {
-        switch (this.colorName) 
-        {
-            case "negro": 
-                {
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    return this.colorName;
-                }
-            case "azul":
-                {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    return this.colorName;
-                }
-            case "verde":
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    return this.colorName;
-                }
-            case "lima":
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    return this.colorName;
-                }
-            case "gris":
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkGray;
-                    return this.colorName;
-                }
-            case "purpura":
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                    return this.colorName;
-                }
-            case "marron":
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    return this.colorName;
-                }
-            case "rojo":
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    return this.colorName;
-                }
-            case "magenta":
-                {
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    return this.colorName;
-                }
-            case "naranja":
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    return this.colorName;
-                }
-            case "amarillo":
-                {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    return this.colorName;
-                }
-            case "blanco":
-                {
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    return this.colorName;
-                }
-            default:
-                {
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    return this.colorName;
-                }
-        }
+        return this.colorName;
+       
     }
 
     /*Algunos Colores con su codigo RGB, hexadecimal y decimal
