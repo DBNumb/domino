@@ -41,7 +41,6 @@ public interface IFilterFichas
     //hay q abstraernos mas pq esto solo funciona para domino
 }
 
-// public delegate Library.TokenCollection Insert<Token, Int32, TokenCollection>(Token x,int pos,out TokenCollection collection);
 public interface IGameBreak
 {
     public Winner GetWinner();

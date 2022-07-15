@@ -387,8 +387,6 @@ public class ColorToken : Token
 
 public class Color : Face
 {
-    //he de imaginar que hay q acomodar esto en otro sitio pero mientras tanto que se quede aca
-
     public string colorName;
     int colorRed;
     int colorGreen;
