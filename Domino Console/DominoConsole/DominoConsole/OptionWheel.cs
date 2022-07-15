@@ -59,7 +59,7 @@ static class Optionwheel
         Team[] teams = new Team[numeroDeEquipos];
         for (int i = 0; i< player.Length; i++) 
         {
-            Program.Show("Diga en que equipo quiere poner al jugador " + i);
+            Program.Show("Diga en que equipo quiere poner al jugador " + i+1);
             int indiceEquipo = Program.parser(Console.ReadLine());
             while (indiceEquipo < 0 || indiceEquipo > numeroDeEquipos) 
             {
