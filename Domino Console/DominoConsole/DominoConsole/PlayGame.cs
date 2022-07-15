@@ -1,5 +1,6 @@
 ﻿namespace DominoConsole;
 using Library;
+
 static class PlayGame
 {
     public static void PrintCollection(List<Token> tokens) 
