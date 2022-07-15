@@ -3,8 +3,8 @@
 public class GameComponents
 {
     public Board _board = new Board();
-    private ITokenRule TokenRule;
-    private ITurnRule TurnRule;
+    public ITokenRule TokenRule;
+    public ITurnRule TurnRule;
     public Player[] players { get; }
     private CanPlay _canPlay = new CanPlay();
     private List<Token> domain;
@@ -38,7 +38,7 @@ public class GameComponents
             else
             {
                 consecutivesKnocks++;
-                i = TurnRule.NxtTurn();
+                // i = TurnRule.NxtTurn();
             }
 
             if (consecutivesKnocks == player.Length - 1)

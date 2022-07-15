@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Linq.Expressions;
-using System.Threading.Channels;
-using Library;
+﻿using Library;
 
 namespace DominoConsole;
 
@@ -20,7 +17,7 @@ public static class Program
     public static GameComponents game;
 
     public static IGameBreak BreakRule = new PlayerFinish();
-    // public static IWin<Player[]> Player_Wincondition=checker =>PlayerChecker(checker) ;
+    
 
     public static void Main(string[] args)
     {
@@ -37,25 +34,33 @@ public static class Program
 
 static class PlayGame
 {
-    public static void BoardPrint(List<Token> tokens)
+    public static void PrintCollection(List<Token> tokens)
     {
         for (int i = 0; i < tokens.Count; i++)
         {
-            
         }
     }
+
     public static void Start(GameComponents gameComponents)
     {
         Console.BackgroundColor = ConsoleColor.White;
         Console.Clear();
-        bool draw = false;//falta
-        
+        bool draw = false; //falta
+        int turn = Optionwheel.CurrentPlayer;
         int currentgame = 0;
         while (currentgame < gameComponents.numberofgames)
         {
             int knocks = 0;
             while (!Program.BreakRule.Over(gameComponents))
-            {   
+            { Player current = gameComponents.players[turn];
+                Program.Show($"Le toca al jugador {turn}");
+                Program.Show(
+                    "************************************************************************************************************++");
+                PrintCollection(gameComponents._board.board);
+                Program.Show(
+                    "************************************************************************************************************++");
+                Program.Show("Mano del jugador: ");
+                PrintCollection(current.PlayerHand);
                 if (knocks == gameComponents.players.Length) draw = true;
                 if (!MenuWheel.automode)
                 {
@@ -65,17 +70,21 @@ static class PlayGame
                 {
                     Thread.Sleep(1000);
                 }
-                Player current = gameComponents.players[Optionwheel.StarterPlayer];
-                var currentmove=current.Juega(current.PosiblesJugadas(current.PlayerHand, gameComponents._board.Boardextremes()),
+
+               
+                var currentmove = current.Juega(
+                    current.PosiblesJugadas(current.PlayerHand, gameComponents._board.Boardextremes()),
                     gameComponents._board.Boardextremes());
-                if (currentmove!=null)
-                {  
+                if (currentmove != null)
+                {
                     knocks = 0;
                     gameComponents._board.Insert(currentmove);
+                   Optionwheel.CurrentPlayer+= gameComponents.TurnRule.NxtTurn(knocks);
                 }
                 else
-                {
+                {  
                     knocks++;
+                    Optionwheel.CurrentPlayer+= gameComponents.TurnRule.NxtTurn(knocks);
                 }
             }
         }
@@ -253,7 +262,7 @@ static class Optionwheel
         }
     }
 
-    public static int StarterPlayer = 0;
+    public static int CurrentPlayer = 0;
 
     public static Player[] CreatePlayers()
     {
@@ -299,18 +308,19 @@ static class Optionwheel
                     break;
             }
         }
+
         Console.Clear();
         Program.Show($"Qué jugador debería empezar, hay un total de {players.Length} jugadores: ");
         while (true)
         {
             option = Program.parser(Console.ReadLine());
-            if (option <= 0||option> players.Length)
+            if (option <= 0 || option > players.Length)
             {
                 Console.WriteLine("Introduzca un número válido");
             }
             else
             {
-                StarterPlayer = option;
+                CurrentPlayer = option;
                 break;
             }
         }
@@ -344,14 +354,14 @@ static class Optionwheel
         {
             case 1:
             {
-                    option = -1;
-                    Program.Show("Defina el máximo de fichas hasta 12 ");
-                    while (option < 0 || option > 12)
-                    {
-                        option = Program.parser(Console.ReadLine());
-                    }
+                option = -1;
+                Program.Show("Defina el máximo de fichas hasta 12 ");
+                while (option < 0 || option > 12)
+                {
+                    option = Program.parser(Console.ReadLine());
+                }
 
-                    return new ColorsDeck(rule, option);
+                return new ColorsDeck(rule, option);
             }
             case 2:
             {

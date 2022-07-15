@@ -2,7 +2,7 @@
 
 public class Board 
 {
-    private List<Token> board;
+    public List<Token> board;
     
     public Board()
     {

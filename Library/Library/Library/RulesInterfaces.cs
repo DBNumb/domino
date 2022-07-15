@@ -6,13 +6,13 @@ public interface ITokenRule
 }
 
 public interface ITurnRule
-{
-    public int NxtTurn();
+{   int nxt_turn { get; }
+    public int NxtTurn(int knocks);
 }
 
 
 public interface IChecker<T>
-{
+{   
     public int Win(T obj);
     
 }
