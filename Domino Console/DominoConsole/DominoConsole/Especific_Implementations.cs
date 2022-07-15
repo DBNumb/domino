@@ -65,7 +65,6 @@ public class IntegerDeck: IDeck
     }
 }
 
-
 public class Color : Face
 {
     //he de imaginar que hay q acomodar esto en otro sitio pero mientras tanto que se quede aca

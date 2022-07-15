@@ -100,6 +100,7 @@ public class GameComponents
                 }
             }
         }
+
     }
     public int CuentaFalses(bool[] item) 
     {
