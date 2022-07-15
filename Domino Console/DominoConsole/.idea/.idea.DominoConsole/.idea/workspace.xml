@@ -4,11 +4,11 @@
     <projectFile>DominoConsole/DominoConsole.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="almost_starting">
+    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/PlayerRandom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/PlayerRandom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,12 +24,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Domino Console/DominoConsole/DominoConsole/Especific_Implementations.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/GameComponents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DominoConsole/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/GameComponents.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/Board.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/davidb/Desktop/Project/domino/Library/Library/Library/GameComponents.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -91,7 +86,8 @@
       <workItem from="1657836284037" duration="3786000" />
       <workItem from="1657852583789" duration="94000" />
       <workItem from="1657853252973" duration="4193000" />
-      <workItem from="1657859361886" duration="11131000" />
+      <workItem from="1657859361886" duration="11163000" />
+      <workItem from="1657871838922" duration="1285000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -170,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657866628354</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="pushing changes:)">
+      <created>1657870943522</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1657870943522</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,49 +206,50 @@
     <MESSAGE value="Fixing!!!!!!!!!!Thanks ETECSA" />
     <MESSAGE value="Erasing Play From GameComponents.cs" />
     <MESSAGE value="almost_starting" />
-    <option name="LAST_COMMIT_MESSAGE" value="almost_starting" />
+    <MESSAGE value="pushing changes:)" />
+    <option name="LAST_COMMIT_MESSAGE" value="pushing changes:)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs</url>
-          <line>70</line>
+          <line>73</line>
           <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Library\Library\Library\GameComponents.cs" initialLine="72" containingFunctionPresentation="method 'CuentaFalses'">
             <startOffsets>
-              <option value="1993" />
+              <option value="1929" />
             </startOffsets>
             <endOffsets>
-              <option value="2004" />
+              <option value="1940" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/DominoConsole/Program.cs</url>
-          <line>67</line>
-          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Domino Console\DominoConsole\DominoConsole\Program.cs" initialLine="67" containingFunctionPresentation="method 'Start'">
+          <line>47</line>
+          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Domino Console\DominoConsole\DominoConsole\Program.cs" initialLine="47" containingFunctionPresentation="method 'Start'">
             <startOffsets>
-              <option value="2301" />
+              <option value="1216" />
             </startOffsets>
             <endOffsets>
-              <option value="2337" />
+              <option value="1327" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="8" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs</url>
-          <line>76</line>
-          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Domino Console\DominoConsole\DominoConsole\Especific_Implementations.cs" initialLine="76" containingFunctionPresentation="method 'Print'">
+          <url>file://$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs</url>
+          <line>63</line>
+          <properties documentPath="C:\Users\davidb\Desktop\Project\domino\Library\Library\Library\GameComponents.cs" initialLine="63" containingFunctionPresentation="method 'AsignaFichasAPlayers'">
             <startOffsets>
-              <option value="1796" />
+              <option value="1742" />
             </startOffsets>
             <endOffsets>
-              <option value="1797" />
+              <option value="1743" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

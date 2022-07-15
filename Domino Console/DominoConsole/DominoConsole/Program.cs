@@ -45,7 +45,7 @@ static class PlayGame
 
     public static void Start(GameComponents gameComponents)
     {
-        gameComponents.AsignaFichasAPlayers(gameComponents.players, Program.defaultdeck.deck,gameComponents.players[0].PlayerHand.Capacity);
+        gameComponents.AsignaFichasAPlayers(gameComponents.players, Program.defaultdeck.deck,Optionwheel.playerstoken);
         
         Console.BackgroundColor = ConsoleColor.White;
         Console.Clear();
@@ -56,12 +56,13 @@ static class PlayGame
         {
             int knocks = 0;
             while (!Program.BreakRule.Over(gameComponents))
-            {
+            {Console.Clear();
                 Player current = gameComponents.players[turn];
                 Program.Show($"Le toca al jugador {turn}");
                 Program.Show(
                     "************************************************************************************************************++");
                 PrintCollection(gameComponents._board.board);
+                Program.Show("");
                 Program.Show(
                     "************************************************************************************************************++");
                 Program.Show("Mano del jugador: ");
@@ -274,7 +275,7 @@ static class Optionwheel
     }
 
     public static int CurrentPlayer = 0;
-
+    public static int playerstoken = 10;
     public static Player[] CreatePlayers()
     {
         Console.WriteLine("Diga la cantidad de jugadores: ");
@@ -335,10 +336,11 @@ static class Optionwheel
                              $", la cantidad máxima asignable es {Program.defaultdeck.deck.Count/players.Length}");
             }
             else
-            {
+            {playerstoken = option;
                 foreach (var VARIABLE in players)
                 {
-                    VARIABLE.PlayerHand = new List<Token>(option);
+                    
+                    VARIABLE.PlayerHand = new List<Token>();
                 }
                 break;
             }

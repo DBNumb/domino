@@ -41,7 +41,7 @@ public class Token
 
     public  virtual void Print(Token p)
     {
-        Console.WriteLine($"[ {p.FaceA} | {p.FaceB} ]" );
+        Console.Write($"[ {p.FaceA} | {p.FaceB} ]" );
     }
     public void Getscore(Func<int, int, int> TokenScore)
     {

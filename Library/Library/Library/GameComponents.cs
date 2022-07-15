@@ -11,17 +11,18 @@ public class GameComponents
     private IComparer<Token> _comparer;
     public int numberofgames;
 
-    public GameComponents(Player[] players, ITokenRule tokenRule, ITurnRule turnRule, List<Token> Deck, int numberofgames)
+    public GameComponents(Player[] players, ITokenRule tokenRule, ITurnRule turnRule, List<Token> Deck,
+        int numberofgames)
     {
         this.players = players;
         TurnRule = turnRule;
         TokenRule = tokenRule;
         this.numberofgames = numberofgames;
     }
-    
 
-    private Winner[] DrawWinner(Player[] player, int[] totalScoreHand) 
-    { 
+
+    private Winner[] DrawWinner(Player[] player, int[] totalScoreHand)
+    {
         List<Winner> result = new List<Winner>();
         for (int j = 0; j < player.Length; j++)
         {
@@ -32,35 +33,36 @@ public class GameComponents
 
         for (int j = 0; j < player.Length; j++)
         {
-            if (x == totalScoreHand[j]) 
+            if (x == totalScoreHand[j])
             {
                 Winner aux = new Winner(j);
                 result.Add(aux);
             }
         }
+
         return result.ToArray();
     }
 
-    public void AsignaFichasAPlayers(Player[] players, List<Token> deck,int max)
+    public void AsignaFichasAPlayers(Player[] players, List<Token> deck, int max)
     {
         Random random = new Random();
         bool[] mask = new bool[deck.Count];
-      
-            for (int i = 0; i < players.Length; i++)
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            while (players[i].PlayerHand.Count < max)
             {
-                while (players[i].PlayerHand.Count<max)
+                int x = random.Next(0, mask.Length);
+                if (mask[x] == false)
                 {
-                    int x = random.Next(0, mask.Length);    
-                    if (mask[x] == false)
-                    {
-                        mask[x] = true;
-                        players[i].PlayerHand.Add(deck[x]);
-                        break;
-                    }
+                    mask[x] = true;
+                    players[i].PlayerHand.Add(deck[x]);
+                    break;
                 }
-            
+            }
         }
     }
+
     public int CuentaFalses(bool[] item)
     {
         int aux = 0;
@@ -68,6 +70,7 @@ public class GameComponents
         {
             if (item[i] == false) aux++;
         }
+
         return aux;
     }
 }

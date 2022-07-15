@@ -28,7 +28,7 @@ namespace Library
             // int[] indices = {extremo1.value, extremo2.value};
             
             IComparable y=extremos.FaceB;
-           
+          
             if ((jugada.FaceA.Compare(extremos.FaceA) == 0 || jugada.FaceA.Compare(extremos.FaceB) == 0) &&
                 (jugada.FaceB.Compare(extremos.FaceA) == 0 || jugada.FaceB.Compare(extremos.FaceB) == 0))
             {
