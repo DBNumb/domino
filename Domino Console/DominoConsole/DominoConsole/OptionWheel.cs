@@ -42,17 +42,14 @@ static class Optionwheel
     public static int CurrentPlayer = 0;
     public static int playerstoken = 10;
 
-    public static Team[] CreateTeamsAuto(Player[] players, int numeroDeEquipos) 
+    public static Team[] CreateTeamsAuto(Player[] players) 
     {
-        if (numeroDeEquipos == 0)
-                return new Team[0];
-        Team[] teams = new Team[numeroDeEquipos];
-        for (int i = 0; i < players.Length; i++) 
+       
+        Team[] teams = new Team[players.Length/2];
+        for (int i = 0, k = players.Length/2; i < players.Length / 2; i++, k++) 
         {
-            for (int j = 0; j< teams.Length; j++) 
-            {
-                teams[i].TeamMembers.Add(i);
-            }
+            teams[i].TeamMembers.Add(i);
+            teams[i].TeamMembers.Add(k);
         }
 
         return teams;
