@@ -54,6 +54,25 @@ static class Optionwheel
 
         return teams;
     }
+    public static Team[] CreateTeamsUser(Player[] player, int numeroDeEquipos) 
+    {
+        Team[] teams = new Team[numeroDeEquipos];
+        for (int i = 0; i< player.Length; i++) 
+        {
+            Program.Show("Diga en que equipo quiere poner al jugador " + i);
+            int indiceEquipo = Program.parser(Console.ReadLine());
+            while (indiceEquipo < 0 || indiceEquipo > numeroDeEquipos) 
+            {
+                indiceEquipo = Program.parser(Console.ReadLine());
+            }
+            AsignaPlayerAEquipo(i, teams, indiceEquipo);
+        }
+        return teams;
+    }
+    public static void AsignaPlayerAEquipo(int playerIndice, Team[] teams, int indice)
+    {
+        teams[indice].TeamMembers.Add(playerIndice);
+    }
     public static Player[] CreatePlayers()
     {
         Console.WriteLine("Diga la cantidad de jugadores: ");
@@ -123,7 +142,48 @@ static class Optionwheel
                 break;
             }
         }
+        Program.Show("Quiere Jugar con equipos? Marque 1 para confirmar");
+        
+        option = Program.parser(Console.ReadLine());
+        if (option == 1) 
+        {
+            Console.Clear();
+            Program.Show("Escoja una de las siguientes opciones");
+            Program.Show("1- Generar los equipos automaticamente");
+            Program.Show("2- Usted genera los equipos");
+            Program.Show("0- Atrás");
+            
+            
+            option = Program.parser(Console.ReadLine());
 
+            while (option < 0 || option > 2) 
+            {
+               option = Program.parser(Console.ReadLine());         
+            }
+            switch (option) 
+            {
+                case 1: 
+                    {
+                        Team[] teams = CreateTeamsAuto(players);
+                        break; 
+                    }
+                case 2: 
+                    {
+                        Program.Show("Diga la cantidad de equipos que quiere construir");
+                        int cantEquipos = Program.parser(Console.ReadLine());
+                        while (cantEquipos < 0 || cantEquipos > players.Length) 
+                        {
+                            cantEquipos = Program.parser(Console.ReadLine());
+                        }
+                        Team[] teams = CreateTeamsUser(players, cantEquipos);
+                        break; 
+                    }
+                case 0:break;
+                
+                default: 
+                    break;
+            }
+        }
         foreach (var VARIABLE in players)
         {
             VARIABLE.PlayerHand = new List<Token>(option);
