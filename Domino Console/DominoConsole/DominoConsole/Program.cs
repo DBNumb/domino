@@ -5,28 +5,18 @@ namespace DominoConsole;
 
 public static class Program
 {
-    public static Predicate<int> WinPredicate;
-    public static Func<string, int> parser = s => Utils.TryParser(s);
-    public static Action<string> Show = s => Console.WriteLine(s);
-    public static Action<string> Attach = s => Console.Write(s);
-    public static ITurnRule TurnRule = new ClassicTurn();
-    public static ITokenRule TokenRule = new DefaultTokeRule();
-    public static Player[] Players;
-    public static IDeck defaultdeck = new IntegerDeck(TokenRule, 9);
-    public static Team[] Teams;
-    public static bool getout = false;
     public static GameComponents game;
-    public static IGameBreak BreakRule = new PlayerFinish();
-
+    public static Func<string, int> parser = s => Utils.TryParser(s);
+    
+    public static Action<string> Show = s => Console.WriteLine(s);
+    public static bool getout = false;
+    
 
     public static void Main(string[] args)
     {
         Console.ForegroundColor = ConsoleColor.Green;
         MenuWheel.Menu();
-        if (getout)
-        {
-        }
-        else
+        while (!getout)
         {
             PlayGame.Start(game);
         }

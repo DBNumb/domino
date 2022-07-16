@@ -1,29 +1,37 @@
 ﻿namespace DominoConsole;
+
 using Library;
 
 static class PlayGame
 {
-    public static void PrintCollection(List<Token> tokens) 
+    public static void PrintCollection(List<Token> tokens)
     {
         for (int i = 0; i < tokens.Count; i++)
         {
-            tokens[i].Print(tokens[i]);
-            if (i != 0 && i % 10 == 0){ Program.Show("");Program.Show("-----------------------------------------------------------------------------------------------------------");}
+            tokens[i].Print();
+            if (i != 0 && i % 10 == 0)
+            {
+                Program.Show("");
+                Program.Show(
+                    "-----------------------------------------------------------------------------------------------------------");
+            }
         }
     }
 
     public static void Start(GameComponents gameComponents)
     {
         List<Winner> TotalWinners = new List<Winner>();
-        IGameBreak winrule= Program.BreakRule;
-       
+        IGameBreak winrule = MenuWheel.BreakRule;
+
         Console.BackgroundColor = ConsoleColor.White;
         Console.Clear();
-        bool draw = false; //falta
         int turn = Optionwheel.CurrentPlayer;
         int currentgame = 0;
         while (currentgame < gameComponents.numberofgames)
-        { gameComponents.AsignaFichasAPlayers(Optionwheel.playerstoken);
+        {
+            winrule.draw = false;
+            gameComponents.AsignaFichasAPlayers(Optionwheel.playerstoken);
+            gameComponents._board = new Board();
             int knocks = 0;
             while (!winrule.Over(gameComponents))
             {
@@ -33,16 +41,15 @@ static class PlayGame
                 Program.Show($"Le toca al jugador {turn}");
                 Program.Show(
                     "************************************************************************************************************++");
-               if(gameComponents._board.board.Count!=0)
-                PrintCollection(gameComponents._board.board);
-               Console.ForegroundColor = ConsoleColor.Black;
-               Program.Show("");
+                if (gameComponents._board.board.Count != 0)
+                    PrintCollection(gameComponents._board.board);
+                Console.ForegroundColor = ConsoleColor.Black;
+                Program.Show("");
                 Program.Show(
                     "************************************************************************************************************++");
                 Program.Show($"Mano del jugador {turn}: ");
                 PrintCollection(current.PlayerHand);
-                
-                if (knocks == gameComponents.players.Length) {draw = true; break;}
+
                 if (!MenuWheel.automode)
                 {
                     Console.ReadLine();
@@ -61,62 +68,110 @@ static class PlayGame
                     knocks = 0;
                     gameComponents._board.Insert(currentmove);
                     turn += gameComponents.TurnRule.NxtTurn(knocks);
-                    
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Clear();
+                    Program.Show($"Le toca al jugador {turn}");
+                    Program.Show(
+                        "************************************************************************************************************++");
+                    if (gameComponents._board.board.Count != 0)
+                        PrintCollection(gameComponents._board.board);
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Program.Show("");
+                    Program.Show(
+                        "************************************************************************************************************++");
+                    Program.Show("");
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write("El jugador jugó");
+                    currentmove.Item1.Print();
+                    Program.Show("");
+                    PrintCollection(current.PlayerHand);
+                    Thread.Sleep(1000);
                 }
                 else
                 {
+                    Program.Show($"El jugador {turn} se ha pasado");
                     knocks++;
                     turn += gameComponents.TurnRule.NxtTurn(knocks);
                 }
 
-                if (turn>=gameComponents.players.Length)
+                if (knocks == gameComponents.players.Length)
+                {
+                    winrule.draw = true;
+                    break;
+                }
+
+                if (turn >= gameComponents.players.Length)
                 {
                     turn = 0;
                 }
 
-                if (turn<0)
+                if (turn < 0)
                 {
                     turn = gameComponents.players.Length - 1;
                 }
             }
 
-            if (draw)
+            Program.Show("");
+            if (winrule.draw)
             {
                 Winner[] winners =
                     gameComponents.DrawWinner(gameComponents.players, new int[gameComponents.players.Length]);
-                if (winners == null)
-                {  Log.Draw();
-                    Program.Show(Log.log.Last());
+                if (winners.Length == 1 && MenuWheel.Teams == null)
+                {
+                    winners.Last().wins++;
+
+                    Log.WinSolo(gameComponents.players[winners.Last().player_Index], winners.Last().player_Index);
+                    Program.Show(Log.Winlog.Last());
                     Console.ReadLine();
+                    TotalWinners.Add(winners.Last());
+                    currentgame++;
+                    continue;
                 }
                 else
                 {
-                    
-                    int TeamConflict=0;
-                    foreach (var winner in winners)
-                    { 
-                        if (Program.Teams == null)
-                        {
-                            Log.WinSolo(gameComponents.players[winner.player_Index],winner.player_Index);
-                            Program.Show(Log.Winlog.Last());
-                            Console.ReadLine();
-                            TotalWinners.Add(winner);
-                            currentgame++;
-                            break;
-                        }
-                        else
-                        {
-                            //faltaimplementarteams
-                        }
+                    Log.Draw();
+                    Program.Show(Log.log.Last());
+                    Console.ReadLine();
+                }
+
+                if (winners == null)
+                {
+                    Log.Draw();
+                    Program.Show(Log.log.Last());
+                    Console.ReadLine();
+                    continue;
+                }
+
+                int ComunTeam = winners[0].InTeam(MenuWheel.Teams);
+                for (int i = 0; i < winners.Length; i++)
+                {
+                    if (ComunTeam != winners[i].InTeam(MenuWheel.Teams))
+                    {
+                        Log.Draw();
+                        Program.Show(Log.log.Last());
+                        Console.ReadLine();
+                        continue;
+                    }
+                }
+
+                Program.Show($"Gano el equipo {ComunTeam} con los players: ");
+                for (int w = 0; w < winners.Length; w++)
+                {
+                    winners[w].wins++;
+                    if (w == winners.Length - 1) Console.Write(winners[w].player_Index);
+                    else
+                    {
+                        Console.Write(winners[w].player_Index + ", ");
                     }
                 }
             }
             else
             {
                 Winner winner = winrule.GetWinner();
-                if (Program.Teams == null)
+                if (MenuWheel.Teams == null)
                 {
-                    Log.WinSolo(gameComponents.players[winner.player_Index],winner.player_Index);
+                    Program.Show("");
+                    Log.WinSolo(gameComponents.players[winner.player_Index], winner.player_Index);
                     Program.Show(Log.Winlog.Last());
                     Console.ReadLine();
                     TotalWinners.Add(winner);
@@ -124,16 +179,14 @@ static class PlayGame
                 }
                 else
                 {
-                    foreach (var team in Program.Teams)
-                    {
-                        if (team.TeamMembers.Contains(winner.player_Index))
-                        {
-                            currentgame++;
-                            team.Wins++;
-                            TotalWinners.Add(winner);
-                            break;
-                        }
-                    }
+                    int team = winner.InTeam(MenuWheel.Teams);
+                    currentgame++;
+                    MenuWheel.Teams[team].Wins++;
+                    Log.TeamWin(MenuWheel.Teams[team], winner.player_Index,
+                        gameComponents.players[winner.player_Index]);
+                    Program.Show(Log.Winlog.Last());
+                    TotalWinners.Add(winner);
+                    continue;
                 }
             }
         }
@@ -151,4 +204,3 @@ static class PlayGame
         MenuWheel.Menu();
     }
 }
-

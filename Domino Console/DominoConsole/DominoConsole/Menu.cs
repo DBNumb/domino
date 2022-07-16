@@ -2,19 +2,28 @@
 using Library;
 static class MenuWheel
 {
+    public static ITurnRule TurnRule = new ClassicTurn();
+    public static ITokenRule TokenRule = new DefaultTokeRule();
+    public static Player[] Players;
+    public static IDeck defaultdeck = new IntegerDeck(TokenRule, 9);
+    public static Team[] Teams;
+    public static IGameBreak BreakRule = new PlayerFinish();
+
     public static Func<string, int> parser = s => Utils.TryParser(s);
     public static Action<string> Show = s => Console.WriteLine(s);
     public static bool automode = false;
-
+    public static IDeck deck;
+    public static bool Players_Initialized=false;
     public static void Menu()
     {
+         Players_Initialized = false;
         Board board = new Board();
-        IDeck deck = Program.defaultdeck;
+         // deck = defaultdeck;
         bool menuout = false;
         int numberofgames = 1;
         bool TokensAlreadyInitialized = false;
         // Console.Clear();
-
+       
 
         while (!menuout)
         {
@@ -35,19 +44,19 @@ static class MenuWheel
             {
                 case 1:
                 {
-                    Program.TurnRule = Optionwheel.Turn();
+                    TurnRule = Optionwheel.Turn();
                     break;
                 }
                 case 2:
                 {
-                    Program.TokenRule = Optionwheel.TokenRule();
-                    deck = Optionwheel.TokenDeck(Program.TokenRule);
+                    TokenRule = Optionwheel.TokenRule();
+                    deck = Optionwheel.TokenDeck(TokenRule);
                     TokensAlreadyInitialized = true;
                     break;
                 }
                 case 3:
                 { if(TokensAlreadyInitialized)
-                    Program.Players = Optionwheel.CreatePlayers();
+                    Players = Optionwheel.CreatePlayers();
                     else
                     {
                         Program.Show("Modifique primero las fichas");
@@ -77,7 +86,7 @@ static class MenuWheel
                     switch (win)
                     {
                         case 1:
-                            Program.BreakRule = new PlayerFinish();
+                            BreakRule = new PlayerFinish();
                             break;
                         case 2:
                         {
@@ -96,7 +105,7 @@ static class MenuWheel
                                 }
                             }
 
-                            Program.BreakRule = new PlayFinish(win);
+                            BreakRule = new PlayFinish(win);
                             break;
                         }
                     }
@@ -106,25 +115,40 @@ static class MenuWheel
                 case 5:
                 {
                     Show("Defina la cantidad de juegos: ");
-                    while (numberofgames <= 0)
+                    do
                     {
                         numberofgames = parser(Console.ReadLine());
-                    }
+                    } while (numberofgames <= 0);
+                    
 
                     break;
                 }
                 case 6:
                 {
-                    Show("Teclee 1 si desea jugar en modo automático");
-                    string temp = Console.ReadLine();
-                    if (temp == "1")
+                    if (TokensAlreadyInitialized && Players_Initialized)
                     {
-                        automode = true;
-                    }
 
-                    Program.game = new GameComponents(Program.Players, Program.TokenRule, Program.TurnRule, deck.deck,
-                        numberofgames);
-                    menuout = true;
+
+                        Show("Teclee 1 si desea jugar en modo automático");
+                        string temp = Console.ReadLine();
+                        if (temp == "1")
+                        {
+                            automode = true;
+                        }
+
+                        Program.game = new GameComponents(Players,TokenRule,TurnRule,
+                            deck.deck,
+                            numberofgames);
+                        
+                        menuout = true;
+                        
+                    }
+                    else
+                    { Console.Clear();
+                        Show("Debe Inicializar los jugadores y las fichas\n" +
+                             "presione cualquier tecla para continuar");
+                        Console.ReadLine();
+                    }
                     break;
                 }
                 case 7:

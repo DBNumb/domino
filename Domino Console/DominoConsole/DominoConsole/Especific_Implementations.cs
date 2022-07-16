@@ -6,6 +6,8 @@ namespace DominoConsole;
 
 public  class PlayerFinish : IGameBreak
 {
+    public bool draw { get; set; }
+
     public Winner GetWinner()
     {
         return _winner;
@@ -22,7 +24,6 @@ public  class PlayerFinish : IGameBreak
                 return true;
             }
         }
-
         return false;
     }
 }
@@ -30,9 +31,11 @@ public  class PlayerFinish : IGameBreak
 public class PlayFinish : IGameBreak
 {
     private Winner _winner;
+    public bool draw { get; set; }
+
     public Winner GetWinner()
     {
-        throw new NotImplementedException();
+        return _winner;
     }
 
     private GameComponents aux;
@@ -44,12 +47,11 @@ public class PlayFinish : IGameBreak
     }
     public bool Over(GameComponents gamestatus)
     {
+        
         currentPlays++;
-        if (currentPlays==max)
+        if (currentPlays==max|| draw)
         {
-            aux = gamestatus;
-            _winner = GetWinner();
-            return true;
+            return draw = true;
         }
 
         return false;
@@ -105,14 +107,14 @@ public class IntegerToken : Token
         Getscore();
     }
 
-    public override void Print(Token token)
+    public override void Print()
     { 
         Console.ForegroundColor = ConsoleColor.Green;
-        if (token.FaceA.CanbeMatch(token.FaceB))
+        if (this.FaceA.CanbeMatch(this.FaceB))
         {
             Console.Write("[[");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($" {token.FaceA} ");
+            Console.Write($" {this.FaceA} ");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("]]");
         }
@@ -120,11 +122,11 @@ public class IntegerToken : Token
         {
             Console.Write("[ ");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($"{token.FaceA} ");
+            Console.Write($"{this.FaceA} ");
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Write("| ");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($"{token.FaceB} ");
+            Console.Write($"{this.FaceB} ");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("]");
         }
@@ -168,26 +170,26 @@ public class ColorToken : Token
 
     
 
-    public override void Print(Token token)
+    public override void Print()
 
     {
         Console.ForegroundColor = ConsoleColor.Black;
-        if (token.FaceA.CanbeMatch(token.FaceB))
+        if (this.FaceA.CanbeMatch(this.FaceB))
         { 
             Console.Write("[[");
-            SwitchColorPrint(token.FaceA.ToString());
+            SwitchColorPrint(this.FaceA.ToString());
             Console.Write("]]");
         }
         else
         {
             Console.Write("[");
 
-            SwitchColorPrint(token.FaceA.ToString());
+            SwitchColorPrint(this.FaceA.ToString());
            
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Write("|");
             
-            SwitchColorPrint(token.FaceB.ToString());
+            SwitchColorPrint(this.FaceB.ToString());
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("]");
         }

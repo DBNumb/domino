@@ -17,14 +17,7 @@ public interface IComparable
     int Compare(object other);
 }
 
-#region SelectionRule NOT YEEEET!!!!!
-//permite a un jugador volver a seleccionar fichas acorde a la regla de selección del jugador
-public delegate List<Token> Reselect(ReselectRule rule);
-public interface ReselectRule
-{
-    public void RemoveSelection(List<Token> PlayerHand);
-}
-#endregion
+
 public interface IFace: IComparable,IPuntuable
 {
     bool CanbeMatch(IFace other);
@@ -42,7 +35,7 @@ public interface IFilterFichas
 }
 
 public interface IGameBreak
-{
+{  public bool draw { get; set; }
     public Winner GetWinner();
     public bool Over(GameComponents gamestatus);
 }

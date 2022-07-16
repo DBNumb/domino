@@ -56,6 +56,16 @@ public static class Extensions
 
         return aux.ToArray();
     }
+
+    public static int InTeam(this Winner x, Team[] a)
+    {
+        foreach (var VARIABLE in a)
+        {
+            if (VARIABLE.TeamMembers.Contains(x.player_Index)) return VARIABLE.TeamIndex;
+        }
+
+        return 0;
+    }
     public static int PlayerHandScore(this Player player)
     {
         int result = 0;

@@ -34,7 +34,11 @@ public class BoardToken : Token
     {
         
     }
-    
+
+    public override void Print()
+    {
+        
+    }
 }
 
 public abstract class Token
@@ -48,10 +52,8 @@ public abstract class Token
         FaceB = b;
     }
 
-    public  virtual void Print(Token p)
-    {
-        Console.Write($"[ {p.FaceA} | {p.FaceB} ]" );
-    }
+    public abstract void Print();
+    
     public void Getscore()
     {
         Score= FaceA.GetPuntuation()+ FaceB.GetPuntuation();

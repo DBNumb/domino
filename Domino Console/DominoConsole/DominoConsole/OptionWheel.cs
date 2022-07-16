@@ -75,13 +75,15 @@ static class Optionwheel
     }
     public static Player[] CreatePlayers()
     {
-        Console.WriteLine("Diga la cantidad de jugadores: ");
+        
         int option = 0;
-        while (option <= 0)
-        {
+        while (option <= 0|| option> MenuWheel.deck.deck.Count)
+        {Console.WriteLine("Diga la cantidad de jugadores: ");
             option = Program.parser(Console.ReadLine());
+            Console.Clear();
         }
 
+        MenuWheel.Players_Initialized = true;
         Player[] players = new Player[option];
         for (int i = 0; i < players.Length; i++)
         {
@@ -119,18 +121,21 @@ static class Optionwheel
         }
 
         Console.Clear();
-        Program.Show("Defina cuántas fichas deben tener los jugadores: ");
+        
         while (true)
-        {
+        {  Program.Show("Defina cuántas fichas deben tener los jugadores: ");
             option = Program.parser(Console.ReadLine());
             if (option <= 0)
-            {
+            {Console.Clear();
                 Program.Show("Debe introducir una opción válida");
             }
-            else if (Program.defaultdeck.deck.Count/players.Length*option<1)
+            else if (MenuWheel.deck.deck.Count/(players.Length*option)<1)
             {
-                Program.Show($"Hay {Program.defaultdeck.deck.Count} fichas y {players.Length}jugadores" +
-                             $", la cantidad máxima asignable es {Program.defaultdeck.deck.Count/players.Length}");
+                Program.Show($"Hay {MenuWheel.deck.deck.Count} fichas y {players.Length} jugadores" +
+                             $", la cantidad máxima asignable es {MenuWheel.deck.deck.Count/players.Length}" +
+                             $"\n presione enter para continuar");
+                Console.ReadLine();
+                Console.Clear();
             }
             else
             {playerstoken = option;
@@ -254,10 +259,10 @@ static class Optionwheel
 
                 return new IntegerDeck(rule, option);
             }
-            
+          
         }
 
-        return Program.defaultdeck;
+        return MenuWheel.defaultdeck;
     }
 
     #endregion
