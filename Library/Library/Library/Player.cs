@@ -41,6 +41,4 @@ namespace Library
             return new Tuple<Token, IComparable>(jugada, extremos.FaceB);
         }
     }
-
-    
 }
