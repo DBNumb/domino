@@ -10,12 +10,15 @@ namespace Library
     public class Player
     {
         private IStrategy strategy;
-        public int PlayerScore { get; protected set; }
-        public List<Token> PlayerHand { get; set; }
+        public int PlayerScore;
+        public List<Token> PlayerHand;
         
         public Player(IStrategy strategy) 
         {
+            this.PlayerScore = 0;
             this.strategy = strategy;
+            this.PlayerHand = new List<Token>();
+
         }
 
        
