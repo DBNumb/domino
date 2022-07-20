@@ -7,11 +7,35 @@ using System.Threading.Tasks;
 namespace Library
 {
     
-    public abstract class Player
-    {  public abstract int PlayerScore { get; protected set; }
-        //clase abstracta jugador
-        public abstract List<Token>PlayerHand { get; set; }
-        public abstract Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Token extremos);
+    public class Player
+    {
+        private IStrategy strategy;
+        public int PlayerScore { get; protected set; }
+        public List<Token> PlayerHand { get; set; }
+        
+        public Player(IStrategy strategy) 
+        {
+            this.strategy = strategy;
+        }
+
+       
+        public Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Board board) 
+        {
+            if (posiblesjugadas == null) return null;
+            //si no hay posibles jugadas no puede jugar
+
+            
+            
+            Token jugada = strategy.Strategy(posiblesjugadas, board);
+            
+            PlayerScore += jugada.Score;
+            PlayerHand.Remove(jugada);
+
+            Token extremos = board.Boardextremes();
+
+            if (extremos.FaceA == null || extremos.FaceB == null) return new Tuple<Token, IComparable>(jugada, null);
+            return Comp(jugada, extremos);
+        }
         public List<Token> PosiblesJugadas(List<Token> playerHand, Token extremos)
         {
             if (extremos.FaceA == null || extremos.FaceB == null) return playerHand;
