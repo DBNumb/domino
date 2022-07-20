@@ -4,17 +4,9 @@
     <projectFile>DominoConsole/DominoConsole.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="uyuyuyuyuyuy">
+    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DominoConsole/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DominoConsole/OptionWheel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/OptionWheel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DominoConsole/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +25,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Library/Library/Library/Extensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Domino Console/DominoConsole/DominoConsole/Especific_Implementations.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Domino Console/DominoConsole/DominoConsole/Especific_Implementations.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Library/Library/Library/Player.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DominoConsole/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Library/Library/Library/Player.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -106,7 +95,8 @@
       <workItem from="1657881673895" duration="17000" />
       <workItem from="1657898533679" duration="3792000" />
       <workItem from="1657907229509" duration="9231000" />
-      <workItem from="1657922297625" duration="19132000" />
+      <workItem from="1657922297625" duration="19438000" />
+      <workItem from="1658286390051" duration="3022000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -241,7 +231,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657929412312</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Terminated">
+      <created>1657943841712</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1657943841712</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Report">
+      <created>1657943852312</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1657943852312</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,7 +286,9 @@
     <MESSAGE value="Merging" />
     <MESSAGE value="Winners" />
     <MESSAGE value="uyuyuyuyuyuy" />
-    <option name="LAST_COMMIT_MESSAGE" value="uyuyuyuyuyuy" />
+    <MESSAGE value="Terminated" />
+    <MESSAGE value="Report" />
+    <option name="LAST_COMMIT_MESSAGE" value="Report" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
