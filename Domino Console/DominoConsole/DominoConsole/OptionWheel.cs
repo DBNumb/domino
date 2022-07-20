@@ -109,13 +109,13 @@ static class Optionwheel
             switch (playertype)
             {
                 case 1:
-                    players[i] = new PlayerRandom();
+                    players[i] = new Player(new RandomStrategy());
                     break;
                 case 2:
-                    players[i] = new PlayerPD();
+                    players[i] = new Player(new PDStrategy());
                     break;
                 default:
-                    players[i] = new PlayerBG();
+                    players[i] = new Player(new BGStrategy());
                     break;
             }
         }

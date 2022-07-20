@@ -38,7 +38,7 @@ static class PlayGame
                 Console.Clear();
                 Player current = gameComponents.players[turn];
                 Console.ForegroundColor = ConsoleColor.Black;
-                Program.Show($"Le toca al jugador {turn}");
+                Program.Show($"Le toca al jugador {turn+1}");
                 Program.Show(
                     "************************************************************************************************************++");
                 if (gameComponents._board.board.Count != 0)
@@ -47,7 +47,7 @@ static class PlayGame
                 Program.Show("");
                 Program.Show(
                     "************************************************************************************************************++");
-                Program.Show($"Mano del jugador {turn}: ");
+                Program.Show($"Mano del jugador {turn+1}: ");
                 PrintCollection(current.PlayerHand);
 
                 if (!MenuWheel.automode)
@@ -60,36 +60,36 @@ static class PlayGame
                 }
 
 
-                var currentmove = current.Juega(
-                    current.PosiblesJugadas(current.PlayerHand, gameComponents._board.Boardextremes()),
-                    gameComponents._board.Boardextremes());
+                var currentmove = current.Juega(gameComponents._board);
                 if (currentmove != null)
                 {
                     knocks = 0;
                     gameComponents._board.Insert(currentmove);
-                    turn += gameComponents.TurnRule.NxtTurn(knocks);
+                    
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.Clear();
-                    Program.Show($"Le toca al jugador {turn}");
+                    Program.Show($"Le toca al jugador {turn+1}");
                     Program.Show(
-                        "************************************************************************************************************++");
+                        "******************************************************************************************************************");
                     if (gameComponents._board.board.Count != 0)
                         PrintCollection(gameComponents._board.board);
                     Console.ForegroundColor = ConsoleColor.Black;
                     Program.Show("");
                     Program.Show(
-                        "************************************************************************************************************++");
-                    Program.Show("");
+                        "******************************************************************************************************************");
+                    
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.Write("El jugador jugó");
+                    Console.Write($"El jugador {turn+1} jugó: ");
                     currentmove.Item1.Print();
                     Program.Show("");
                     PrintCollection(current.PlayerHand);
                     Thread.Sleep(1000);
+                    turn += gameComponents.TurnRule.NxtTurn(knocks);
                 }
                 else
                 {
                     Program.Show($"El jugador {turn} se ha pasado");
+                    Thread.Sleep(500);
                     knocks++;
                     turn += gameComponents.TurnRule.NxtTurn(knocks);
                 }

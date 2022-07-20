@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    internal class StrategysLib
-    {
-    }
     public interface IStrategy 
     {
         public Token Strategy(List<Token> posiblesjugadas, Board board);

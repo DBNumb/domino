@@ -19,8 +19,9 @@ namespace Library
         }
 
        
-        public Tuple<Token, IComparable> Juega(List<Token> posiblesjugadas, Board board) 
+        public Tuple<Token, IComparable> Juega( Board board)
         {
+            var posiblesjugadas = PosiblesJugadas(PlayerHand, board.Boardextremes());
             if (posiblesjugadas == null) return null;
             //si no hay posibles jugadas no puede jugar
 
