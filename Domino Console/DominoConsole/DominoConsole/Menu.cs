@@ -11,17 +11,17 @@ static class MenuWheel
 
     public static Func<string, int> parser = s => Utils.TryParser(s);
     public static Action<string> Show = s => Console.WriteLine(s);
-    public static bool automode = false;
+    public static bool automode ;
     public static IDeck deck;
     public static bool Players_Initialized=false;
     public static void Menu()
     {
-         Players_Initialized = false;
+       
         Board board = new Board();
          // deck = defaultdeck;
         bool menuout = false;
         int numberofgames = 1;
-        bool TokensAlreadyInitialized = false;
+        bool tokensAlreadyInitialized = false;
         // Console.Clear();
        
 
@@ -51,11 +51,11 @@ static class MenuWheel
                 {
                     TokenRule = Optionwheel.TokenRule();
                     deck = Optionwheel.TokenDeck(TokenRule);
-                    TokensAlreadyInitialized = true;
+                    tokensAlreadyInitialized = true;
                     break;
                 }
                 case 3:
-                { if(TokensAlreadyInitialized)
+                { if(tokensAlreadyInitialized)
                     Players = Optionwheel.CreatePlayers();
                     else
                     {
@@ -125,7 +125,7 @@ static class MenuWheel
                 }
                 case 6:
                 {
-                    if (TokensAlreadyInitialized && Players_Initialized)
+                    if (tokensAlreadyInitialized && Players_Initialized)
                     {
 
 

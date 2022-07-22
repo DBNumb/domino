@@ -11,9 +11,13 @@ public interface ITurnRule
 }
 
 
-public interface IChecker<T>
-{   
-    public int Win(T obj);
+public interface SelectionRule
+{
     
 }
 
+public interface IGameBreak
+{  public bool draw { get; set; }
+    public Winner GetWinner();
+    public bool Over(GameComponents gamestatus);
+}

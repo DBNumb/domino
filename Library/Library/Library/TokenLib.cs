@@ -58,10 +58,6 @@ public abstract class Token
     {
         Score= FaceA.GetPuntuation()+ FaceB.GetPuntuation();
     }
-    public  string Description(Token token) 
-    {
-        return "[" + token.FaceA.ToString() + "|" + token.FaceB.ToString() + "]";
-    }
 }
 
 

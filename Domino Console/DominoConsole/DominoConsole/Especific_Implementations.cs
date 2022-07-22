@@ -182,7 +182,7 @@ public class ColorToken : Token
         }
         else
         {
-            Console.Write("[");
+            Console.Write("|");
 
             SwitchColorPrint(this.FaceA.ToString());
            
@@ -190,8 +190,8 @@ public class ColorToken : Token
             Console.Write("|");
             
             SwitchColorPrint(this.FaceB.ToString());
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("]");
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write("|");
         }
     }
 

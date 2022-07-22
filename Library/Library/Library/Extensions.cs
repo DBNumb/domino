@@ -12,16 +12,6 @@ public static class Extensions
 
         return x;
     }
-
-    public static int TeamPlayerContainer(this Team[] x, int playerindex)
-    {
-        foreach (var team in x)
-        {
-            if (team.TeamMembers.Contains(playerindex)) return team.TeamIndex;
-        }
-
-        return 0;
-    }
     public static Winner[] PrintWinners(this List<Winner> x,int length)
     {
         int max = 0;

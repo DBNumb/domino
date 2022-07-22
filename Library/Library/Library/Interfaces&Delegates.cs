@@ -31,12 +31,6 @@ public interface IFilterFichas
     public List<Token> posiblesjugadas { get; set; }
 
     public bool Apply(List<Token> fichasPlayer, Token Estado_tablero, IComparer<Token>comp);
-    //hay q abstraernos mas pq esto solo funciona para domino
-}
-
-public interface IGameBreak
-{  public bool draw { get; set; }
-    public Winner GetWinner();
-    public bool Over(GameComponents gamestatus);
+    
 }
 

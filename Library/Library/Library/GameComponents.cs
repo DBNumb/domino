@@ -6,7 +6,7 @@ public class GameComponents
     public ITokenRule TokenRule;
     public ITurnRule TurnRule;
     public Player[] players { get; }
-    private CanPlay _canPlay = new CanPlay();
+    
     public List<Token> domain;
     private IComparer<Token> _comparer;
     public int numberofgames;
@@ -63,15 +63,5 @@ public class GameComponents
             }
         }
     }
-
-    public int CuentaFalses(bool[] item)
-    {
-        int aux = 0;
-        for (int i = 0; i < item.Length; i++)
-        {
-            if (item[i] == false) aux++;
-        }
-
-        return aux;
-    }
+    
 }
