@@ -168,7 +168,7 @@ static class PlayGame
                 Program.Show(Log.Winlog.Last());
                 Console.ReadLine();
             }
-            break;
+            
             //     if (winrule.draw)
             //     {
             //         Winner[] winners =
@@ -255,10 +255,11 @@ static class PlayGame
             //     Program.Show($"FELICIDADES jugador {printWinners[0].player_Index} haz ganado!!! ");
             // }
 
-            Console.ReadLine();
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Clear();
-            MenuWheel.Menu();
+           
         }
+        Console.ReadLine();
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.Clear();
+        MenuWheel.Menu();
     }
 }
