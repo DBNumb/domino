@@ -26,11 +26,9 @@ public interface IFace: IComparable,IPuntuable
 
 #endregion
 
-public interface IFilterFichas
-{
-    public List<Token> posiblesjugadas { get; set; }
 
-    public bool Apply(List<Token> fichasPlayer, Token Estado_tablero, IComparer<Token>comp);
-    
+public interface IDeck
+{
+    public List<Token> deck { get; }
 }
 

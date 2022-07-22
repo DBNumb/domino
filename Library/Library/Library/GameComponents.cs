@@ -6,14 +6,15 @@ public class GameComponents
     public ITokenRule TokenRule;
     public ITurnRule TurnRule;
     public Player[] players { get; }
-    
+    public IReglaDeSelección _reglaDeSelección;
     public List<Token> domain;
     private IComparer<Token> _comparer;
     public int numberofgames;
 
     public GameComponents(Player[] players, ITokenRule tokenRule, ITurnRule turnRule, List<Token> Deck,
-        int numberofgames)
+        int numberofgames,IReglaDeSelección reglaDeSelección)
     {
+        _reglaDeSelección = reglaDeSelección;
         domain = Deck;
         this.players = players;
         TurnRule = turnRule;
@@ -46,22 +47,7 @@ public class GameComponents
 
     public void AsignaFichasAPlayers( int max)
     {
-        Random random = new Random();
-        bool[] mask = new bool[domain.Count];
-
-        for (int i = 0; i < players.Length; i++)
-        {
-            while (players[i].PlayerHand.Count < max)
-            {
-                int x = random.Next(0, mask.Length);
-                if (mask[x] == false)
-                {
-                    mask[x] = true;
-                    players[i].PlayerHand.Add(domain[x]);
-                    
-                }
-            }
-        }
+        _reglaDeSelección.AsignaFichaPlayer(domain,players,max);
     }
     
 }

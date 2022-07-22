@@ -11,9 +11,9 @@ public interface ITurnRule
 }
 
 
-public interface SelectionRule
+public interface IReglaDeSelección
 {
-    
+    public void AsignaFichaPlayer(List<Token> domain,Player[] players, int max);
 }
 
 public interface IGameBreak

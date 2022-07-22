@@ -9,7 +9,7 @@ namespace Library
     
     public class Player
     {
-        private IStrategy strategy;
+        public IStrategy strategy;
         public int PlayerScore;
         public List<Token> PlayerHand;
         

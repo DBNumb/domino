@@ -8,13 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/DominoBasics.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/RulesInterfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/RulesInterfaces.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/StrategysLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/StrategysLib.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/TokenLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +103,8 @@
       <workItem from="1657922297625" duration="19438000" />
       <workItem from="1658286390051" duration="3022000" />
       <workItem from="1658292426738" duration="2473000" />
-      <workItem from="1658458078307" duration="2559000" />
+      <workItem from="1658458078307" duration="3194000" />
+      <workItem from="1658461455899" duration="5941000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -267,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658293811818</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="making selectionrule">
+      <created>1658460850705</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1658460850705</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,6 +319,7 @@
     <MESSAGE value="Report" />
     <MESSAGE value="pulling" />
     <MESSAGE value="Fixing implementations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing implementations" />
+    <MESSAGE value="making selectionrule" />
+    <option name="LAST_COMMIT_MESSAGE" value="making selectionrule" />
   </component>
 </project>

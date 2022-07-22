@@ -58,6 +58,7 @@ public static class Extensions
     }
     public static int PlayerHandScore(this Player player)
     {
+        if (player.PlayerHand.Count == 0) return 0;
         int result = 0;
         foreach (var VARIABLE in player.PlayerHand)
         {

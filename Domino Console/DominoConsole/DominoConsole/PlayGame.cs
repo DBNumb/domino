@@ -40,13 +40,13 @@ static class PlayGame
                 Console.ForegroundColor = ConsoleColor.Black;
                 Program.Show($"Le toca al jugador {turn+1}");
                 Program.Show(
-                    "************************************************************************************************************++");
+                    "******************************************************************************************************************");
                 if (gameComponents._board.board.Count != 0)
                     PrintCollection(gameComponents._board.board);
                 Console.ForegroundColor = ConsoleColor.Black;
                 Program.Show("");
                 Program.Show(
-                    "************************************************************************************************************++");
+                    "******************************************************************************************************************");
                 Program.Show($"Mano del jugador {turn+1}: ");
                 PrintCollection(current.PlayerHand);
 
@@ -201,6 +201,6 @@ static class PlayGame
         Console.ReadLine();
         Console.BackgroundColor = ConsoleColor.Black;
         Console.Clear();
-        MenuWheel.Menu();
+       
     }
 }

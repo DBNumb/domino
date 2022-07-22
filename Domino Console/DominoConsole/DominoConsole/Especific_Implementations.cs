@@ -60,10 +60,7 @@ public class PlayFinish : IGameBreak
 
 
 
-public interface IDeck
-{
-    public List<Token> deck { get; }
-}
+
 
 public class IntegerFace : Face
 {
