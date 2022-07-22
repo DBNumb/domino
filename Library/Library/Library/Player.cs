@@ -9,8 +9,9 @@ namespace Library
     
     public class Player
     {
+        //la clase player recibe como parametro una estrategia y de esa manera sabe que estrategia usar para jugar.
         public IStrategy strategy;
-        public int PlayerScore;
+        private int PlayerScore;
         public List<Token> PlayerHand;
         
         public Player(IStrategy strategy) 
@@ -20,7 +21,7 @@ namespace Library
             this.PlayerHand = new List<Token>();
 
         }
-
+        public int GetPlayerScore => PlayerScore;
        
         public Tuple<Token, IComparable> Juega( Board board)
         {

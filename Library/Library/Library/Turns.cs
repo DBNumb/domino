@@ -2,6 +2,8 @@
 
 public class ClockTurn : ITurnRule
 {
+    //regla que modifica el modo de pasar los turnos de la siguiente manera:
+    //si se pasa un jugador vuelve a jugar el jugador anterior
     public int nxt_turn { get; }
     private int consecutives_knocks = 0;
 
@@ -24,6 +26,7 @@ public class ClockTurn : ITurnRule
 
 public class ClassicTurn : ITurnRule
 {
+    //regla clasica de turnos en la que juega un jugador detras de otro y si uno se pasa se salta al proximo jugador
     public int nxt_turn { get; }
 
     public int NxtTurn(int knocks)

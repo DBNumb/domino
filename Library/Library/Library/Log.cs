@@ -11,13 +11,13 @@ public static class Log
 
     public static void WinSolo(Player x,int playerindex)
     {
-        Winlog.Add($"El jugador {playerindex} ha ganado con una puntuación de {x.PlayerScore} puntos");
+        Winlog.Add($"El jugador {playerindex} ha ganado con una puntuación de {x.GetPlayerScore} puntos");
     }
 
     public static void TeamWin(Team team, int playerindex,Player x)
     {
         Winlog.Add($"Ganó el equipo {team.TeamIndex} con el jugador {playerindex} " +
-                   $"con una puntuación de {x.PlayerScore}");
+                   $"con una puntuación de {x.GetPlayerScore}");
     }
 
     public static void Draw()
