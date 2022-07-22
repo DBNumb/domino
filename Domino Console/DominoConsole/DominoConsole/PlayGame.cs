@@ -4,6 +4,7 @@ using Library;
 
 static class PlayGame
 {
+    //Método q se encarga de imprimir
     public static void PrintCollection(List<Token> tokens)
     {
         for (int i = 0; i < tokens.Count; i++)
@@ -201,6 +202,7 @@ static class PlayGame
         Console.ReadLine();
         Console.BackgroundColor = ConsoleColor.Black;
         Console.Clear();
-       
+       MenuWheel.Menu();
+        
     }
 }

@@ -37,8 +37,9 @@ static class MenuWheel
             Show("3- Cantidad y Tipos de jugadores");
             Show("4- Regla de ganar: ");
             Show("5-Cantidad de juegos");
-            Show("6- Continuar: ");
-            Show("7- Salir: ");
+            Show("6-Regla de selección");
+            Show("7- Continuar: ");
+            Show("8- Salir: ");
             int option = parser(Console.ReadLine());
             // if (option <= 0 || option > 6) continue;
             Console.Clear();
@@ -153,11 +154,11 @@ static class MenuWheel
                         case 2:
                             Console.Clear();
                             Show($"Seleccione cuántas fichas puede cambiar el jugador." +
-                                 $"\n Recuerde los jugadores tienen {Players[0].PlayerHand.Count}: ");
+                                 $"\n Recuerde los jugadores tienen {Optionwheel.playerstoken}: ");
                             do
                             {
                                 option = parser(Console.ReadLine());
-                            } while (option<0|| option>Players[0].PlayerHand.Count);
+                            } while (option<0|| option>Optionwheel.playerstoken);
 
                             _reglaDeSelección = new ReseleccionarAsignacion(option);
                             break;

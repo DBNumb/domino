@@ -4,16 +4,11 @@
     <projectFile>DominoConsole/DominoConsole.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="">
+    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="ImplementedSelectionRule">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Menu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Extensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Interfaces&amp;Delegates.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/RulesInterfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/RulesInterfaces.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +27,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Domino Console/DominoConsole/DominoConsole/Especific_Implementations.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Library/Library/Library/GameComponents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Library/Library/Library/GameComponents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Library/Library/Library/Player.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DominoConsole/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Library/Library/Library/Player.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -104,7 +104,7 @@
       <workItem from="1658286390051" duration="3022000" />
       <workItem from="1658292426738" duration="2473000" />
       <workItem from="1658458078307" duration="3194000" />
-      <workItem from="1658461455899" duration="5941000" />
+      <workItem from="1658461455899" duration="8837000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -274,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658460850705</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="ImplementedSelectionRule">
+      <created>1658467537136</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1658467537136</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,6 +327,26 @@
     <MESSAGE value="pulling" />
     <MESSAGE value="Fixing implementations" />
     <MESSAGE value="making selectionrule" />
-    <option name="LAST_COMMIT_MESSAGE" value="making selectionrule" />
+    <MESSAGE value="ImplementedSelectionRule" />
+    <option name="LAST_COMMIT_MESSAGE" value="ImplementedSelectionRule" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DominoConsole/EspecificTokenSelector.cs</url>
+          <line>53</line>
+          <properties documentPath="C:\Users\davidb\Desktop\Finishing\domino\Domino Console\DominoConsole\DominoConsole\EspecificTokenSelector.cs" initialLine="53" containingFunctionPresentation="method 'AsignaFichaPlayer'">
+            <startOffsets>
+              <option value="1708" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1785" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

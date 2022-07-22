@@ -6,33 +6,31 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    
     public class Player
     {
         //la clase player recibe como parametro una estrategia y de esa manera sabe que estrategia usar para jugar.
         public IStrategy strategy;
         private int PlayerScore;
         public List<Token> PlayerHand;
-        
-        public Player(IStrategy strategy) 
+
+        public Player(IStrategy strategy)
         {
             this.PlayerScore = 0;
             this.strategy = strategy;
             this.PlayerHand = new List<Token>();
-
         }
+
         public int GetPlayerScore => PlayerScore;
-       
-        public Tuple<Token, IComparable> Juega( Board board)
+
+        public Tuple<Token, IComparable> Juega(Board board)
         {
             var posiblesjugadas = PosiblesJugadas(PlayerHand, board.Boardextremes());
             if (posiblesjugadas == null) return null;
             //si no hay posibles jugadas no puede jugar
 
-            
-            
+
             Token jugada = strategy.Strategy(posiblesjugadas, board);
-            
+
             PlayerScore += jugada.Score;
             PlayerHand.Remove(jugada);
 
@@ -41,7 +39,7 @@ namespace Library
             if (extremos.FaceA == null || extremos.FaceB == null) return new Tuple<Token, IComparable>(jugada, null);
             return Comp(jugada, extremos);
         }
-       
+
         public List<Token> PosiblesJugadas(List<Token> playerHand, Token extremos)
         {
             if (extremos.FaceA == null || extremos.FaceB == null) return playerHand;
