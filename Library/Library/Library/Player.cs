@@ -21,7 +21,7 @@ namespace Library
             this.PlayerHand = new List<Token>();
 
         }
-        public int GetPlayerScore() { return PlayerScore;}
+        public int GetPlayerScore => PlayerScore;
        
         public Tuple<Token, IComparable> Juega( Board board)
         {
