@@ -91,7 +91,7 @@ static class PlayGame
                 {
                     Console.ForegroundColor = ConsoleColor.Black;
                     Program.Show("");
-                    Program.Show($"El jugador {turn} se ha pasado");
+                    Program.Show($"El jugador {turn+1} se ha pasado");
                     Thread.Sleep(750);
                     knocks++;
                     turn += gameComponents.TurnRule.NxtTurn(knocks);
@@ -114,6 +114,7 @@ static class PlayGame
                 }
             }
 
+            Console.ForegroundColor = ConsoleColor.Red;
             var w1 = gameComponents._winnersRule.GetWinners(gameComponents);
             if (w1 == null)
             {
@@ -121,15 +122,13 @@ static class PlayGame
                 Program.Show(Log.log.Last());
                 Console.ReadLine();
             }
-
-            if (w1.Length > 1 && MenuWheel.Teams == null)
+            else if (w1.Length > 1 && MenuWheel.Teams == null)
             {
                 Log.Draw();
                 Program.Show(Log.log.Last());
                 Console.ReadLine();
             }
-
-            if (w1.Length > 1 && MenuWheel.Teams != null)
+            else if (w1.Length > 1 && MenuWheel.Teams != null)
             {
                 bool founded = false;
                 int ComunTeam = w1[0].InTeam(MenuWheel.Teams);
@@ -141,7 +140,6 @@ static class PlayGame
                         Log.Draw();
                         Program.Show(Log.log.Last());
                         Console.ReadLine();
-
                     }
                 }
 
@@ -152,11 +150,9 @@ static class PlayGame
                     Log.TeamWin(ComunTeam, w1,
                         gameComponents.players);
                     Program.Show(Log.Winlog.Last());
-
                 }
             }
-
-            if (w1.Length == 1 && MenuWheel.Teams != null)
+            else if (w1.Length == 1 && MenuWheel.Teams == null)
             {
                 Program.Show("");
                 Log.WinSolo(gameComponents.players[w1[0].player_Index], w1[0].player_Index);
@@ -164,8 +160,15 @@ static class PlayGame
                 Console.ReadLine();
                 currentgame++;
             }
-
-            Program.Show("");
+            else if(w1.Length==1&& MenuWheel.Teams!=null)
+            {
+                int team = w1[0].InTeam(MenuWheel.Teams);
+                currentgame++;
+                Log.TeamWin(team, w1[0].player_Index, gameComponents.players[w1[0].player_Index]);
+                Program.Show(Log.Winlog.Last());
+                Console.ReadLine();
+            }
+            break;
             //     if (winrule.draw)
             //     {
             //         Winner[] winners =

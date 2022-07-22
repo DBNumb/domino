@@ -46,13 +46,17 @@ static class Optionwheel
     {
        
         Team[] teams = new Team[players.Length/2];
+        for (int i = 0; i < teams.Length; i++)
+        {
+            teams[i] = new Team(i);
+        }
         for (int i = 0, k = players.Length/2; i < players.Length / 2; i++, k++) 
         {
             teams[i].TeamMembers.Add(i);
             teams[i].TeamMembers.Add(k);
         }
 
-        return teams;
+        return MenuWheel.Teams=teams;
     }
     public static Team[] CreateTeamsUser(Player[] player, int numeroDeEquipos) 
     {
@@ -67,7 +71,7 @@ static class Optionwheel
             }
             AsignaPlayerAEquipo(i, teams, indiceEquipo);
         }
-        return teams;
+        return MenuWheel.Teams=teams;
     }
     public static void AsignaPlayerAEquipo(int playerIndice, Team[] teams, int indice)
     {

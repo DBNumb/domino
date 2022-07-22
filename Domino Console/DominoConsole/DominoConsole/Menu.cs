@@ -27,7 +27,7 @@ static class MenuWheel
         bool tokensAlreadyInitialized = false;
         // Console.Clear();
 
-
+        bool selectrule = false;
         while (!menuout)
         {
             Console.Clear();
@@ -165,6 +165,8 @@ static class MenuWheel
                             _reglaDeSelección = new ReseleccionarAsignacion(option);
                             break;
                     }
+
+                    selectrule = true;
                     break;
                 }
                 case 7:
@@ -207,8 +209,9 @@ static class MenuWheel
                         {
                             automode = true;
                         }
-
-                        if (!winruleassigned) winnersRule = new EmptyHandWinner();
+                        if(!winruleassigned) winnersRule= new EmptyHandWinner();
+                        if (!selectrule)
+                            _reglaDeSelección = new AsignaFichaPlayers();
                         Program.game = new GameComponents(Players, TokenRule, TurnRule,
                             deck.deck,
                             numberofgames, _reglaDeSelección,winnersRule);
