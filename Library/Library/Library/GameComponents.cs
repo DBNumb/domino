@@ -10,10 +10,12 @@ public class GameComponents
     public List<Token> domain;
     private IComparer<Token> _comparer;
     public int numberofgames;
+    public IWinnersRule _winnersRule;
 
     public GameComponents(Player[] players, ITokenRule tokenRule, ITurnRule turnRule, List<Token> Deck,
-        int numberofgames,IReglaDeSelección reglaDeSelección)
+        int numberofgames,IReglaDeSelección reglaDeSelección,IWinnersRule winnersRule)
     {
+        _winnersRule = winnersRule;
         _reglaDeSelección = reglaDeSelección;
         domain = Deck;
         this.players = players;

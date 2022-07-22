@@ -29,23 +29,11 @@ public class RandomStrategy : IStrategy
         //organiza random la mano del jugador
 
         List<Token> aux = new List<Token>();
-        int i = 0;
-        foreach (var token in playerHand) 
+        foreach (var token in playerHand)
         {
-            if (i == playerHand.Count) i = 0;
-            aux[i] = playerHand[i];
+            aux.Add(token);
         }
-        playerHand.Clear();
-        playerHand = new List<Token>(aux.Count);
-
-        for (int j = 0; j < playerHand.Count; j++)
-        {
-            var randomNumber = new Random(aux.Count);
-            int x = randomNumber.Next(0, aux.Count);
-            playerHand.Add(aux[x]);
-            aux.RemoveAt(x);
-        }
-        return playerHand;
+        return aux;
     }
 }
 
@@ -56,35 +44,24 @@ public class BGStrategy : IStrategy
         //organiza la mano del jugador por puntuacion de mayor a menor
 
         List<Token> aux = new List<Token>();
-        int i = 0;
         foreach (var token in playerHand)
         {
-            if (i == playerHand.Count) i = 0;
-            aux[i] = playerHand[i];
+            aux.Add(token);
         }
-        playerHand.Clear();
-        playerHand = new List<Token>(aux.Count);
-        Token temp;
-
         for (int j = 0; j < aux.Count - 1; j++)
         {
             for (int k = j + 1; k < aux.Count; k++)
             {
                 if (aux[j].Score < aux[k].Score)
                 {
-                    temp = aux[j];
+                   var temp = aux[j];
                     aux[j] = aux[k];
                     aux[k] = temp;
                 }
             }
         }
-        i = 0;
-        foreach (var token in aux)
-        {
-            if (i == playerHand.Count) i = 0;
-            playerHand[i] = aux[i] ;
-        }
-        return playerHand;
+        
+        return aux;
     }
 
     public Token Strategy(List<Token> posiblesjugadas, Board board)
@@ -111,8 +88,7 @@ public class PDStrategy : IStrategy
         int l = 0;
         foreach (var token in playerHand)
         {
-            if (l == playerHand.Count) l = 0;
-            aux[l] = playerHand[l];
+            aux.Add(token);
         }
         IComparable data = GetData(playerHand);
 
@@ -135,14 +111,8 @@ public class PDStrategy : IStrategy
 
             i--;
         }
-        playerHand.Clear();
-        l = 0;
-        foreach (var token in aux)
-        {
-            if (l == playerHand.Count) l = 0;
-            playerHand[l] = aux[l];
-        }
-        return playerHand;
+        
+        return aux;
     }
 
     public Token Strategy(List<Token> posiblesjugadas, Board board)

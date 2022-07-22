@@ -16,9 +16,10 @@ static class MenuWheel
     public static bool automode;
     public static IDeck deck;
     public static bool Players_Initialized = false;
-
+    public static IWinnersRule winnersRule;
     public static void Menu()
     {
+        bool winruleassigned = false;
         Board board = new Board();
         // deck = defaultdeck;
         bool menuout = false;
@@ -35,13 +36,14 @@ static class MenuWheel
             Show("1- Regla de Turnos");
             Show("2- Regla de fichas");
             Show("3- Cantidad y Tipos de jugadores");
-            Show("4- Regla de ganar: ");
+            Show("4- Regla de finalización del juego: ");
             Show("5-Cantidad de juegos");
             Show("6-Regla de selección");
-            Show("7- Continuar: ");
-            Show("8- Salir: ");
+            Show("7-Regla de ganadores");
+            Show("8- Continuar: ");
+            Show("9- Salir: ");
             int option = parser(Console.ReadLine());
-            // if (option <= 0 || option > 6) continue;
+            if (option <= 0 || option >9) continue;
             Console.Clear();
             switch (option)
             {
@@ -167,6 +169,36 @@ static class MenuWheel
                 }
                 case 7:
                 {
+                    Show("Defina la regla de ganadores: ");
+
+                    Show(
+                        "1-Clásico gana el jugador q se pegue primero en caso de que no puedan seguir jugando empate: ");
+                    Show("2-Gana el jugador que mayor puntuación tenga en caso " +
+                         "\n de que existan dos si no están en el mismo equipo es empate: ");
+                    do
+                    {
+                        option = parser(Console.ReadLine());
+                    } while (option<=0||option>2);
+
+                    switch (option)
+                    {
+                        case 1:
+                        {
+                            winnersRule = new EmptyHandWinner();
+                            break;
+                        }
+                        case 2:
+                        {
+                            winnersRule = new ScorePlayerWinner();
+                            break;
+                        }
+                    }
+
+                    winruleassigned = true;
+                    break;
+                }
+                case 8:
+                {
                     if (tokensAlreadyInitialized && Players_Initialized)
                     {
                         Show("Teclee 1 si desea jugar en modo automático");
@@ -176,9 +208,10 @@ static class MenuWheel
                             automode = true;
                         }
 
+                        if (!winruleassigned) winnersRule = new EmptyHandWinner();
                         Program.game = new GameComponents(Players, TokenRule, TurnRule,
                             deck.deck,
-                            numberofgames, _reglaDeSelección);
+                            numberofgames, _reglaDeSelección,winnersRule);
 
                         menuout = true;
                     }
@@ -192,7 +225,7 @@ static class MenuWheel
 
                     break;
                 }
-                case 8:
+                case 9:
                 {
                     Program.getout = true;
                     menuout = true;

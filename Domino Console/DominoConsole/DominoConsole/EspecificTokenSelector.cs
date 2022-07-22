@@ -6,7 +6,7 @@ public class AsignaFichaPlayers: IReglaDeSelección
     public void AsignaFichaPlayer(List<Token> domain, Player[] players, int max)
     {
         Console.BackgroundColor = ConsoleColor.White;
-        Console.ForegroundColor = ConsoleColor.Black;
+        
         Random random = new Random();
         bool[] mask = new bool[domain.Count];
 
@@ -22,7 +22,7 @@ public class AsignaFichaPlayers: IReglaDeSelección
                     
                 }
             }
-
+            Console.ForegroundColor = ConsoleColor.Black;
             MenuWheel.Show($"Mano del jugador{i}: ");
             PlayGame.PrintCollection(players[i].PlayerHand);
             Thread.Sleep(1000);
@@ -40,7 +40,8 @@ public class ReseleccionarAsignacion: IReglaDeSelección
 
     private AsignaFichaPlayers classic = new AsignaFichaPlayers();
     public void AsignaFichaPlayer(List<Token> domain, Player[] players, int max)
-    { 
+    { MenuWheel.Show($"Los jugadores cambiaran {this.max} fichas");
+        Thread.Sleep(1000);
        classic.AsignaFichaPlayer(domain,players,max);
        Console.BackgroundColor = ConsoleColor.White;
        Console.ForegroundColor = ConsoleColor.Black;
@@ -50,18 +51,14 @@ public class ReseleccionarAsignacion: IReglaDeSelección
         {Console.Clear();
             MenuWheel.Show($"Mano actual del jugador {i}");
             PlayGame.PrintCollection(players[i].PlayerHand);
+            Console.ForegroundColor = ConsoleColor.Black;
             Thread.Sleep(1000);
             Reselect(players[i].strategy.GiveSortedHand(players[i].PlayerHand),this.max);
         }
-
-        MenuWheel.Show($"Los jugadores cambiaron {this.max} fichas");
+        
+        
         classic.AsignaFichaPlayer(domain,players,max);
-        for (int i = 0; i < players.Length; i++)
-        {  Console.Clear();
-            MenuWheel.Show($"Nueva mano del jugador {i}:");
-            PlayGame.PrintCollection(players[i].PlayerHand);
-            Thread.Sleep(1000);
-        }
+        
     }
 
     private void Reselect(List<Token> PlayerSortedHand, int i)

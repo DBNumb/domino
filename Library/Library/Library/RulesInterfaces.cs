@@ -5,19 +5,26 @@ public interface ITokenRule
     public bool Apply(Token x);
 }
 
-public interface ITurnRule
+public interface ITurnRule // Regla de turnos 
 {   int nxt_turn { get; }
     public int NxtTurn(int knocks);
 }
 
 
-public interface IReglaDeSelección
+public interface IReglaDeSelección //Encargada de asignar las fichas 
 {
     public void AsignaFichaPlayer(List<Token> domain,Player[] players, int max);
 }
 
 public interface IGameBreak
 {  public bool draw { get; set; }
-    public Winner GetWinner();
+    
+
     public bool Over(GameComponents gamestatus);
+}
+
+public interface IWinnersRule
+{
+    
+    public Winner[] GetWinners(GameComponents gameComponents);
 }

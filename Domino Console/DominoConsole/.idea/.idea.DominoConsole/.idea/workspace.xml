@@ -4,11 +4,18 @@
     <projectFile>DominoConsole/DominoConsole.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="ImplementedSelectionRule">
+    <list default="true" id="843fac94-5c35-4d85-ab35-9e76fa09f69c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/shelf/Uncommitted_changes_before_Update_at_15_07_2022_0_05_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/shelf/Uncommitted_changes_before_Update_at_15_07_2022_0_05__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DominoConsole/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DominoConsole/EspecificTokenSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/EspecificTokenSelector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Especific_Implementations.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/Menu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DominoConsole/PlayGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/GameComponents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/Log.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/Log.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/RulesInterfaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/RulesInterfaces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Library/Library/Library/StrategysLib.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../Library/Library/Library/StrategysLib.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,12 +34,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Domino Console/DominoConsole/DominoConsole/Especific_Implementations.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Library/Library/Library/GameComponents.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Library/Library/Library/GameComponents.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Library/Library/Library/Player.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DominoConsole/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/davidb/Desktop/Finishing/domino/Library/Library/Library/Player.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -104,7 +107,8 @@
       <workItem from="1658286390051" duration="3022000" />
       <workItem from="1658292426738" duration="2473000" />
       <workItem from="1658458078307" duration="3194000" />
-      <workItem from="1658461455899" duration="8837000" />
+      <workItem from="1658461455899" duration="9735000" />
+      <workItem from="1658471577547" duration="6021000" />
     </task>
     <task id="LOCAL-00001" summary="FirstConsoleSteps">
       <created>1657345362757</created>
@@ -281,7 +285,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658467537136</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Fixing Bug in selector">
+      <created>1658470611724</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1658470611724</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Especific token selector">
+      <created>1658470670712</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1658470670712</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,8 +321,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="FirstConsoleSteps" />
-    <MESSAGE value="adding library reference to main project" />
     <MESSAGE value="Implementation of DominoConsole. Part1" />
     <MESSAGE value="Console interface part2" />
     <MESSAGE value="new class menu and some fixes" />
@@ -328,25 +344,8 @@
     <MESSAGE value="Fixing implementations" />
     <MESSAGE value="making selectionrule" />
     <MESSAGE value="ImplementedSelectionRule" />
-    <option name="LAST_COMMIT_MESSAGE" value="ImplementedSelectionRule" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DominoConsole/EspecificTokenSelector.cs</url>
-          <line>53</line>
-          <properties documentPath="C:\Users\davidb\Desktop\Finishing\domino\Domino Console\DominoConsole\DominoConsole\EspecificTokenSelector.cs" initialLine="53" containingFunctionPresentation="method 'AsignaFichaPlayer'">
-            <startOffsets>
-              <option value="1708" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1785" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Fixing Bug in selector" />
+    <MESSAGE value="Especific token selector" />
+    <option name="LAST_COMMIT_MESSAGE" value="Especific token selector" />
   </component>
 </project>

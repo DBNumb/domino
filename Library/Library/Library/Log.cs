@@ -14,14 +14,25 @@ public static class Log
         Winlog.Add($"El jugador {playerindex} ha ganado con una puntuación de {x.GetPlayerScore} puntos");
     }
 
-    public static void TeamWin(Team team, int playerindex,Player x)
+    public static void TeamWin(int TeamIndex, int playerindex,Player x)
     {
-        Winlog.Add($"Ganó el equipo {team.TeamIndex} con el jugador {playerindex} " +
+        Winlog.Add($"Ganó el equipo {TeamIndex} con el jugador {playerindex} " +
                    $"con una puntuación de {x.GetPlayerScore}");
     }
 
-    public static void Draw()
+    public static void TeamWin(int TeamIndex, Winner[] winners, Player[] players)
     {
+        string result = "";
+        result+=$"Ganó el equipo {TeamIndex} con los jugadores: ";
+        foreach (var VARIABLE in winners)
+        {
+            result += "\n" + VARIABLE.player_Index + $"con una puntuacion de: {players[VARIABLE.player_Index]} ";
+        }
+        Winlog.Add(result);
+    }
+    public static void Draw()
+    {  Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.Black;
         log.Add("Empate");
     }
     public static void Reset()

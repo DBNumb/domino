@@ -8,19 +8,17 @@ public  class PlayerFinish : IGameBreak
 {
     public bool draw { get; set; }
 
-    public Winner GetWinner()
-    {
-        return _winner;
-    }
+    
 
-    private Winner _winner;
+    
+    
     public bool Over(GameComponents gamestatus)
     {
         for (int i = 0; i < gamestatus.players.Length; i++)
         {
             if (gamestatus.players[i].PlayerHand.Count==0)
             {
-                _winner = new Winner(i);
+               
                 return true;
             }
         }
@@ -30,14 +28,13 @@ public  class PlayerFinish : IGameBreak
 
 public class PlayFinish : IGameBreak
 {
-    private Winner _winner;
+
     public bool draw { get; set; }
 
-    public Winner GetWinner()
-    {
-        return _winner;
-    }
+   
 
+    public GameComponents _gameComponents { get; }
+    
     private GameComponents aux;
     private int currentPlays=0;
     private int max;
