@@ -9,7 +9,7 @@ namespace Library;
 public interface IStrategy
 {
     public Token Strategy(List<Token> posiblesjugadas, Board board);
-    public void SortHand(List<Token> playerHand);
+    public List<Token> GiveSortedHand(List<Token> playerHand);
 }
 
 public class RandomStrategy : IStrategy
@@ -23,7 +23,7 @@ public class RandomStrategy : IStrategy
         return jugada;
     }
 
-    public void SortHand(List<Token> playerHand)
+    public List<Token> GiveSortedHand(List<Token> playerHand)
     {
         //organiza random la mano del jugador
 
@@ -38,12 +38,13 @@ public class RandomStrategy : IStrategy
             playerHand.Add(aux[x]);
             aux.RemoveAt(x);
         }
+        return playerHand;
     }
 }
 
 public class BGStrategy : IStrategy
 {
-    public void SortHand(List<Token> playerHand)
+    public List<Token> GiveSortedHand(List<Token> playerHand)
     {
         //organiza la mano del jugador por puntuacion de mayor a menor
 
@@ -66,6 +67,7 @@ public class BGStrategy : IStrategy
         }
 
         playerHand = aux.ToList();
+        return playerHand;
     }
 
     public Token Strategy(List<Token> posiblesjugadas, Board board)
@@ -84,7 +86,7 @@ public class BGStrategy : IStrategy
 
 public class PDStrategy : IStrategy
 {
-    public void SortHand(List<Token> playerHand)
+    public List<Token> GiveSortedHand(List<Token> playerHand)
     {
         //ordena las fichas del jugador poniendo su data para el final
         Token[] aux = playerHand.ToArray();
@@ -109,6 +111,9 @@ public class PDStrategy : IStrategy
 
             i--;
         }
+        playerHand.Clear();
+        playerHand = aux.ToList();
+        return playerHand;
     }
 
     public Token Strategy(List<Token> posiblesjugadas, Board board)
