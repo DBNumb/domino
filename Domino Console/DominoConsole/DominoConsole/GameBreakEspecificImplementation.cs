@@ -4,10 +4,6 @@ public  class PlayerFinish : IGameBreak
 {
     public bool draw { get; set; }
 
-    
-
-    
-    
     public bool Over(GameComponents gamestatus)
     {
         for (int i = 0; i < gamestatus.players.Length; i++)

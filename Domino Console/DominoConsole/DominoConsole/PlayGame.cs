@@ -36,6 +36,15 @@ static class PlayGame
             int knocks = 0;
             while (!winrule.Over(gameComponents))
             {
+                if (turn >= gameComponents.players.Length)
+                {
+                    turn = 0;
+                }
+
+                if (turn < 0)
+                {
+                    turn = gameComponents.players.Length - 1;
+                }
                 Console.Clear();
                 Player current = gameComponents.players[turn];
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -96,13 +105,6 @@ static class PlayGame
                     knocks++;
                     turn += gameComponents.TurnRule.NxtTurn(knocks);
                 }
-
-                if (knocks == gameComponents.players.Length)
-                {
-                    winrule.draw = true;
-                    break;
-                }
-
                 if (turn >= gameComponents.players.Length)
                 {
                     turn = 0;
@@ -112,6 +114,13 @@ static class PlayGame
                 {
                     turn = gameComponents.players.Length - 1;
                 }
+                if (knocks == gameComponents.players.Length)
+                {
+                    winrule.draw = true;
+                    break;
+                }
+
+               
             }
 
             Console.ForegroundColor = ConsoleColor.Red;
