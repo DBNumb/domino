@@ -40,6 +40,7 @@ namespace Library
             if (extremos.FaceA == null || extremos.FaceB == null) return new Tuple<Token, IComparable>(jugada, null);
             return Comp(jugada, extremos);
         }
+       
         public List<Token> PosiblesJugadas(List<Token> playerHand, Token extremos)
         {
             if (extremos.FaceA == null || extremos.FaceB == null) return playerHand;

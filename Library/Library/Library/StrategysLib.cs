@@ -9,6 +9,7 @@ namespace Library
     public interface IStrategy 
     {
         public Token Strategy(List<Token> posiblesjugadas, Board board);
+        public void SortHand(List<Token> playerHand);
     }
 
     public class RandomStrategy : IStrategy
@@ -21,9 +22,50 @@ namespace Library
             Token jugada = posiblesjugadas[x];
             return jugada;
         }
+
+        public void SortHand(List<Token> playerHand)
+        {
+            //organiza random la mano del jugador
+
+            List<Token> aux = playerHand;
+            playerHand.Clear();
+            playerHand = new List<Token>(aux.Count);
+           
+            for(int i = 0; i< playerHand.Count; i++)
+            {
+                var randomNumber = new Random(aux.Count);
+                int x = randomNumber.Next(0, aux.Count);
+                playerHand.Add(aux[x]);
+                aux.RemoveAt(x);
+            }
+        }
     }
     public class BGStrategy : IStrategy
     {
+        public void SortHand(List<Token> playerHand)
+        {
+            //organiza la mano del jugador por puntuacion de mayor a menor
+
+            Token[] aux = playerHand.ToArray();
+            playerHand.Clear();
+            playerHand = new List<Token>(aux.Length);
+            Token temp;
+            
+            for (int i = 0; i < aux.Length - 1; i++)
+            {
+                for (int j = i+1; j< aux.Length; j++) 
+                {
+                    if (aux[i].Score < aux[j].Score) 
+                    {
+                        temp = aux[i];
+                        aux[i] = aux[j];
+                        aux[j] = temp;
+                    }
+                }
+            }
+            playerHand = aux.ToList();
+        }
+
         public Token Strategy(List<Token> posiblesjugadas, Board board)
         {
             Token jugada = posiblesjugadas[0];
@@ -38,20 +80,85 @@ namespace Library
     }
     public class PDStrategy : IStrategy
     {
+        public void SortHand(List<Token> playerHand)
+        {
+            //ordena las fichas del jugador poniendo su data para el final
+            Token[] aux = playerHand.ToArray();
+            IComparable data = GetData(playerHand);
+
+            Token tokenAux = new Token(data, data);
+
+            int i = aux.Length - 1;
+            int j = aux.Length - 1;
+            int k = 0;
+            while (i > 0) 
+            {
+                if (playerHand[i].FaceA.Compare(data) == 0 || playerHand[i].FaceB.Compare(data) == 0)
+                {
+                    aux[j] = playerHand[i];
+                    j--;
+                }
+                else 
+                {
+                    aux[k] = playerHand[i];
+                    k++;
+                }
+                i--;
+            }
+            if (playerHand.Contains(tokenAux))
+            {
+                int x = FindIndex(aux, tokenAux);
+                Token temp = aux[x];
+                aux[x] = aux[aux.Length - 1];
+                aux[aux.Length - 1] = temp;
+            }
+        }
+        private int FindIndex(Token[] tokens, Token token) 
+        {
+            int index = 0;
+            for (int i = 0; i < tokens.Length; i++) 
+            {
+                if (token.Equals(tokens[i])) 
+                {
+                    index = i;
+                    return index;
+                }   
+            }
+            return index;
+        }
+
         public Token Strategy(List<Token> posiblesjugadas, Board board)
         {
             Token jugada = posiblesjugadas[0];
-            List<IComparable> carasDiferentes = new List<IComparable>();
+
+            IComparable data = GetData(posiblesjugadas);
 
             for (int i = 0; i < posiblesjugadas.Count; i++)
             {
-                if (!carasDiferentes.Contains(posiblesjugadas[i].FaceA))
+                if (!(posiblesjugadas[i].FaceA.Compare(data) == 0 || posiblesjugadas[i].FaceB.Compare(data) == 0))
                 {
-                    carasDiferentes.Add(posiblesjugadas[i].FaceA);
+                    jugada = posiblesjugadas[i];
+                    break;
                 }
-                if (!carasDiferentes.Contains(posiblesjugadas[i].FaceB))
+            }
+            return jugada;
+        }
+
+        public IComparable GetData(List<Token> fichas) 
+        {
+            IComparable result;
+
+            List<IComparable> carasDiferentes = new List<IComparable>();
+
+            for (int i = 0; i < fichas.Count; i++)
+            {
+                if (!carasDiferentes.Contains(fichas[i].FaceA))
                 {
-                    carasDiferentes.Add(posiblesjugadas[i].FaceB);
+                    carasDiferentes.Add(fichas[i].FaceA);
+                }
+                if (!carasDiferentes.Contains(fichas[i].FaceB))
+                {
+                    carasDiferentes.Add(fichas[i].FaceB);
                 }
             }
 
@@ -60,10 +167,10 @@ namespace Library
             for (int i = 0; i < carasDiferentes.Count; i++)
             {
                 int count = 0;
-                for (int j = 0; j < posiblesjugadas.Count; j++)
+                for (int j = 0; j < fichas.Count; j++)
                 {
-                    if (carasDiferentes[i].Compare(posiblesjugadas[j].FaceA) == 0
-                        || carasDiferentes[i].Compare(posiblesjugadas[j].FaceB) == 0)
+                    if (carasDiferentes[i].Compare(fichas[j].FaceA) == 0
+                        || carasDiferentes[i].Compare(fichas[j].FaceB) == 0)
                     {
                         count++;
                     }
@@ -81,18 +188,10 @@ namespace Library
                 }
             }
 
-            IComparable data = carasDiferentes[aux];
+           result = carasDiferentes[aux];
 
 
-            for (int i = 0; i < posiblesjugadas.Count; i++)
-            {
-                if (!(posiblesjugadas[i].FaceA.Compare(data) == 0 || posiblesjugadas[i].FaceB.Compare(data) == 0))
-                {
-                    jugada = posiblesjugadas[i];
-                    break;
-                }
-            }
-            return jugada;
+            return result;
         }
     }
 }
