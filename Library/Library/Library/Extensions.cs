@@ -1,11 +1,10 @@
-﻿using System.Data;
-
-namespace Library;
+﻿namespace Library;
 
 public static class Extensions
 {
     public static Token Reverse(this Token x)
     {
+        //vira una ficha para poder jugarla en un extremo.
         var tem = x.FaceA;
         x.FaceA = x.FaceB;
         x.FaceB = tem;
@@ -47,9 +46,9 @@ public static class Extensions
         return aux.ToArray();
     }
 
-    public static int InTeam(this Winner x, Team[] a)
+    public static int InTeam(this Winner x, Team[] teams)
     {
-        foreach (var VARIABLE in a)
+        foreach (var VARIABLE in teams)
         {
             if (VARIABLE.TeamMembers.Contains(x.player_Index)) return VARIABLE.TeamIndex;
         }

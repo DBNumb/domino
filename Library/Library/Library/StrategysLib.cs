@@ -16,6 +16,7 @@ public class RandomStrategy : IStrategy
 {
     public Token Strategy(List<Token> posiblesjugadas, Board board)
     {
+        //escoge una ficha random entre las posibles jugadas y la devuelve.
         var randomNumber = new Random(posiblesjugadas.Count);
         int x = randomNumber.Next(0, posiblesjugadas.Count);
 
@@ -72,6 +73,7 @@ public class BGStrategy : IStrategy
 
     public Token Strategy(List<Token> posiblesjugadas, Board board)
     {
+        //juega la ficha que mas puntos otorgue de esa manera se "libra de la ficha gorda".
         Token jugada = posiblesjugadas[0];
 
         for (int i = 1; i < posiblesjugadas.Count; i++)
@@ -118,6 +120,7 @@ public class PDStrategy : IStrategy
 
     public Token Strategy(List<Token> posiblesjugadas, Board board)
     {
+        //va jugando las fichas que no son su data, dejando esta para el final
         Token jugada = posiblesjugadas[0];
 
         IComparable data = GetData(posiblesjugadas);
@@ -136,6 +139,7 @@ public class PDStrategy : IStrategy
 
     public IComparable GetData(List<Token> fichas)
     {
+        //dada una lista de fichas devuelve la data entre estas fichas.
         IComparable result;
 
         List<IComparable> carasDiferentes = new List<IComparable>();

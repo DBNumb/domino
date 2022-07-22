@@ -24,6 +24,8 @@ public class GameComponents
 
     public Winner[] DrawWinner(Player[] player, int[] totalScoreHand)
     {
+        //saca el score de la mano de cada player y devuelve un array con el ganador(en caso de haber solo 1)
+        //o con los ganadores en caso de haber mas de 1 con la misma puntuacion.
         List<Winner> result = new List<Winner>();
         for (int j = 0; j < player.Length; j++)
         {
@@ -46,6 +48,8 @@ public class GameComponents
 
     public void AsignaFichasAPlayers( int max)
     {
+        //Se encarga de asignarle las fichas de la mano a cada player, se usa una mascara booleana para saber que ficha
+        //random ya fue asignada previamente y no volver a asignarla.
         Random random = new Random();
         bool[] mask = new bool[domain.Count];
 
