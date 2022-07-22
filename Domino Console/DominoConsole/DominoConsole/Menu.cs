@@ -76,7 +76,7 @@ static class MenuWheel
                     int win = 0;
                     Show("Defina la regla de ganar: ");
                     Show("1-Se pegó un jugador: ");
-                    Show("2-El jugador que mayor puntuacion haya obtenido despúes de 20 jugadas");
+                    Show("2-El jugador que mayor puntuacion haya obtenido despúes de n jugadas");
                     while (true)
                     {
                         win = parser(Console.ReadLine());

@@ -27,7 +27,6 @@ public class PlayFinish : IGameBreak
 
     public GameComponents _gameComponents { get; }
     
-    private GameComponents aux;
     private int currentPlays=0;
     private int max;
     public PlayFinish(int max)
